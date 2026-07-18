@@ -57,7 +57,7 @@ export default function CoursesPage() {
           <Reveal className="mx-auto max-w-3xl text-center">
               <p className="eyebrow">Who these courses are for</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">Training that meets you where you are.</h2>
-              <span className="mx-auto mt-7 block size-16 bg-accent [mask-image:url('/images/culinary-audience-icon.png')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] md:size-20" aria-hidden="true" />
+              <span className="mx-auto mt-7 block size-16 bg-accent mask-[url('/images/culinary-audience-icon.png')] mask-center mask-no-repeat mask-contain md:size-20" aria-hidden="true" />
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-12 grid border-y border-background/15 sm:grid-cols-2 lg:grid-cols-4">
@@ -73,7 +73,7 @@ export default function CoursesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#f2ece3] py-20 md:py-24">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent" />
         <div className="container-shell">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Benefits of training</p>
@@ -86,7 +86,7 @@ export default function CoursesPage() {
                 <Reveal key={item} delay={index * 0.06}>
                   <div className="group relative flex min-h-64 flex-col items-center overflow-hidden rounded-t-[7rem] border border-border-subtle bg-background px-4 pb-7 pt-10 text-center shadow-[0_12px_35px_rgba(15,31,48,.05)] transition duration-300 hover:-translate-y-2 hover:border-accent/45 hover:shadow-[0_18px_42px_rgba(15,31,48,.1)] sm:min-h-72 sm:px-6 sm:pt-12">
                     <span className="grid size-14 shrink-0 place-items-center rounded-full border border-accent/35 bg-accent/10 text-accent transition duration-300 group-hover:bg-accent group-hover:text-dark-section"><Icon className="size-6" strokeWidth={1.6} /></span>
-                    <div className="my-6 h-8 w-px bg-gradient-to-b from-accent/70 to-transparent" />
+                    <div className="my-6 h-8 w-px bg-linear-to-b from-accent/70 to-transparent" />
                     <p className="font-serif text-base leading-6 text-primary sm:text-lg sm:leading-7">{item}</p>
                     <span className="absolute inset-x-0 bottom-0 h-1 origin-center scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
                   </div>
@@ -106,11 +106,11 @@ export default function CoursesPage() {
               const remainingTopics = topics.slice(4);
 
               return <Reveal key={course.title}>
-                <article className="overflow-hidden rounded-[12px] border border-border-subtle bg-[#f2ece3] lg:grid lg:grid-cols-[.86fr_1.14fr]">
+                <article className="overflow-hidden rounded-xl border border-border-subtle bg-[#f2ece3] lg:grid lg:grid-cols-[.86fr_1.14fr]">
                   <div className="relative min-h-72 lg:min-h-full">
                     {/* TEMP IMAGE - replace with client photo */}
                     <Image src={course.image} alt={course.title} fill sizes="(max-width: 1024px) 100vw, 43vw" className="object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-section/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-dark-section/60 to-transparent" />
                     <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-background"><p className="eyebrow">{course.category}</p><div className="flex items-center gap-2 text-xs font-bold"><Clock3 className="size-4 text-accent" />{course.duration}</div></div>
                   </div>
                   <div className="p-6 sm:p-9 lg:p-11">

@@ -144,7 +144,7 @@ function TestimonialCard({ testimonial }) {
       whileHover={{ y: -4, scale: 1.015 }}
       transition={{ duration: 0.22 }}
       className={cn(
-        "flex h-[230px] w-[278px] shrink-0 flex-col rounded-[12px] border border-primary/15 p-6 shadow-[4px_6px_0_rgba(15,31,48,0.78)] sm:h-[248px] sm:w-[340px] sm:p-7",
+        "flex h-57.5 w-69.5 shrink-0 flex-col rounded-xl border border-primary/15 p-6 shadow-[4px_6px_0_rgba(15,31,48,0.78)] sm:h-62 sm:w-85 sm:p-7",
         testimonial.tone,
       )}
     >
@@ -194,8 +194,8 @@ function TestimonialMarquee() {
       <div className="hidden space-y-5 sm:block">
         {rows.map((row, rowIndex) => <TestimonialRow key={rowIndex} row={row} rowIndex={rowIndex} distance={2160} />)}
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#f2ece3] to-transparent sm:w-24" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#f2ece3] to-transparent sm:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-[#f2ece3] to-transparent sm:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-[#f2ece3] to-transparent sm:w-24" />
     </div>
   );
 }
@@ -216,7 +216,7 @@ export function HomePage() {
   return (
     <SiteShell>
       <main>
-        <section className="fine-grid relative min-h-[100dvh] overflow-hidden pt-[78px]">
+        <section className="fine-grid relative min-h-dvh overflow-hidden pt-19.5">
           <div className="pointer-events-none absolute -left-32 top-36 size-80 rounded-full bg-accent/10 blur-3xl" />
           <div className="container-shell grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 lg:grid-cols-[1.03fr_.97fr] lg:py-16">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
@@ -225,17 +225,17 @@ export function HomePage() {
 
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
                 <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
-                <div className="relative aspect-[4/5] overflow-hidden bg-dark-section">
+                <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
                   <video className="absolute inset-0 size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/images/cooking.jpg" aria-label="Culinary training in a professional kitchen">
                     <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-section/65 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 text-background"><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div>
                 </div>
               </div>
 
               <div className="mt-9 flex items-center gap-3 sm:gap-4">
-                <Link href="/courses" className="group relative inline-flex min-h-14 w-fit min-w-[12rem] items-center justify-between gap-4 overflow-hidden rounded-full bg-dark-section py-1.5 pl-5 pr-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.1em] text-background shadow-[0_14px_34px_rgba(15,31,48,.22)] ring-1 ring-primary/15 transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_20px_42px_rgba(15,31,48,.32)] sm:min-w-0 sm:max-w-[14.5rem] sm:pl-6 sm:text-[0.74rem]">
+                <Link href="/courses" className="group relative inline-flex min-h-14 w-fit min-w-48 items-center justify-between gap-4 overflow-hidden rounded-full bg-dark-section py-1.5 pl-5 pr-1.5 text-[0.7rem] font-extrabold uppercase tracking-widest text-background shadow-[0_14px_34px_rgba(15,31,48,.22)] ring-1 ring-primary/15 transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_20px_42px_rgba(15,31,48,.32)] sm:min-w-0 sm:max-w-58 sm:pl-6 sm:text-[0.74rem]">
                   <span className="relative z-10 whitespace-nowrap">Explore Courses</span>
                   <span className="relative z-10 grid size-11 shrink-0 place-items-center rounded-full bg-accent text-dark-section shadow-[0_6px_16px_rgba(184,134,63,.3)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:rotate-[-8deg] group-hover:scale-105">
                     <ArrowRight className="size-[1.1rem]" strokeWidth={2.25} />
@@ -245,7 +245,7 @@ export function HomePage() {
                   href={callLink}
                   aria-label="Call Entrain Academy"
                   title="Call Entrain Academy"
-                  className="group inline-flex h-14 w-11 shrink-0 items-center justify-center overflow-hidden bg-transparent text-[0.72rem] font-extrabold uppercase tracking-[0.1em] text-primary transition-[width,color,transform] duration-300 hover:-translate-y-0.5 hover:text-accent sm:hover:w-[8.25rem] sm:focus-visible:w-[8.25rem]"
+                  className="group inline-flex h-14 w-11 shrink-0 items-center justify-center overflow-hidden bg-transparent text-[0.72rem] font-extrabold uppercase tracking-widest text-primary transition-[width,color,transform] duration-300 hover:-translate-y-0.5 hover:text-accent sm:hover:w-33 sm:focus-visible:w-33"
                 >
                   <FaPhone className="size-5 shrink-0 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" />
                   <span className="ml-0 hidden max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 sm:block sm:group-hover:ml-3 sm:group-hover:max-w-24 sm:group-hover:opacity-100 sm:group-focus-visible:ml-3 sm:group-focus-visible:max-w-24 sm:group-focus-visible:opacity-100">Call Us</span>
@@ -259,7 +259,7 @@ export function HomePage() {
             </motion.div>
             <motion.div className="relative mx-auto hidden w-full max-w-lg lg:block lg:max-w-none" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.65, delay: 0.12 }}>
               <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55 sm:-right-5 sm:-top-5" />
-              <div className="relative aspect-[4/5] overflow-hidden bg-dark-section">
+              <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
                 <video
                   className="absolute inset-0 size-full object-cover"
                   autoPlay
@@ -272,8 +272,8 @@ export function HomePage() {
                 >
                   <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-section/65 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background sm:bottom-8 sm:left-8 sm:right-8"><div><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div><div className="hidden items-center gap-2 text-[0.6rem] font-extrabold uppercase tracking-[0.14em] text-background/70 sm:flex"><span className="size-2 rounded-full bg-accent shadow-[0_0_0_5px_rgba(184,134,63,.18)]" /> In motion</div></div>
+                <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background sm:bottom-8 sm:left-8 sm:right-8"><div><p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div><div className="hidden items-center gap-2 text-[0.6rem] font-extrabold uppercase tracking-widest text-background/70 sm:flex"><span className="size-2 rounded-full bg-accent shadow-[0_0_0_5px_rgba(184,134,63,.18)]" /> In motion</div></div>
               </div>
             </motion.div>
           </div>
@@ -288,11 +288,11 @@ export function HomePage() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative aspect-[4/4.5] overflow-hidden rounded-[10px]">
+              <div className="relative aspect-4/4.5 overflow-hidden rounded-[10px]">
                 {/* TEMP IMAGE - replace with client photo */}
                 <Image src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1400&q=88" alt="Chef working with fresh ingredients in a professional kitchen" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
               </div>
-              <div className="absolute -bottom-6 -right-2 max-w-[15rem] bg-primary p-5 text-background shadow-xl sm:-right-6 sm:p-7"><p className="font-serif text-2xl text-accent">Journey since 2014</p><p className="mt-2 text-xs leading-5 text-background/65">Industry experience that inspired Entrain Academy in 2025.</p></div>
+              <div className="absolute -bottom-6 -right-2 max-w-60 bg-primary p-5 text-background shadow-xl sm:-right-6 sm:p-7"><p className="font-serif text-2xl text-accent">Journey since 2014</p><p className="mt-2 text-xs leading-5 text-background/65">Industry experience that inspired Entrain Academy in 2025.</p></div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 56 }}
@@ -309,7 +309,7 @@ export function HomePage() {
         </section>
 
         <section id="team" className="relative overflow-hidden border-t border-border-subtle/70 bg-[#f2ece3] py-20 md:py-28">
-          <div className="pointer-events-none absolute left-1/2 top-32 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-accent/15 sm:h-[600px] sm:w-[600px]" />
+          <div className="pointer-events-none absolute left-1/2 top-32 h-105 w-105 -translate-x-1/2 rounded-full border border-accent/15 sm:h-150 sm:w-150" />
           <div className="container-shell relative">
             <Reveal>
               <div className="mx-auto max-w-3xl text-center">
@@ -321,13 +321,13 @@ export function HomePage() {
 
             <motion.div className="mx-auto mt-14 grid max-w-6xl gap-12 sm:grid-cols-2 sm:gap-x-7 lg:grid-cols-3 lg:gap-10" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
               {team.map((member, index) => (
-                <motion.article key={member.title} variants={rise} whileHover={{ y: -7 }} transition={{ duration: 0.3 }} className="group mx-auto w-full max-w-[340px] text-center">
+                <motion.article key={member.title} variants={rise} whileHover={{ y: -7 }} transition={{ duration: 0.3 }} className="group mx-auto w-full max-w-85 text-center">
                   <div className="relative px-3 pt-3">
                     <div className="absolute inset-x-0 top-0 mx-auto h-[78%] w-full rounded-t-[999px] border border-accent/55 transition-transform duration-300 group-hover:-translate-y-1" />
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[12px] bg-primary shadow-[0_18px_40px_rgba(15,31,48,.12)]">
+                    <div className="relative aspect-4/5 overflow-hidden rounded-t-[999px] rounded-b-xl bg-primary shadow-[0_18px_40px_rgba(15,31,48,.12)]">
                       {/* TEMP IMAGE - replace with client chef photo */}
                       <Image src={member.image} alt={member.alt} fill sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.045]" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark-section/38 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-dark-section/38 via-transparent to-transparent" />
                       <span className="absolute bottom-5 right-5 grid size-10 place-items-center rounded-full border border-background/45 bg-background/10 font-serif text-xs text-background backdrop-blur-md">0{index + 1}</span>
                     </div>
                   </div>
@@ -348,18 +348,18 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-[580px]">
+        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-145">
           <div className="absolute inset-0"><IndiaReachGlobe /></div>
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.98)_0%,rgba(15,31,48,.94)_58%,rgba(15,31,48,.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.82)_30%,rgba(15,31,48,.3)_57%,rgba(15,31,48,.02)_78%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(15,31,48,.76)_0%,transparent_42%,rgba(15,31,48,.16)_100%)]" />
-          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-[620px] md:min-h-[580px] md:py-16">
-            <Reveal className="pointer-events-auto w-full max-w-[36rem] border-l border-accent/55 pl-4 sm:pl-8">
+          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-38.75 md:min-h-36.25 md:py-16">
+            <Reveal className="pointer-events-auto w-full max-w-xl border-l border-accent/55 pl-4 sm:pl-8">
               <p className="eyebrow">Our reach</p>
               <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India and beyond.</h2>
               <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India and international locations, including South Africa.</p>
               <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
                 {[["Manjeri", "Our training centre"], ["Across India", "Customers from multiple regions"], ["International", "Participation from South Africa and beyond"]].map(([title, copy]) => (
-                  <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-[0.1em] text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
+                  <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
                 ))}
               </div>
               {/* <p className="mt-5 text-[0.54rem] uppercase tracking-[0.13em] text-background/35">Locations shown represent the academy&apos;s growing customer reach</p> */}
@@ -372,14 +372,14 @@ export function HomePage() {
             <Reveal><div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Explore our training" title="Courses shaped for real outcomes." titleClassName="whitespace-nowrap !text-[clamp(1.05rem,5.5vw,1.875rem)] sm:!text-4xl md:!text-5xl" copy="Focused workshops and intensive programs for entrepreneurs, professionals and career seekers." /><Link href="/courses" className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>View all courses <ArrowRight className="size-4" /></Link></div></Reveal>
             <motion.div className="mt-12 grid gap-6 md:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {courses.map((course) => (
-                <motion.article key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }} className="group overflow-hidden rounded-[12px] border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)]">
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                <motion.article key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }} className="group overflow-hidden rounded-xl border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)]">
+                  <div className="relative aspect-video overflow-hidden">
                     {/* TEMP IMAGE - replace with client photo */}
                     <Image src={course.image} alt={course.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-section/50 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-dark-section/50 via-transparent to-transparent" />
                     <span className="absolute left-5 top-5 bg-background/92 px-3 py-2 text-[0.6rem] font-extrabold uppercase tracking-[0.13em] text-primary backdrop-blur">{course.type}</span>
                   </div>
-                  <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h3 className="font-serif text-2xl font-bold text-primary">{course.title}</h3><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-[0.1em] text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
+                  <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h3 className="font-serif text-2xl font-bold text-primary">{course.title}</h3><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-widest text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
                 </motion.article>
               ))}
             </motion.div>
@@ -389,7 +389,7 @@ export function HomePage() {
         <section id="gallery" className="py-20 md:py-28">
           <div className="container-shell">
             <Reveal><SectionHeading eyebrow="Inside Entrain" title="Craft, confidence and community."  align="center" /></Reveal>
-            <motion.div className="mt-12 grid auto-rows-[135px] grid-cols-2 gap-3 md:auto-rows-[190px] md:grid-cols-4 md:gap-4" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+            <motion.div className="mt-12 grid auto-rows-33.75 grid-cols-2 gap-3 md:auto-rows-47.5 md:grid-cols-4 md:gap-4" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {gallery.map((item, index) => item.instagramUrl ? (
                 <motion.a key={item.src} variants={rise} href={item.instagramUrl} target="_blank" rel="noreferrer" whileHover={{ scale: 1.018 }} className={`group relative overflow-hidden rounded-[10px] bg-dark-section text-left shadow-sm transition-shadow hover:shadow-xl ${item.className}`} aria-label="Watch the loaded fries workshop Reel on Instagram">
                   <Image src={item.src} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
@@ -419,7 +419,7 @@ export function HomePage() {
                 <h2 className="font-serif text-3xl tracking-tight text-primary sm:text-4xl md:text-5xl">Why choose Entrain</h2>
                 <motion.div className="mt-8 grid border-t border-border-subtle sm:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
                 {features.map(([Icon, title, copy], index) => (
-                  <motion.article key={title} variants={rise} className={`group relative border-b border-border-subtle py-5 sm:min-h-[145px] sm:p-5 ${index % 2 === 0 ? "sm:border-r" : ""} ${index === 4 ? "sm:col-span-2 sm:min-h-0 sm:border-r-0" : ""}`}>
+                  <motion.article key={title} variants={rise} className={`group relative border-b border-border-subtle py-5 sm:min-h-36.25 sm:p-5 ${index % 2 === 0 ? "sm:border-r" : ""} ${index === 4 ? "sm:col-span-2 sm:min-h-0 sm:border-r-0" : ""}`}>
                     <div className="flex items-center gap-3">
                       <Icon className="size-5 text-accent" strokeWidth={1.6} />
                     </div>
@@ -430,11 +430,11 @@ export function HomePage() {
                 </motion.div>
               </motion.div>
 
-              <motion.div className="relative min-h-[430px] sm:min-h-[560px] lg:min-h-0" initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="absolute left-0 top-0 h-[48%] w-[88%] overflow-hidden rounded-[12px]">
+              <motion.div className="relative min-h-107.5 sm:min-h-140 lg:min-h-0" initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="absolute left-0 top-0 h-[48%] w-[88%] overflow-hidden rounded-xl">
                   <Image src="/images/choose1.jpg" alt="Chefs working in a professional kitchen" fill sizes="(max-width: 1024px) 88vw, 36vw" className="object-cover object-[center_42%]" />
                 </div>
-                <div className="absolute bottom-0 right-0 h-[48%] w-[88%] overflow-hidden rounded-[12px]">
+                <div className="absolute bottom-0 right-0 h-[48%] w-[88%] overflow-hidden rounded-xl">
                   <Image src="/images/choose2.jpg" alt="Chef cooking vegetables over an open flame" fill sizes="(max-width: 1024px) 88vw, 36vw" className="object-cover object-[center_62%]" />
                 </div>
                 <span className="absolute right-0 top-0 h-[48%] w-[8%] bg-accent" />
@@ -469,7 +469,7 @@ export function HomePage() {
 
       <AnimatePresence>
         {activeImage !== null && (
-          <motion.div className="fixed inset-0 z-[100] grid place-items-center bg-dark-section/95 p-4 backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setActiveImage(null)} role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+          <motion.div className="fixed inset-0 z-100 grid place-items-center bg-dark-section/95 p-4 backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setActiveImage(null)} role="dialog" aria-modal="true" aria-label="Gallery image viewer">
             <motion.div className="relative h-[75dvh] w-full max-w-5xl" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }} transition={{ duration: 0.25 }} onClick={(event) => event.stopPropagation()}>
               {/* TEMP IMAGE - replace with client photo */}
               <Image src={gallery[activeImage].src} alt={gallery[activeImage].alt} fill sizes="100vw" className="object-contain" />
