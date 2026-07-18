@@ -10,10 +10,21 @@ export const metadata = {
 
 const courseDetails = [
   {
+    title: "Advanced Diploma in Bakery, Pastry & Artisan Bread",
+    category: "Upcoming Program",
+    duration: "12 months",
+    durationDetail: "6 months training + 6 months industrial internship",
+    image: "/images/tiramisuimg.webp",
+    groups: [
+      ["Program Structure", ["6 months of advanced bakery, pastry and artisan bread training", "6 months of industrial internship"]],
+      ["Eligibility", ["Minimum Education — SSLC / 10th Standard pass or equivalent", "Minimum Age — 16 years", "Language Ability — Basic understanding of English or Malayalam", "Interest — Genuine interest in bakery, pastry, artisan bread or food business", "Physical Fitness — Medically fit to work in a commercial kitchen", "Experience — No previous bakery or culinary experience required"]],
+    ],
+  },
+  {
     title: "Dessert One-Day Workshop",
     category: "One-Day Workshop",
     duration: "1 day",
-    image: "/images/dessert.png",
+    image: "/images/dessert.webp",
     groups: [
       ["Canned & Jar Desserts", ["Mango Cream Delight", "Chocolate Biscuit Mousse Jar", "Banana Caramel Crunch Cup", "Dulce Kulfi Dessert"]],
       ["Tiramisu Masterclass", ["Coffee Chocolate Tiramisu", "Mango Tiramisu", "Biscoff Tiramisu", "Classic Italian Tiramisu", "Nutella Tiramisu"]],
@@ -31,7 +42,7 @@ const courseDetails = [
     title: "Master 1-Week Course Training",
     category: "Intensive Program",
     duration: "1 week",
-    image: "/images/cooking.jpg",
+    image: "/images/cooking.webp",
     groups: [["Topics Covered", ["Broast", "Fried Chicken", "Zinger Burger", "Wraps", "Loaded Fries", "Popcorn Chicken", "Types of Sandwich", "Mojitos"]]],
   },
   {
@@ -115,6 +126,7 @@ export default function CoursesPage() {
                   </div>
                   <div className="p-6 sm:p-9 lg:p-11">
                     <span className="text-xs font-bold text-accent">0{courseIndex + 1}</span><h3 className="mt-2 font-serif text-3xl font-bold text-primary">{course.title}</h3>
+                    {course.durationDetail && <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-muted"><Clock3 className="size-4 shrink-0 text-accent" />{course.durationDetail}</p>}
                     <div className="mt-7">
                       <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-primary">Course includes</p>
                       <div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{previewTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div>

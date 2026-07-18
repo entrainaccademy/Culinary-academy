@@ -7,7 +7,7 @@ export function CrestLogo({ compact = false, light = false }) {
       aria-label="Entrain Culinary Academy"
     >
       <Image
-        src="/images/logo.PNG"
+        src="/images/logo.webp"
         alt="Entrain Academy shield-and-laurel crest"
         width={2048}
         height={2048}

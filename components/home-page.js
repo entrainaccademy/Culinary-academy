@@ -33,7 +33,7 @@ const courses = [
     title: "Dessert Workshop",
     type: "One-day workshop",
     detail: "Jars, tiramisu & Middle Eastern fusion",
-    image: "/images/dessert.png",
+    image: "/images/dessert.webp",
   },
   {
     title: "Fried Chicken Masterclass",
@@ -45,7 +45,7 @@ const courses = [
     title: "Master 1-Week Course",
     type: "Intensive program",
     detail: "Eight commercial fast-food essentials",
-    image: "/images/cooking.jpg",
+    image: "/images/cooking.webp",
   },
   {
     title: "Shawarma & Shawai Course",
@@ -56,13 +56,13 @@ const courses = [
 ];
 
 const gallery = [
-  { src: "/images/page_10.png", alt: "Entrain Academy workshop participants and mentors", className: "col-span-2 row-span-2 md:col-span-2" },
-  { src: "/images/page_7.png", alt: "Participants gathered after an Entrain Academy workshop", className: "col-span-1 row-span-1" },
-  { src: "/images/page_6.png", alt: "Large culinary workshop group at Entrain Academy", className: "col-span-1 row-span-2" },
-  { src: "/images/workshop2.jpg", alt: "Culinary students and trainers in the academy classroom", className: "col-span-1 row-span-1" },
+  { src: "/images/page_10.webp", alt: "Entrain Academy workshop participants and mentors", className: "col-span-2 row-span-2 md:col-span-2" },
+  { src: "/images/page_7.webp", alt: "Participants gathered after an Entrain Academy workshop", className: "col-span-1 row-span-1" },
+  { src: "/images/page_6.webp", alt: "Large culinary workshop group at Entrain Academy", className: "col-span-1 row-span-2" },
+  { src: "/images/workshop2.webp", alt: "Culinary students and trainers in the academy classroom", className: "col-span-1 row-span-1" },
   { src: "/images/instagram-loaded-fries-reel.jpg", alt: "Students preparing loaded fries during a hands-on workshop", className: "col-span-2 row-span-1 md:col-span-2", instagramUrl: "https://www.instagram.com/reel/DZ0Izz8o5jG/" },
-  { src: "/images/page_4.png", alt: "Entrain Academy workshop group gathered after training", className: "col-span-1 row-span-1" },
-  { src: "/images/workshop1.jpg", alt: "Culinary workshop participants with their instructors", className: "col-span-1 row-span-1" },
+  { src: "/images/page_4.webp", alt: "Entrain Academy workshop group gathered after training", className: "col-span-1 row-span-1" },
+  { src: "/images/workshop1.webp", alt: "Culinary workshop participants with their instructors", className: "col-span-1 row-span-1" },
 ];
 
 const team = [
@@ -226,9 +226,7 @@ export function HomePage() {
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
                 <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
                 <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
-                  <video className="absolute inset-0 size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/images/cooking.jpg" aria-label="Culinary training in a professional kitchen">
-                    <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
-                  </video>
+                  <Image src="/images/cooking.webp" alt="Culinary training in a professional kitchen" fill priority sizes="100vw" className="object-cover" />
                   <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 text-background"><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div>
                 </div>
@@ -267,7 +265,7 @@ export function HomePage() {
                   loop
                   playsInline
                   preload="metadata"
-                  poster="/images/cooking.jpg"
+                  poster="/images/cooking.webp"
                   aria-label="Culinary training in a professional kitchen"
                 >
                   <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
@@ -446,6 +444,12 @@ export function HomePage() {
 
         <section className="relative overflow-hidden bg-[#e8dfd0] py-20 md:py-24">
           <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full border border-primary/10" />
+          <span className="pointer-events-none absolute -left-3 top-14 -rotate-12 text-5xl opacity-25 sm:left-8 sm:text-7xl md:left-12" aria-hidden="true">🍳</span>
+          <span className="pointer-events-none absolute left-5 top-1/2 rotate-6 text-3xl opacity-20 sm:left-16 sm:text-5xl" aria-hidden="true">🥖</span>
+          <span className="pointer-events-none absolute bottom-10 left-1 -rotate-6 text-4xl opacity-20 sm:left-10 sm:text-6xl" aria-hidden="true">🧁</span>
+          <span className="pointer-events-none absolute right-5 top-12 rotate-6 text-3xl opacity-20 sm:right-16 sm:text-5xl" aria-hidden="true">🍲</span>
+          <span className="pointer-events-none absolute right-2 top-1/2 -rotate-12 text-4xl opacity-20 sm:right-10 sm:text-6xl" aria-hidden="true">👨‍🍳</span>
+          <span className="pointer-events-none absolute -right-2 bottom-12 rotate-12 text-5xl opacity-25 sm:right-8 sm:text-7xl md:right-12" aria-hidden="true">🥐</span>
           <div className="container-shell">
             <Reveal className="relative mx-auto max-w-4xl">
               <h2 className="font-serif text-3xl text-primary sm:text-4xl md:text-5xl">Frequently asked questions</h2>
