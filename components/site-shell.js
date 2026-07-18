@@ -91,7 +91,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-x-0 top-0 bg-[linear-gradient(180deg,rgba(250,247,242,.18),rgba(250,247,242,.035))] bg-clip-text whitespace-nowrap text-center font-serif text-[clamp(5.6rem,17vw,15.5rem)] font-bold leading-[0.72] tracking-[-0.075em] text-transparent"
+          className="absolute inset-x-0 top-0 bg-[linear-gradient(180deg,rgba(250,247,242,.18),rgba(250,247,242,.035))] bg-clip-text whitespace-nowrap text-center font-serif text-[clamp(3rem,17vw,15.5rem)] font-bold leading-[0.85] tracking-[-0.075em] text-transparent sm:leading-[0.72]"
         >
           ENTRAIN
         </motion.p>

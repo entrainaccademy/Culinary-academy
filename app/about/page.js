@@ -20,27 +20,25 @@ const audiences = [
 export default function AboutPage() {
   return (
     <InnerPage>
-      <PageHero eyebrow="The story behind Entrain" title="Experience became the lesson. Resilience became the academy." copy="A culinary training institute built from the realities of food production, hospitality, customer service and business ownership." />
+      <PageHero compact eyebrow="The story behind Entrain" title="Experience became the lesson. Resilience became the academy." copy="A culinary training institute built from the realities of food production, hospitality, customer service and business ownership." />
 
-      <section className="py-20 md:py-28">
-        <div className="container-shell grid items-start gap-14 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
-          <Reveal className="lg:sticky lg:top-28">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[10px]">
+      <section className="pb-20 pt-0 md:pb-28 md:pt-0">
+        <div className="container-shell grid items-start gap-8 md:gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-12">
+          <Reveal from="left" className="lg:sticky lg:top-28">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] lg:aspect-[10/9]">
               {/* TEMP IMAGE - replace with client photo */}
               <Image src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1400&q=88" alt="Experienced chef in a professional kitchen" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-section/45 to-transparent" />
               <div className="absolute bottom-7 left-7 right-7 text-background"><p className="eyebrow">Founder</p><p className="mt-2 font-serif text-2xl">Noufal K Keedath</p><p className="mt-1 text-xs text-background/65">Industry journey: 2014 · Entrain Academy: 2025</p></div>
             </div>
           </Reveal>
-          <div>
-            <Reveal><p className="eyebrow">A grounded beginning</p><h2 className="display-title mt-4 text-3xl md:text-5xl">Not theory alone. Knowledge earned in the real world.</h2></Reveal>
-            <Reveal delay={0.05} className="mt-8 space-y-5 text-sm leading-8 text-muted md:text-base">
-              <p>Entrain Culinary Academy is a specialized culinary training institute under Entrain EduHub, focused on practical, commercial food industry training for aspiring entrepreneurs, culinary professionals and people seeking careers in hospitality.</p>
-              <p>The journey began in 2014, when founder Noufal K Keedath stepped away from degree studies to support his family bakery. The years that followed brought deep experience in food production, bakery operations, customer service, business management and the day-to-day challenges of running a food venture.</p>
-              <p>The bakery later faced severe pressure from floods, the COVID-19 pandemic and financial difficulties, eventually leading to its closure. Those setbacks also revealed lasting lessons about business operations, resilience and long-term sustainability.</p>
-              <p>Those lessons became the foundation for Entrain Culinary Academy, established in 2025 — a place where customers can gain practical industry knowledge, real-world business insight and hands-on culinary training before making important career or investment decisions.</p>
-            </Reveal>
-          </div>
+          <Reveal from="right">
+            <p className="eyebrow">A grounded beginning</p><h2 className="display-title mt-4 text-3xl md:text-5xl">Not theory alone. Knowledge earned in the real world.</h2>
+            <div className="mt-8 space-y-5 text-sm leading-8 text-muted md:text-base">
+              <p>Entrain Culinary Academy, part of Entrain EduHub, offers practical culinary and food business training for aspiring professionals, entrepreneurs and hospitality career seekers.</p>
+              <p>Founded by Noufal K Keedath in 2025, the academy is built on over a decade of experience in food production, bakery operations, customer service and business management. It provides hands-on training to help students make confident career and business decisions.</p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -59,7 +57,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f2ece3] py-20 md:py-24"><Reveal className="container-shell text-center"><p className="eyebrow">Our guiding message</p><blockquote className="mx-auto mt-5 max-w-4xl font-serif text-3xl leading-tight text-primary md:text-5xl">“Learn from real experience. Develop practical culinary skills. Make informed business decisions.”</blockquote><p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-muted">Build opportunities in the food and hospitality industry — trusted by customers across India and around the world.</p></Reveal></section>
+      <section className="bg-[#f2ece3] py-16 md:py-20"><Reveal className="container-shell text-center"><p className="eyebrow">Our guiding message</p><blockquote className="mx-auto mt-5 max-w-4xl font-serif text-3xl leading-tight text-primary md:text-5xl">“Learn from real experience. Develop practical culinary skills. Make informed business decisions.”</blockquote></Reveal></section>
       <ContactCta />
     </InnerPage>
   );

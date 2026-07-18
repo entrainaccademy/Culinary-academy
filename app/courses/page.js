@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Award, Check, Clock3 } from "lucide-react";
+import { Check, ChevronDown, Clock3, Compass, CookingPot, Sprout, Users } from "lucide-react";
 import { ContactCta, InnerPage, PageHero } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
 
@@ -14,7 +14,6 @@ const courseDetails = [
     category: "One-Day Workshop",
     duration: "1 day",
     image: "/images/dessert.png",
-    highlights: ["Expert guidance", "Live demonstration", "Beginner-friendly training", "Certificate provided"],
     groups: [
       ["Canned & Jar Desserts", ["Mango Cream Delight", "Chocolate Biscuit Mousse Jar", "Banana Caramel Crunch Cup", "Dulce Kulfi Dessert"]],
       ["Tiramisu Masterclass", ["Coffee Chocolate Tiramisu", "Mango Tiramisu", "Biscoff Tiramisu", "Classic Italian Tiramisu", "Nutella Tiramisu"]],
@@ -26,7 +25,6 @@ const courseDetails = [
     category: "One-Day Workshop",
     duration: "1 day",
     image: "https://images.pexels.com/photos/33037756/pexels-photo-33037756.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    highlights: ["Certificate provided", "Commercial techniques", "Machinery awareness", "Business insight"],
     groups: [["Topics Covered", ["Fried Chicken", "Broasted Chicken", "Zinger Burger", "Versatile Sauces", "Loaded Fries", "Crispy Coating Secrets", "Perfect Frying Techniques", "Business Tips & Machinery Awareness"]]],
   },
   {
@@ -34,7 +32,6 @@ const courseDetails = [
     category: "Intensive Program",
     duration: "1 week",
     image: "/images/cooking.jpg",
-    highlights: ["Accommodation included", "Food included", "Certificate provided", "Hands-on training"],
     groups: [["Topics Covered", ["Broast", "Fried Chicken", "Zinger Burger", "Wraps", "Loaded Fries", "Popcorn Chicken", "Types of Sandwich", "Mojitos"]]],
   },
   {
@@ -42,32 +39,73 @@ const courseDetails = [
     category: "Intensive Program",
     duration: "5 days",
     image: "/images/shawarmastand.jpg",
-    highlights: ["Accommodation included", "Food included", "Certificate provided", "Fully hands-on training"],
     groups: [["Training Includes", ["4 Types of Shawarma", "3 Types of Shawai", "Fully Hands-On Training", "5-Day Intensive Class"]]],
   },
 ];
 
-const benefits = ["Test whether a food business is the right decision", "Learn from experienced industry professionals", "Solve common operational challenges", "Understand food-industry marketing strategies", "Use modern commercial kitchen equipment", "Develop hotel and restaurant career skills", "Learn in a multilingual environment", "Build a strong foundation for culinary growth"];
+const benefits = ["Test whether a food business is the right decision", "Learn from experienced industry professionals", "Use modern commercial kitchen equipment", "Build a strong foundation for culinary growth"];
+const benefitIcons = [Compass, Users, CookingPot, Sprout];
 
 export default function CoursesPage() {
   return (
     <InnerPage>
-      <PageHero eyebrow="Programs & workshops" title="Practical training for the kitchen, the career and the business." copy="Programs designed for aspiring entrepreneurs, existing business owners and candidates preparing for professional hospitality opportunities." />
+      <PageHero compact eyebrow="Programs & workshops" title="Practical training for the kitchen, the career and the business." />
 
-      <section className="py-20 md:py-24">
-        <div className="container-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
-          <Reveal><p className="eyebrow">Who these courses are for</p><h2 className="display-title mt-4 text-3xl md:text-5xl">Training that meets you where you are.</h2><p className="mt-6 text-sm leading-7 text-muted">Whether you are validating a business idea, improving an existing operation or preparing for employment, the focus stays practical and commercial.</p></Reveal>
-          <Reveal delay={0.08}><div className="grid gap-3 sm:grid-cols-2">{["Aspiring food entrepreneurs", "Existing business owners", "Future restaurant, café or bakery founders", "Hospitality career candidates", "Hotel and restaurant job seekers", "Culinary skill-builders"].map((item) => <div key={item} className="flex min-h-20 items-center gap-4 border border-border-subtle bg-[#f2ece3] p-5"><Check className="size-4 shrink-0 text-accent" /><p className="text-sm font-bold text-primary">{item}</p></div>)}</div></Reveal>
+      <section className="relative overflow-hidden bg-dark-section py-16 text-background md:py-20">
+        <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full border border-accent/10" />
+        <div className="container-shell relative">
+          <Reveal className="mx-auto max-w-3xl text-center">
+              <p className="eyebrow">Who these courses are for</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">Training that meets you where you are.</h2>
+              <span className="mx-auto mt-7 block size-16 bg-accent [mask-image:url('/images/culinary-audience-icon.png')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] md:size-20" aria-hidden="true" />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-12 grid border-y border-background/15 sm:grid-cols-2 lg:grid-cols-4">
+              {["Aspiring food entrepreneurs", "Existing business owners", "Future restaurant, café or bakery founders", "Culinary skill-builders"].map((item, index) => (
+                <div key={item} className={`group flex min-h-32 items-center gap-4 border-background/15 px-1 py-6 sm:px-6 lg:px-7 ${index < 3 ? "border-b" : ""} ${index >= 2 ? "sm:border-b-0" : ""} ${index % 2 === 0 ? "sm:border-r" : ""} ${index === 1 ? "lg:border-r" : ""} lg:border-b-0`}>
+                  <span className="h-10 w-1 shrink-0 bg-accent/45 transition-all duration-300 group-hover:h-14 group-hover:bg-accent" />
+                  <p className="font-serif text-lg leading-7 text-background/85">{item}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="bg-dark-section py-20 text-background md:py-24"><div className="container-shell"><Reveal><p className="eyebrow">Benefits of training</p><h2 className="mt-4 max-w-2xl font-serif text-3xl leading-tight md:text-5xl">Confidence comes from understanding the work.</h2></Reveal><div className="mt-12 grid gap-x-10 gap-y-6 md:grid-cols-2">{benefits.map((item, index) => <Reveal key={item} delay={(index % 2) * 0.05}><div className="flex gap-4 border-b border-background/10 pb-5"><span className="font-serif text-accent">0{index + 1}</span><p className="text-sm leading-6 text-background/65">{item}</p></div></Reveal>)}</div><Reveal><p className="mt-10 max-w-3xl text-sm italic leading-7 text-background/45">With dedication, practice and continuous skill development, customers can build the expertise required to pursue professional culinary careers.</p></Reveal></div></section>
+      <section className="relative overflow-hidden bg-[#f2ece3] py-20 md:py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+        <div className="container-shell">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Benefits of training</p>
+            <h2 className="display-title mt-4 text-3xl md:text-5xl">Confidence comes from understanding the work.</h2>
+          </Reveal>
+          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+            {benefits.map((item, index) => {
+              const Icon = benefitIcons[index];
+              return (
+                <Reveal key={item} delay={index * 0.06}>
+                  <div className="group relative flex min-h-64 flex-col items-center overflow-hidden rounded-t-[7rem] border border-border-subtle bg-background px-4 pb-7 pt-10 text-center shadow-[0_12px_35px_rgba(15,31,48,.05)] transition duration-300 hover:-translate-y-2 hover:border-accent/45 hover:shadow-[0_18px_42px_rgba(15,31,48,.1)] sm:min-h-72 sm:px-6 sm:pt-12">
+                    <span className="grid size-14 shrink-0 place-items-center rounded-full border border-accent/35 bg-accent/10 text-accent transition duration-300 group-hover:bg-accent group-hover:text-dark-section"><Icon className="size-6" strokeWidth={1.6} /></span>
+                    <div className="my-6 h-8 w-px bg-gradient-to-b from-accent/70 to-transparent" />
+                    <p className="font-serif text-base leading-6 text-primary sm:text-lg sm:leading-7">{item}</p>
+                    <span className="absolute inset-x-0 bottom-0 h-1 origin-center scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="py-20 md:py-28">
         <div className="container-shell"><Reveal><p className="eyebrow">Course catalogue</p><h2 className="display-title mt-4 text-3xl md:text-5xl">Choose your learning path.</h2></Reveal>
           <div className="mt-14 space-y-10">
-            {courseDetails.map((course, courseIndex) => (
-              <Reveal key={course.title}>
+            {courseDetails.map((course, courseIndex) => {
+              const topics = course.groups.flatMap(([, items]) => items);
+              const previewTopics = topics.slice(0, 4);
+              const remainingTopics = topics.slice(4);
+
+              return <Reveal key={course.title}>
                 <article className="overflow-hidden rounded-[12px] border border-border-subtle bg-[#f2ece3] lg:grid lg:grid-cols-[.86fr_1.14fr]">
                   <div className="relative min-h-72 lg:min-h-full">
                     {/* TEMP IMAGE - replace with client photo */}
@@ -77,12 +115,22 @@ export default function CoursesPage() {
                   </div>
                   <div className="p-6 sm:p-9 lg:p-11">
                     <span className="text-xs font-bold text-accent">0{courseIndex + 1}</span><h3 className="mt-2 font-serif text-3xl font-bold text-primary">{course.title}</h3>
-                    <div className="mt-6 flex flex-wrap gap-2">{course.highlights.map((item) => <span key={item} className="inline-flex items-center gap-2 rounded-full border border-accent/35 bg-background px-3 py-1.5 text-[0.62rem] font-extrabold uppercase tracking-[0.08em] text-primary"><Award className="size-3 text-accent" />{item}</span>)}</div>
-                    <div className="mt-8 space-y-7">{course.groups.map(([title, items]) => <div key={title}><h4 className="text-xs font-extrabold uppercase tracking-[0.14em] text-primary">{title}</h4><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{items.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>)}</div>
+                    <div className="mt-7">
+                      <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-primary">Course includes</p>
+                      <div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{previewTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div>
+                    </div>
+                    <details className="group/details mt-8 flex flex-col border-t border-border-subtle">
+                      <summary className="order-last flex cursor-pointer list-none items-center justify-between py-5 text-xs font-extrabold uppercase tracking-[0.12em] text-primary transition-colors hover:text-accent group-open/details:border-t group-open/details:border-border-subtle [&::-webkit-details-marker]:hidden">
+                        <span className="group-open/details:hidden">Show more</span>
+                        <span className="hidden group-open/details:inline">Show less</span>
+                        <span className="grid size-9 place-items-center rounded-full border border-accent/35 text-accent"><ChevronDown className="size-4 transition-transform duration-300 group-open/details:rotate-180" /></span>
+                      </summary>
+                      <div className="py-7"><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-primary">More topics</p><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{remainingTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>
+                    </details>
                   </div>
                 </article>
               </Reveal>
-            ))}
+            })}
           </div>
         </div>
       </section>

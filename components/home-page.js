@@ -9,17 +9,19 @@ import {
   BriefcaseBusiness,
   Check,
   ChefHat,
+  ChevronDown,
   Globe2,
-  GraduationCap,
   Languages,
   MapPin,
   Phone,
+  Play,
   Quote,
   TrendingUp,
   UtensilsCrossed,
   X,
 } from "lucide-react";
 import { useState } from "react";
+import { FaPhone } from "react-icons/fa6";
 import { callLink, SiteShell } from "@/components/site-shell";
 import { Reveal, rise, stagger } from "@/components/reveal";
 import { buttonVariants } from "@/components/ui/button";
@@ -54,11 +56,13 @@ const courses = [
 ];
 
 const gallery = [
-  { src: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=88", alt: "Chef leading a professional kitchen training session", className: "col-span-2 row-span-2 md:col-span-2" },
-  { src: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=88", alt: "Elegant plated dessert", className: "col-span-1 row-span-1" },
-  { src: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=88", alt: "Culinary professional preparing a dish", className: "col-span-1 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=88", alt: "Warmly lit professional food plating", className: "col-span-1 row-span-1" },
-  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c?auto=format&fit=crop&w=1200&q=88", alt: "Restaurant-quality plated cuisine", className: "col-span-2 row-span-1 md:col-span-2" },
+  { src: "/images/page_10.png", alt: "Entrain Academy workshop participants and mentors", className: "col-span-2 row-span-2 md:col-span-2" },
+  { src: "/images/page_7.png", alt: "Participants gathered after an Entrain Academy workshop", className: "col-span-1 row-span-1" },
+  { src: "/images/page_6.png", alt: "Large culinary workshop group at Entrain Academy", className: "col-span-1 row-span-2" },
+  { src: "/images/workshop2.jpg", alt: "Culinary students and trainers in the academy classroom", className: "col-span-1 row-span-1" },
+  { src: "/images/instagram-loaded-fries-reel.jpg", alt: "Students preparing loaded fries during a hands-on workshop", className: "col-span-2 row-span-1 md:col-span-2", instagramUrl: "https://www.instagram.com/reel/DZ0Izz8o5jG/" },
+  { src: "/images/page_4.png", alt: "Entrain Academy workshop group gathered after training", className: "col-span-1 row-span-1" },
+  { src: "/images/workshop1.jpg", alt: "Culinary workshop participants with their instructors", className: "col-span-1 row-span-1" },
 ];
 
 const team = [
@@ -83,12 +87,19 @@ const team = [
 ];
 
 const features = [
-  [ChefHat, "Expert chef mentors", "Learn from professionals with 20–25 years of commercial experience."],
-  [Languages, "Multilingual classes", "Understand every technique clearly in an inclusive learning environment."],
-  [BriefcaseBusiness, "Career assistance", "Placement support and trusted job recommendations beyond the classroom."],
-  [TrendingUp, "Business growth focus", "Build practical marketing awareness and make informed business decisions."],
-  [GraduationCap, "Part of Entrain EduHub", "A focused academy backed by a wider commitment to practical education."],
-  [UtensilsCrossed, "Industry-relevant training", "Work hands-on with modern equipment and commercial kitchen methods."],
+  [ChefHat, "Expert chef mentors", "20–25 years of commercial experience."],
+  [Languages, "Multilingual classes", "Classes available in multiple languages."],
+  [BriefcaseBusiness, "Career assistance", "Placement support and job recommendations."],
+  [TrendingUp, "Business growth focus", "Practical marketing and business guidance."],
+  [UtensilsCrossed, "Industry-relevant training", "Modern equipment and commercial kitchen methods."],
+];
+
+const faqs = [
+  ["Is the training hands-on?", "Yes. Programs focus on practical culinary skills, commercial kitchen methods and real equipment. The exact balance of hands-on practice and demonstration varies by course."],
+  ["Do you provide placement support?", "Entrain Academy provides career assistance, job guidance and relevant recommendations. Placement opportunities depend on the candidate, course and available openings, so employment is not guaranteed."],
+  ["Are food and accommodation provided?", "Food and accommodation are included with selected intensive programs, including the one-week and five-day courses. Please confirm the current arrangements with the academy before enrolling."],
+  ["Who conducts the training?", "Training is led by experienced chef mentors with around 20–25 years of commercial food-industry experience."],
+  ["Are classes available in multiple languages?", "Yes. Entrain offers a multilingual learning environment so participants can understand lessons and communicate comfortably."],
 ];
 
 const testimonials = [
@@ -189,11 +200,11 @@ function TestimonialMarquee() {
   );
 }
 
-function SectionHeading({ eyebrow, title, copy, align = "left" }) {
+function SectionHeading({ eyebrow, title, copy, align = "left", titleClassName = "" }) {
   return (
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="display-title mt-4 text-3xl sm:text-4xl md:text-5xl">{title}</h2>
+      <h2 className={`display-title mt-4 text-3xl sm:text-4xl md:text-5xl ${titleClassName}`}>{title}</h2>
       {copy && <p className="mt-5 text-sm leading-7 text-muted md:text-base md:leading-8">{copy}</p>}
     </div>
   );
@@ -209,11 +220,22 @@ export function HomePage() {
           <div className="pointer-events-none absolute -left-32 top-36 size-80 rounded-full bg-accent/10 blur-3xl" />
           <div className="container-shell grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 lg:grid-cols-[1.03fr_.97fr] lg:py-16">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="flex items-center gap-3"><span className="h-px w-8 bg-accent" /><p className="eyebrow">Practical culinary education</p></div>
-              <h1 className="display-title mt-6 max-w-3xl text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[4.55rem]">Learn from real experience. <span className="italic text-accent">Build</span> your culinary future.</h1>
-              <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Develop practical culinary skills and make informed business decisions — trusted by customers across India and around the world.</p>
+              <h1 className="display-title max-w-3xl text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[4.55rem]">Learn from experience. <span className="italic text-accent">Grow</span> with confidence.</h1>
+              <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Develop practical culinary and business skills for your career or food venture.</p>
+
+              <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
+                <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
+                <div className="relative aspect-[4/5] overflow-hidden bg-dark-section">
+                  <video className="absolute inset-0 size-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/images/cooking.jpg" aria-label="Culinary training in a professional kitchen">
+                    <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-section/65 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 text-background"><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div>
+                </div>
+              </div>
+
               <div className="mt-9 flex items-center gap-3 sm:gap-4">
-                <Link href="/courses" className="group relative inline-flex min-h-14 min-w-0 flex-1 items-center justify-between gap-4 overflow-hidden rounded-full bg-dark-section py-1.5 pl-5 pr-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.1em] text-background shadow-[0_14px_34px_rgba(15,31,48,.22)] ring-1 ring-primary/15 transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_20px_42px_rgba(15,31,48,.32)] sm:max-w-[14.5rem] sm:pl-6 sm:text-[0.74rem]">
+                <Link href="/courses" className="group relative inline-flex min-h-14 w-fit min-w-[12rem] items-center justify-between gap-4 overflow-hidden rounded-full bg-dark-section py-1.5 pl-5 pr-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.1em] text-background shadow-[0_14px_34px_rgba(15,31,48,.22)] ring-1 ring-primary/15 transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_20px_42px_rgba(15,31,48,.32)] sm:min-w-0 sm:max-w-[14.5rem] sm:pl-6 sm:text-[0.74rem]">
                   <span className="relative z-10 whitespace-nowrap">Explore Courses</span>
                   <span className="relative z-10 grid size-11 shrink-0 place-items-center rounded-full bg-accent text-dark-section shadow-[0_6px_16px_rgba(184,134,63,.3)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:rotate-[-8deg] group-hover:scale-105">
                     <ArrowRight className="size-[1.1rem]" strokeWidth={2.25} />
@@ -225,7 +247,7 @@ export function HomePage() {
                   title="Call Entrain Academy"
                   className="group inline-flex h-14 w-11 shrink-0 items-center justify-center overflow-hidden bg-transparent text-[0.72rem] font-extrabold uppercase tracking-[0.1em] text-primary transition-[width,color,transform] duration-300 hover:-translate-y-0.5 hover:text-accent sm:hover:w-[8.25rem] sm:focus-visible:w-[8.25rem]"
                 >
-                  <Phone className="size-6 shrink-0 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" strokeWidth={1.8} />
+                  <FaPhone className="size-5 shrink-0 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" />
                   <span className="ml-0 hidden max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 sm:block sm:group-hover:ml-3 sm:group-hover:max-w-24 sm:group-hover:opacity-100 sm:group-focus-visible:ml-3 sm:group-focus-visible:max-w-24 sm:group-focus-visible:opacity-100">Call Us</span>
                 </Link>
               </div>
@@ -235,7 +257,7 @@ export function HomePage() {
                 ))}
               </div>
             </motion.div>
-            <motion.div className="relative mx-auto w-full max-w-lg lg:max-w-none" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.65, delay: 0.12 }}>
+            <motion.div className="relative mx-auto hidden w-full max-w-lg lg:block lg:max-w-none" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.65, delay: 0.12 }}>
               <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55 sm:-right-5 sm:-top-5" />
               <div className="relative aspect-[4/5] overflow-hidden bg-dark-section">
                 <video
@@ -326,18 +348,18 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="reach" className="relative min-h-[620px] overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-[580px]">
+        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-[580px]">
           <div className="absolute inset-0"><IndiaReachGlobe /></div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.82)_30%,rgba(15,31,48,.3)_57%,rgba(15,31,48,.02)_78%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.98)_0%,rgba(15,31,48,.94)_58%,rgba(15,31,48,.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.82)_30%,rgba(15,31,48,.3)_57%,rgba(15,31,48,.02)_78%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(15,31,48,.76)_0%,transparent_42%,rgba(15,31,48,.16)_100%)]" />
-          <div className="container-shell pointer-events-none relative z-10 flex min-h-[620px] items-center py-14 md:min-h-[580px] md:py-16">
-            <Reveal className="pointer-events-auto w-full max-w-[36rem] border-l border-accent/55 pl-5 sm:pl-8">
+          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-[620px] md:min-h-[580px] md:py-16">
+            <Reveal className="pointer-events-auto w-full max-w-[36rem] border-l border-accent/55 pl-4 sm:pl-8">
               <p className="eyebrow">Our reach</p>
-              <h2 className="mt-4 max-w-xl font-serif text-3xl leading-[1.12] text-background sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India and beyond.</h2>
-              <p className="mt-5 max-w-lg text-sm leading-7 text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India and international locations, including South Africa.</p>
-              <div className="mt-9 grid grid-cols-3 gap-3 border-t border-background/15 pt-5 sm:gap-6">
+              <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India and beyond.</h2>
+              <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India and international locations, including South Africa.</p>
+              <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
                 {[["Manjeri", "Our training centre"], ["Across India", "Customers from multiple regions"], ["International", "Participation from South Africa and beyond"]].map(([title, copy]) => (
-                  <div key={title} className="border-l border-background/15 pl-3 first:border-l-0 first:pl-0 sm:pl-4"><p className="text-[0.68rem] font-extrabold uppercase tracking-[0.1em] text-accent sm:text-xs">{title}</p><p className="mt-2 text-[0.7rem] leading-5 text-background/62 sm:text-xs">{copy}</p></div>
+                  <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-[0.1em] text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
                 ))}
               </div>
               {/* <p className="mt-5 text-[0.54rem] uppercase tracking-[0.13em] text-background/35">Locations shown represent the academy&apos;s growing customer reach</p> */}
@@ -347,7 +369,7 @@ export function HomePage() {
 
         <section id="courses" className="bg-[#f2ece3] py-20 md:py-28">
           <div className="container-shell">
-            <Reveal><div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Explore our training" title="Courses shaped for real outcomes." copy="Focused workshops and intensive programs for entrepreneurs, professionals and career seekers." /><Link href="/courses" className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>View all courses <ArrowRight className="size-4" /></Link></div></Reveal>
+            <Reveal><div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Explore our training" title="Courses shaped for real outcomes." titleClassName="whitespace-nowrap !text-[clamp(1.05rem,5.5vw,1.875rem)] sm:!text-4xl md:!text-5xl" copy="Focused workshops and intensive programs for entrepreneurs, professionals and career seekers." /><Link href="/courses" className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>View all courses <ArrowRight className="size-4" /></Link></div></Reveal>
             <motion.div className="mt-12 grid gap-6 md:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {courses.map((course) => (
                 <motion.article key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }} className="group overflow-hidden rounded-[12px] border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)]">
@@ -366,11 +388,17 @@ export function HomePage() {
 
         <section id="gallery" className="py-20 md:py-28">
           <div className="container-shell">
-            <Reveal><SectionHeading eyebrow="Inside Entrain" title="Craft, confidence and community." copy="A glimpse into the kitchens, techniques and learning moments that shape our academy." align="center" /></Reveal>
+            <Reveal><SectionHeading eyebrow="Inside Entrain" title="Craft, confidence and community."  align="center" /></Reveal>
             <motion.div className="mt-12 grid auto-rows-[135px] grid-cols-2 gap-3 md:auto-rows-[190px] md:grid-cols-4 md:gap-4" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
-              {gallery.map((item, index) => (
+              {gallery.map((item, index) => item.instagramUrl ? (
+                <motion.a key={item.src} variants={rise} href={item.instagramUrl} target="_blank" rel="noreferrer" whileHover={{ scale: 1.018 }} className={`group relative overflow-hidden rounded-[10px] bg-dark-section text-left shadow-sm transition-shadow hover:shadow-xl ${item.className}`} aria-label="Watch the loaded fries workshop Reel on Instagram">
+                  <Image src={item.src} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
+                  <span className="absolute inset-0 bg-dark-section/35 transition-colors group-hover:bg-dark-section/45" />
+                  <span className="absolute inset-0 grid place-items-center"><span className="grid size-14 place-items-center rounded-full bg-background/95 text-primary shadow-xl transition-transform duration-300 group-hover:scale-110"><Play className="ml-0.5 size-5 fill-accent text-accent" /></span></span>
+                  <span className="absolute bottom-4 left-5 text-[0.62rem] font-extrabold uppercase tracking-[0.14em] text-background">Watch on Instagram</span>
+                </motion.a>
+              ) : (
                 <motion.button key={item.src} variants={rise} onClick={() => setActiveImage(index)} whileHover={{ scale: 1.018 }} className={`group relative overflow-hidden rounded-[10px] bg-dark-section text-left shadow-sm transition-shadow hover:shadow-xl ${item.className}`} aria-label={`Open image: ${item.alt}`}>
-                  {/* TEMP IMAGE - replace with client photo */}
                   <Image src={item.src} alt={item.alt} fill sizes="(max-width: 768px) 50vw, 30vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
                   <span className="absolute inset-0 bg-dark-section/0 transition-colors group-hover:bg-dark-section/10" />
                 </motion.button>
@@ -380,19 +408,59 @@ export function HomePage() {
         </section>
 
         <section id="testimonials" className="border-t border-border-subtle bg-[#f2ece3] py-20 md:py-24">
-          <div className="container-shell"><Reveal><SectionHeading eyebrow="Customer stories" title="Practical training. Meaningful experiences." copy="Participants value the supportive instruction, professional environment and real-world skills they gain at Entrain Academy." /></Reveal></div>
+          <div className="container-shell"><Reveal><SectionHeading eyebrow="Customer stories" title="Practical training. Meaningful experiences." titleClassName="whitespace-nowrap !text-[clamp(1rem,5.15vw,1.875rem)] sm:!text-4xl md:!text-5xl" /></Reveal></div>
           <TestimonialMarquee />
         </section>
 
-        <section className="relative overflow-hidden bg-dark-section py-20 text-background md:py-28">
-          <div className="absolute right-0 top-0 size-80 rounded-full bg-accent/5 blur-3xl" />
-          <div className="container-shell relative">
-            <Reveal><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Why choose Entrain</p><h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-background sm:text-4xl md:text-5xl">Education grounded in experience, built around your future.</h2></div></Reveal>
-            <motion.div className="mt-14 grid gap-px overflow-hidden border border-background/10 bg-background/10 md:grid-cols-2 lg:grid-cols-3" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
-              {features.map(([Icon, title, copy]) => (
-                <motion.div key={title} variants={rise} className="bg-dark-section p-7 sm:p-9"><Icon className="size-6 text-accent" strokeWidth={1.5} /><h3 className="mt-6 font-serif text-xl font-bold text-background">{title}</h3><p className="mt-3 text-sm leading-7 text-background/55">{copy}</p></motion.div>
-              ))}
-            </motion.div>
+        <section className="relative overflow-hidden py-16 md:py-24">
+          <div className="container-shell">
+            <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-14">
+              <motion.div className="flex flex-col justify-center" initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}>
+                <h2 className="font-serif text-3xl tracking-tight text-primary sm:text-4xl md:text-5xl">Why choose Entrain</h2>
+                <motion.div className="mt-8 grid border-t border-border-subtle sm:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+                {features.map(([Icon, title, copy], index) => (
+                  <motion.article key={title} variants={rise} className={`group relative border-b border-border-subtle py-5 sm:min-h-[145px] sm:p-5 ${index % 2 === 0 ? "sm:border-r" : ""} ${index === 4 ? "sm:col-span-2 sm:min-h-0 sm:border-r-0" : ""}`}>
+                    <div className="flex items-center gap-3">
+                      <Icon className="size-5 text-accent" strokeWidth={1.6} />
+                    </div>
+                    <h3 className="mt-3 font-serif text-lg font-bold text-primary">{title}</h3>
+                    <p className="mt-1.5 text-xs leading-5 text-muted sm:text-sm">{copy}</p>
+                  </motion.article>
+                ))}
+                </motion.div>
+              </motion.div>
+
+              <motion.div className="relative min-h-[430px] sm:min-h-[560px] lg:min-h-0" initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="absolute left-0 top-0 h-[48%] w-[88%] overflow-hidden rounded-[12px]">
+                  <Image src="/images/choose1.jpg" alt="Chefs working in a professional kitchen" fill sizes="(max-width: 1024px) 88vw, 36vw" className="object-cover object-[center_42%]" />
+                </div>
+                <div className="absolute bottom-0 right-0 h-[48%] w-[88%] overflow-hidden rounded-[12px]">
+                  <Image src="/images/choose2.jpg" alt="Chef cooking vegetables over an open flame" fill sizes="(max-width: 1024px) 88vw, 36vw" className="object-cover object-[center_62%]" />
+                </div>
+                <span className="absolute right-0 top-0 h-[48%] w-[8%] bg-accent" />
+                <span className="absolute bottom-0 left-0 h-[48%] w-[8%] border border-accent/55" />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-[#e8dfd0] py-20 md:py-24">
+          <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full border border-primary/10" />
+          <div className="container-shell">
+            <Reveal className="relative mx-auto max-w-4xl">
+              <h2 className="font-serif text-3xl text-primary sm:text-4xl md:text-5xl">Frequently asked questions</h2>
+              <div className="mt-10 space-y-3">
+                {faqs.map(([question, answer]) => (
+                  <details key={question} name="home-faq" className="group/faq rounded-[10px] bg-background/65 px-5 transition-colors open:bg-background sm:px-7">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 font-serif text-lg font-bold text-primary transition-colors hover:text-accent sm:text-xl [&::-webkit-details-marker]:hidden">
+                      <span>{question}</span>
+                      <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent transition-colors group-open/faq:bg-accent group-open/faq:text-background"><ChevronDown className="size-4 transition-transform duration-300 group-open/faq:rotate-180" /></span>
+                    </summary>
+                    <p className="max-w-2xl pb-6 pr-12 text-sm leading-7 text-muted">{answer}</p>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 

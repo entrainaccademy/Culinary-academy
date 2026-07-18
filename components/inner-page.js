@@ -5,9 +5,9 @@ import { Reveal } from "@/components/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function PageHero({ eyebrow, title, copy }) {
+export function PageHero({ eyebrow, title, copy, compact = false }) {
   return (
-    <section className="fine-grid relative overflow-hidden pb-16 pt-32 md:pb-24 md:pt-40">
+    <section className={cn("fine-grid relative overflow-hidden pt-28 md:pt-32", compact ? "pb-14 md:pb-16" : "pb-16 md:pb-24")}>
       <div className="absolute -right-20 top-20 size-72 rounded-full bg-accent/10 blur-3xl" />
       <Reveal className="container-shell relative">
         <Link href="/" className="mb-10 inline-flex items-center gap-2 text-xs font-bold text-muted transition hover:text-accent"><ArrowLeft className="size-4" /> Back to home</Link>

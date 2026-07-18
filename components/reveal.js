@@ -2,12 +2,18 @@
 
 import { motion } from "framer-motion";
 
-export function Reveal({ children, className = "", delay = 0, amount = 0.15 }) {
+export function Reveal({ children, className = "", delay = 0, amount = 0.15, from = "bottom" }) {
+  const initial = {
+    opacity: 0,
+    x: from === "left" ? -56 : from === "right" ? 56 : 0,
+    y: from === "bottom" ? 22 : 0,
+  };
+
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={initial}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, amount }}
       transition={{ duration: 0.42, delay, ease: [0.22, 1, 0.36, 1] }}
     >
