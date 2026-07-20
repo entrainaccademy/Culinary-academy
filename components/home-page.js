@@ -34,24 +34,28 @@ const courses = [
     type: "One-day workshop",
     detail: "Jars, tiramisu & Middle Eastern fusion",
     image: "/images/dessert.webp",
+    href: "/courses#dessert-workshop",
   },
   {
     title: "Fried Chicken Masterclass",
     type: "One-day masterclass",
     detail: "Coating, frying, sauces & business insight",
     image: "https://images.pexels.com/photos/33037756/pexels-photo-33037756.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    href: "/courses#fried-chicken-masterclass",
   },
   {
     title: "Master 1-Week Course",
     type: "Intensive program",
     detail: "Eight commercial fast-food essentials",
     image: "/images/cooking.webp",
+    href: "/courses#master-one-week-course",
   },
   {
     title: "Shawarma & Shawai Course",
     type: "5-day hands-on program",
     detail: "Four shawarmas, three shawai styles",
     image: "/images/shawarmastand.jpg",
+    href: "/courses#shawarma-shawai-course",
   },
 ];
 
@@ -130,9 +134,9 @@ const testimonials = [
   },
   {
     quote: "The team made every concept simple and patiently answered all our questions. Their recipes and practical teaching helped us learn so much in a very short time.",
-    detail: "Nihal testimonial",
-    name: "Nihal",
-    initials: "N",
+    detail: "Annu Sona testimonial",
+    name: "Annu Sona",
+    initials: "AS",
     reelUrl: "https://www.instagram.com/reel/DYCnTDTo2--/",
     tone: "bg-[#efe7f0]",
   },
@@ -146,9 +150,10 @@ const testimonials = [
   },
   {
     quote: "The flavours taught here are very well-balanced, and I liked the professional setup. It was a valuable one-day workshop, and I would like to attend and collaborate on more programs.",
-    detail: "Chef Arjun testimonial",
-    name: "Chef Arjun",
-    initials: "CA",
+    detail: "Chef Kiran Joshi testimonial",
+    name: "Chef Kiran Joshi",
+    initials: "CK",
+    image: "/images/testimonials/chefkiran-avatar.jpeg",
     reelUrl: "https://www.instagram.com/reel/DVNhShHEwT3/",
     tone: "bg-accent text-dark-section",
   },
@@ -173,13 +178,19 @@ function TestimonialCard({ testimonial }) {
         testimonial.tone,
       )}
     >
-      <Image
-        src="/images/testimonials/mock-profile.png"
-        alt={`${testimonial.name || "Course participant"} profile`}
-        width={64}
-        height={64}
-        className={cn("absolute left-1/2 top-0 size-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 object-cover shadow-sm", isDark ? "border-primary" : "border-background")}
-      />
+      <div className={cn("absolute left-1/2 top-0 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center overflow-hidden rounded-full border-4 font-serif text-base font-bold shadow-sm", isDark ? "border-primary bg-primary text-background" : "border-background bg-primary text-background")}>
+        {testimonial.image ? (
+          <Image
+            src={testimonial.image}
+            alt={`${testimonial.name || "Course participant"} profile`}
+            fill
+            sizes="128px"
+            className="object-cover"
+          />
+        ) : (
+          <span aria-hidden="true">{testimonial.initials || "E"}</span>
+        )}
+      </div>
       <div className="mt-3">
         <p className={cn("text-xs font-extrabold", isDark ? "text-background" : "text-primary")}>{testimonial.name || "Course participant"}</p>
         {testimonial.location && <p className={cn("mt-0.5 text-[0.65rem]", isDark ? "text-background/70" : "text-muted")}>{testimonial.location}</p>}
@@ -400,7 +411,8 @@ export function HomePage() {
             <Reveal><div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Explore our training" title="Courses shaped for real outcomes." titleClassName="whitespace-nowrap !text-[clamp(1.05rem,5.5vw,1.875rem)] sm:!text-4xl md:!text-5xl" copy="Focused workshops and intensive programs for entrepreneurs, professionals and career seekers." /><Link href="/courses" className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>View all courses <ArrowRight className="size-4" /></Link></div></Reveal>
             <motion.div className="mt-12 grid gap-6 md:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
               {courses.map((course) => (
-                <motion.article key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }} className="group overflow-hidden rounded-xl border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)]">
+                <motion.div key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }}>
+                  <Link href={course.href} aria-label={`View details for ${course.title}`} className="group block h-full overflow-hidden rounded-xl border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
                   <div className="relative aspect-video overflow-hidden">
                     {/* TEMP IMAGE - replace with client photo */}
                     <Image src={course.image} alt={course.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
@@ -408,7 +420,8 @@ export function HomePage() {
                     <span className="absolute left-5 top-5 bg-background/92 px-3 py-2 text-[0.6rem] font-extrabold uppercase tracking-[0.13em] text-primary backdrop-blur">{course.type}</span>
                   </div>
                   <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h3 className="font-serif text-2xl font-bold text-primary">{course.title}</h3><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-widest text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
-                </motion.article>
+                  </Link>
+                </motion.div>
               ))}
             </motion.div>
           </div>

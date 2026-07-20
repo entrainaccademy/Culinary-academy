@@ -3,6 +3,7 @@ import { Check, ChevronDown, Clock3, Compass, CookingPot, Sprout, Users } from "
 import { ContactCta, InnerPage, PageHero } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
 import { CourseApplication } from "@/components/course-application";
+import { BrochureDownload } from "@/components/brochure-download";
 
 export const metadata = {
   title: "Courses",
@@ -11,6 +12,7 @@ export const metadata = {
 
 const courseDetails = [
   {
+    id: "advanced-diploma-bakery",
     title: "Advanced Diploma in Bakery, Pastry & Artisan Bread",
     category: "Upcoming Program",
     duration: "12 months",
@@ -22,6 +24,7 @@ const courseDetails = [
     ],
   },
   {
+    id: "dessert-workshop",
     title: "Dessert One-Day Workshop",
     category: "One-Day Workshop",
     duration: "1 day",
@@ -33,6 +36,7 @@ const courseDetails = [
     ],
   },
   {
+    id: "fried-chicken-masterclass",
     title: "Fried Chicken Master Class",
     category: "One-Day Workshop",
     duration: "1 day",
@@ -40,6 +44,7 @@ const courseDetails = [
     groups: [["Topics Covered", ["Fried Chicken", "Broasted Chicken", "Zinger Burger", "Versatile Sauces", "Loaded Fries", "Crispy Coating Secrets", "Perfect Frying Techniques", "Business Tips & Machinery Awareness"]]],
   },
   {
+    id: "master-one-week-course",
     title: "Master 1-Week Course Training",
     category: "Intensive Program",
     duration: "1 week",
@@ -47,10 +52,12 @@ const courseDetails = [
     groups: [["Topics Covered", ["Broast", "Fried Chicken", "Zinger Burger", "Wraps", "Loaded Fries", "Popcorn Chicken", "Types of Sandwich", "Mojitos"]]],
   },
   {
+    id: "shawarma-shawai-course",
     title: "Professional Shawarma & Shawai",
     category: "Intensive Program",
     duration: "5 days",
     image: "/images/shawarmastand.jpg",
+    brochure: "/brochures/shawarma-shawai-brochure.pdf",
     groups: [["Training Includes", ["4 Types of Shawarma", "3 Types of Shawai", "Fully Hands-On Training", "5-Day Intensive Class"]]],
   },
 ];
@@ -118,7 +125,7 @@ export default function CoursesPage() {
               const remainingTopics = topics.slice(4);
 
               return <Reveal key={course.title}>
-                <article className="overflow-hidden rounded-xl border border-border-subtle bg-[#f2ece3] lg:grid lg:grid-cols-[.86fr_1.14fr]">
+                <article id={course.id} className="scroll-mt-24 overflow-hidden rounded-xl border border-border-subtle bg-[#f2ece3] lg:grid lg:grid-cols-[.86fr_1.14fr]">
                   <div className="relative min-h-72 lg:min-h-full">
                     {/* TEMP IMAGE - replace with client photo */}
                     <Image src={course.image} alt={course.title} fill sizes="(max-width: 1024px) 100vw, 43vw" className="object-cover" />
@@ -140,8 +147,9 @@ export default function CoursesPage() {
                       </summary>
                       <div className="py-7"><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{remainingTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>
                     </details>
-                    <div className="border-t border-border-subtle pt-6">
+                    <div className="flex flex-wrap gap-3 border-t border-border-subtle pt-6">
                       <CourseApplication courseTitle={course.title} />
+                      {course.brochure && <BrochureDownload courseTitle={course.title} brochureUrl={course.brochure} />}
                     </div>
                   </div>
                 </article>
