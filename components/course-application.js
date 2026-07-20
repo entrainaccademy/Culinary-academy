@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const whatsappNumber = "9539637133";
+const whatsappNumber = "917593841013";
 
 export function CourseApplication({ courseTitle }) {
   const dialogRef = useRef(null);
