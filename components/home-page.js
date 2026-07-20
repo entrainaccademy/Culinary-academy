@@ -168,20 +168,24 @@ function TestimonialCard({ testimonial }) {
       whileHover={{ y: -4, scale: 1.015 }}
       transition={{ duration: 0.22 }}
       className={cn(
-        "flex h-57.5 w-69.5 shrink-0 flex-col rounded-xl border border-primary/15 p-6 shadow-[4px_6px_0_rgba(15,31,48,0.78)] sm:h-62 sm:w-85 sm:p-7",
+        "relative mt-8 flex h-57.5 w-69.5 shrink-0 flex-col rounded-xl border border-primary/15 p-6 pt-11 shadow-[4px_6px_0_rgba(15,31,48,0.78)] sm:h-62 sm:w-85 sm:p-7 sm:pt-11",
         testimonial.reelUrl && "cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
         testimonial.tone,
       )}
     >
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className={cn("grid size-9 place-items-center rounded-full font-serif text-sm font-bold", isDark ? "bg-background/12 text-accent" : "bg-primary text-background")}>{testimonial.initials || "E"}</div>
-          <div>
-            <p className={cn("text-xs font-extrabold", isDark ? "text-background" : "text-primary")}>{testimonial.name || "Course participant"}</p>
-            {testimonial.location && <p className={cn("mt-0.5 text-[0.65rem]", isDark ? "text-background/70" : "text-muted")}>{testimonial.location}</p>}
-          </div>
-        </div>
-        {testimonial.reelUrl ? <Play className="size-5 shrink-0 fill-accent text-accent" strokeWidth={1.5} /> : <Quote className="size-5 shrink-0 text-accent" strokeWidth={1.5} />}
+      <Image
+        src="/images/testimonials/mock-profile.png"
+        alt={`${testimonial.name || "Course participant"} profile`}
+        width={64}
+        height={64}
+        className={cn("absolute left-1/2 top-0 size-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 object-cover shadow-sm", isDark ? "border-primary" : "border-background")}
+      />
+      <div className="mt-3">
+        <p className={cn("text-xs font-extrabold", isDark ? "text-background" : "text-primary")}>{testimonial.name || "Course participant"}</p>
+        {testimonial.location && <p className={cn("mt-0.5 text-[0.65rem]", isDark ? "text-background/70" : "text-muted")}>{testimonial.location}</p>}
+      </div>
+      <div className="absolute right-6 top-6 sm:right-7 sm:top-7">
+        {testimonial.reelUrl ? <Play className="size-5 fill-accent text-accent" strokeWidth={1.5} /> : <Quote className="size-5 text-accent" strokeWidth={1.5} />}
       </div>
       <blockquote className={cn("mt-5 font-serif text-sm leading-6 sm:text-[0.95rem] sm:leading-6", isDark ? "text-background/88" : "text-primary")}>“{testimonial.quote}”</blockquote>
       <div className={cn("mt-auto h-px w-10", isDark ? "bg-accent" : "bg-accent")} />
