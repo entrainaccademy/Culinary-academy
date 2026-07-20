@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Check, ChevronDown, Clock3, Compass, CookingPot, Sprout, Users } from "lucide-react";
 import { ContactCta, InnerPage, PageHero } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
+import { CourseApplication } from "@/components/course-application";
 
 export const metadata = {
   title: "Courses",
@@ -13,7 +14,7 @@ const courseDetails = [
     title: "Advanced Diploma in Bakery, Pastry & Artisan Bread",
     category: "Upcoming Program",
     duration: "12 months",
-    durationDetail: "6 months training + 6 months industrial internship",
+    durationDetail: "One year",
     image: "/images/tiramisuimg.webp",
     groups: [
       ["Program Structure", ["6 months of advanced bakery, pastry and artisan bread training", "6 months of industrial internship"]],
@@ -137,8 +138,11 @@ export default function CoursesPage() {
                         <span className="hidden group-open/details:inline">Show less</span>
                         <span className="grid size-9 place-items-center rounded-full border border-accent/35 text-accent"><ChevronDown className="size-4 transition-transform duration-300 group-open/details:rotate-180" /></span>
                       </summary>
-                      <div className="py-7"><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-primary">More topics</p><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{remainingTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>
+                      <div className="py-7"><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{remainingTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>
                     </details>
+                    <div className="border-t border-border-subtle pt-6">
+                      <CourseApplication courseTitle={course.title} />
+                    </div>
                   </div>
                 </article>
               </Reveal>

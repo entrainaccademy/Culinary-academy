@@ -104,62 +104,88 @@ const faqs = [
 
 const testimonials = [
   {
-    quote: "I had a basic idea about cooking before joining, but learned the complete professional process through the course.",
-    detail: "Professional process",
+    quote: "A very good experience with a great environment, a talented chef and accommodation. I recommend this course to anyone planning to start a food business.",
+    detail: "Mohammed Muthahir testimonial",
+    name: "Mohammed Muthahir",
+    location: "Mysore",
+    initials: "MM",
+    reelUrl: "https://www.instagram.com/reel/DafsIoZIpqb/",
     tone: "bg-background",
   },
   {
-    quote: "I understood many important techniques and industry practices that were previously unknown to me.",
-    detail: "Industry techniques",
+    quote: "I learned the correct procedures, including marination and refrigeration times. The supportive staff and approachable chef made it a wonderful learning experience.",
+    detail: "Muneer testimonial",
+    name: "Muneer",
+    initials: "M",
+    reelUrl: "https://www.instagram.com/reel/DZiArEposzb/",
     tone: "bg-[#e8dfd0]",
   },
   {
-    quote: "The chef was highly supportive and approachable. Every doubt could be asked freely and was explained clearly.",
-    detail: "Supportive instruction",
+    quote: "Unlike other workshops I attended, everything was explained simply and practically. It is easy to apply for an existing business or a new small shop.",
+    detail: "Ameen testimonial",
+    name: "Ameen",
+    initials: "A",
+    reelUrl: "https://www.instagram.com/reel/DY99uZCo4yj/",
     tone: "bg-primary text-background",
   },
   {
-    quote: "The training environment was professional and comfortable, and the staff members were always friendly and ready to help.",
-    detail: "Learning environment",
+    quote: "The team made every concept simple and patiently answered all our questions. Their recipes and practical teaching helped us learn so much in a very short time.",
+    detail: "Nihal testimonial",
+    name: "Nihal",
+    initials: "N",
+    reelUrl: "https://www.instagram.com/reel/DYCnTDTo2--/",
     tone: "bg-[#efe7f0]",
   },
   {
-    quote: "I had attended many workshops before, but this course provided much more practical value and exceeded my expectations.",
-    detail: "Practical value",
+    quote: "After the Fried Chicken course, I added the products to my shop and received a good response. I returned for the dessert course so I can expand my menu further.",
+    detail: "Rashid testimonial",
+    name: "Rashid",
+    initials: "R",
+    reelUrl: "https://www.instagram.com/reel/DWl-P9ECFaF/",
     tone: "bg-[#e5eadf]",
   },
   {
-    quote: "Even in a short-duration workshop, all important topics were covered effectively, with more practical tips than expected.",
-    detail: "Focused workshop",
+    quote: "The flavours taught here are very well-balanced, and I liked the professional setup. It was a valuable one-day workshop, and I would like to attend and collaborate on more programs.",
+    detail: "Chef Arjun testimonial",
+    name: "Chef Arjun",
+    initials: "CA",
+    reelUrl: "https://www.instagram.com/reel/DVNhShHEwT3/",
     tone: "bg-accent text-dark-section",
   },
 ];
 
 function TestimonialCard({ testimonial }) {
   const isDark = testimonial.tone.includes("text-background");
+  const Card = testimonial.reelUrl ? motion.a : motion.article;
 
   return (
-    <motion.article
+    <Card
       role="listitem"
+      href={testimonial.reelUrl}
+      target={testimonial.reelUrl ? "_blank" : undefined}
+      rel={testimonial.reelUrl ? "noopener noreferrer" : undefined}
+      aria-label={testimonial.reelUrl ? `Watch ${testimonial.name}'s testimonial on Instagram` : undefined}
       whileHover={{ y: -4, scale: 1.015 }}
       transition={{ duration: 0.22 }}
       className={cn(
         "flex h-57.5 w-69.5 shrink-0 flex-col rounded-xl border border-primary/15 p-6 shadow-[4px_6px_0_rgba(15,31,48,0.78)] sm:h-62 sm:w-85 sm:p-7",
+        testimonial.reelUrl && "cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
         testimonial.tone,
       )}
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className={cn("grid size-9 place-items-center rounded-full font-serif text-sm font-bold", isDark ? "bg-background/12 text-accent" : "bg-primary text-background")}>E</div>
+          <div className={cn("grid size-9 place-items-center rounded-full font-serif text-sm font-bold", isDark ? "bg-background/12 text-accent" : "bg-primary text-background")}>{testimonial.initials || "E"}</div>
           <div>
-            <p className={cn("text-xs font-extrabold", isDark ? "text-background" : "text-primary")}>Course participant</p>
+            <p className={cn("text-xs font-extrabold", isDark ? "text-background" : "text-primary")}>{testimonial.name || "Course participant"}</p>
+            {testimonial.location && <p className={cn("mt-0.5 text-[0.65rem]", isDark ? "text-background/70" : "text-muted")}>{testimonial.location}</p>}
           </div>
         </div>
-        <Quote className={cn("size-5 shrink-0", isDark ? "text-accent" : "text-accent")} strokeWidth={1.5} />
+        {testimonial.reelUrl ? <Play className="size-5 shrink-0 fill-accent text-accent" strokeWidth={1.5} /> : <Quote className="size-5 shrink-0 text-accent" strokeWidth={1.5} />}
       </div>
-      <blockquote className={cn("mt-7 font-serif text-base leading-7 sm:text-[1.05rem]", isDark ? "text-background/88" : "text-primary")}>“{testimonial.quote}”</blockquote>
+      <blockquote className={cn("mt-5 font-serif text-sm leading-6 sm:text-[0.95rem] sm:leading-6", isDark ? "text-background/88" : "text-primary")}>“{testimonial.quote}”</blockquote>
       <div className={cn("mt-auto h-px w-10", isDark ? "bg-accent" : "bg-accent")} />
-    </motion.article>
+    </Card>
   );
 }
 
