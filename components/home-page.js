@@ -71,22 +71,19 @@ const gallery = [
 
 const team = [
   {
-    title: "Chef Professor",
-    focus: "Professional culinary foundations",
-    image: "https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=1200&q=88",
-    alt: "Professional chef mentor in chef whites",
+    title: "Chef Akhil",
+    experience: "7 years of industry experience · 2 years of academic experience",
+    focus: "Continental · South Indian · American cuisine",
+    image: "/images/testimonials/chefakhil.jpeg",
+    imageClassName: "object-[center_22%]",
+    alt: "Chef Akhil preparing barbecue dishes at the grill",
   },
   {
-    title: "Senior Chef Mentor",
-    focus: "Commercial kitchen techniques",
-    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=88",
-    alt: "Senior culinary chef in a professional kitchen",
-  },
-  {
-    title: "Culinary Trainer",
-    focus: "Hands-on industry preparation",
-    image: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1200&q=88",
-    alt: "Culinary trainer preparing food",
+    title: "Chef Buhaish",
+    experience: "16 years of industry experience",
+    focus: "BBQ · Butchery · Shawarma",
+    image: "/images/testimonials/chefbuhaish.jpeg",
+    alt: "Chef Buhaish in professional chef attire",
   },
 ];
 
@@ -358,14 +355,13 @@ export function HomePage() {
               </div>
             </Reveal>
 
-            <motion.div className="mx-auto mt-14 grid max-w-6xl gap-12 sm:grid-cols-2 sm:gap-x-7 lg:grid-cols-3 lg:gap-10" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
+            <motion.div className="mx-auto mt-14 grid max-w-4xl gap-12 sm:grid-cols-2 sm:gap-x-10" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
               {team.map((member, index) => (
                 <motion.article key={member.title} variants={rise} whileHover={{ y: -7 }} transition={{ duration: 0.3 }} className="group mx-auto w-full max-w-85 text-center">
                   <div className="relative px-3 pt-3">
                     <div className="absolute inset-x-0 top-0 mx-auto h-[78%] w-full rounded-t-[999px] border border-accent/55 transition-transform duration-300 group-hover:-translate-y-1" />
                     <div className="relative aspect-4/5 overflow-hidden rounded-t-[999px] rounded-b-xl bg-primary shadow-[0_18px_40px_rgba(15,31,48,.12)]">
-                      {/* TEMP IMAGE - replace with client chef photo */}
-                      <Image src={member.image} alt={member.alt} fill sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.045]" />
+                      <Image src={member.image} alt={member.alt} fill sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw" className={cn("object-cover transition-transform duration-700 group-hover:scale-[1.045]", member.imageClassName)} />
                       <div className="absolute inset-0 bg-linear-to-t from-dark-section/38 via-transparent to-transparent" />
                       <span className="absolute bottom-5 right-5 grid size-10 place-items-center rounded-full border border-background/45 bg-background/10 font-serif text-xs text-background backdrop-blur-md">0{index + 1}</span>
                     </div>
@@ -373,6 +369,7 @@ export function HomePage() {
                   <div className="relative mx-5 -mt-5 rounded-[10px] border border-border-subtle bg-background px-5 py-6 shadow-[0_12px_28px_rgba(15,31,48,.08)] transition-shadow duration-300 group-hover:shadow-[0_18px_36px_rgba(15,31,48,.13)]">
                     <div className="absolute left-1/2 top-0 h-px w-12 -translate-x-1/2 bg-accent" />
                     <h3 className="font-serif text-2xl font-bold text-primary">{member.title}</h3>
+                    <p className="mt-3 text-xs font-semibold leading-5 text-primary/80">{member.experience}</p>
                     <p className="mt-2 text-[0.62rem] font-bold uppercase leading-5 tracking-[0.12em] text-muted">{member.focus}</p>
                   </div>
                 </motion.article>
@@ -445,6 +442,9 @@ export function HomePage() {
                 </motion.button>
               ))}
             </motion.div>
+            <Reveal className="mt-10 text-center">
+              <Link href="/gallery" className={buttonVariants({ variant: "outline", size: "lg" })}>View full gallery <ArrowRight className="size-4" /></Link>
+            </Reveal>
           </div>
         </section>
 
