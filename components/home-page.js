@@ -325,8 +325,7 @@ export function HomePage() {
               transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="relative aspect-4/4.5 overflow-hidden rounded-[10px]">
-                {/* TEMP IMAGE - replace with client photo */}
-                <Image src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1400&q=88" alt="Chef working with fresh ingredients in a professional kitchen" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
+                <Image src="/images/noufal-founder.jpeg" alt="Noufal K Keedath, founder of Entrain Culinary Academy" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover object-top" />
               </div>
               <div className="absolute -bottom-6 -right-2 max-w-60 bg-primary p-5 text-background shadow-xl sm:-right-6 sm:p-7"><p className="font-serif text-2xl text-accent">Journey since 2014</p><p className="mt-2 text-xs leading-5 text-background/65">Industry experience that inspired Entrain Academy in 2025.</p></div>
             </motion.div>

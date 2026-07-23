@@ -26,8 +26,7 @@ export default function AboutPage() {
         <div className="container-shell grid items-start gap-8 md:gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-12">
           <Reveal from="left" className="lg:sticky lg:top-28">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] lg:aspect-[10/9]">
-              {/* TEMP IMAGE - replace with client photo */}
-              <Image src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1400&q=88" alt="Experienced chef in a professional kitchen" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+              <Image src="/images/noufal-founder.jpeg" alt="Noufal K Keedath, founder of Entrain Culinary Academy" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-section/45 to-transparent" />
               <div className="absolute bottom-7 left-7 right-7 text-background"><p className="eyebrow">Founder</p><p className="mt-2 font-serif text-2xl">Noufal K Keedath</p><p className="mt-1 text-xs text-background/65">Industry journey: 2014 · Entrain Academy: 2025</p></div>
             </div>
