@@ -18,6 +18,8 @@ const galleryImages = [
   { src: "/images/workshop3.jpg", alt: "Workshop participants gathered inside the Entrain Academy classroom", aspectClassName: "aspect-4/3" },
   { src: "/images/workshop4.jpeg", alt: "A small workshop group with their instructors", aspectClassName: "aspect-4/3" },
   { src: "/images/workshop5.jpeg", alt: "A large Entrain Academy workshop group", aspectClassName: "aspect-video", wide: true },
+  { src: "/images/testimonials/newworkshop.png", alt: "Entrain Academy students gathered during a hands-on culinary workshop", aspectClassName: "aspect-4/3" },
+  { src: "/images/testimonials/newworkshop2.png", alt: "Workshop participants celebrating their culinary training at Entrain Academy", aspectClassName: "aspect-4/3" },
 ];
 
 export default function GalleryPage() {
