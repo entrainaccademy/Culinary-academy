@@ -18,6 +18,11 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/careers`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/gallery`,
       changeFrequency: "monthly",
       priority: 0.7,

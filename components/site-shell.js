@@ -13,6 +13,7 @@ const navItems = [
   ["Home", "/"],
   ["Our Story", "/about"],
   ["Courses", "/courses"],
+  ["Careers", "/careers"],
   ["Gallery", "/#gallery"],
   ["Contact", "/#contact"],
 ];
