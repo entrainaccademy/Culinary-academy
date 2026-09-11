@@ -264,9 +264,28 @@ export function HomePage() {
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
                 <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
                 <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
-                  <Image src="/images/cooking.webp" alt="Culinary training in a professional kitchen" fill priority sizes="100vw" className="object-cover" />
+                  <video
+                    className="absolute inset-0 size-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster="/images/cooking.webp"
+                    aria-label="Culinary training in a professional kitchen"
+                  >
+                    <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5 text-background"><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div>
+                  <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background">
+                    <div>
+                      <p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Learning by doing</p>
+                      <p className="mt-1 font-serif text-lg sm:text-xl">Industry skills, taught hands-on.</p>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[0.6rem] font-extrabold uppercase tracking-widest text-background/80">
+                      <span className="size-2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(184,134,63,.25)]" /> In motion
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -497,8 +516,8 @@ export function HomePage() {
               <h2 className="font-serif text-3xl text-primary sm:text-4xl md:text-5xl">Frequently asked questions</h2>
               <div className="mt-10 space-y-3">
                 {faqs.map(([question, answer]) => (
-                  <details key={question} name="home-faq" className="group/faq rounded-[10px] bg-background/65 px-5 transition-colors open:bg-background sm:px-7">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 font-serif text-lg font-bold text-primary transition-colors hover:text-accent sm:text-xl [&::-webkit-details-marker]:hidden">
+                  <details key={question} name="home-faq" className="group/faq rounded-xl border border-border-subtle/70 bg-background/80 px-5 shadow-[0_4px_16px_rgba(15,31,48,0.03)] transition-all hover:border-accent/40 open:bg-background open:shadow-md sm:px-7">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 font-sans text-base font-semibold text-primary transition-colors hover:text-accent sm:py-6 sm:text-lg [&::-webkit-details-marker]:hidden">
                       <span>{question}</span>
                       <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent transition-colors group-open/faq:bg-accent group-open/faq:text-background"><ChevronDown className="size-4 transition-transform duration-300 group-open/faq:rotate-180" /></span>
                     </summary>

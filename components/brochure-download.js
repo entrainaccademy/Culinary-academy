@@ -39,7 +39,10 @@ export function BrochureDownload({ courseTitle, brochureUrl }) {
   function downloadBrochure() {
     const link = document.createElement("a");
     link.href = brochureUrl;
-    link.download = "Entrain-Shawarma-Shawai-Brochure.pdf";
+    const defaultName = courseTitle
+      ? `Entrain-${courseTitle.replace(/[^a-zA-Z0-9]+/g, "-")}-Brochure.pdf`
+      : "Entrain-Brochure.pdf";
+    link.download = defaultName;
     document.body.appendChild(link);
     link.click();
     link.remove();

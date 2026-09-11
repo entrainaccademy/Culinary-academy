@@ -60,6 +60,36 @@ const courseDetails = [
     brochure: "/brochures/shawarma-shawai-brochure.pdf",
     groups: [["Training Includes", ["4 Types of Shawarma", "3 Types of Shawai", "Fully Hands-On Training", "5-Day Intensive Class"]]],
   },
+  {
+    id: "arabic-cuisine",
+    title: "Arabian Cuisine Chicken Masterclass",
+    category: "Intensive Program",
+    duration: "5 days",
+    image: "/images/arabic_cusinie.jpg",
+    brochure: "/brochures/5-DAY%20ARABIAN%20CUISINE%20CHICKEN%20MASTERCLASS%20final.pdf",
+    groups: [
+      [
+        "Specialties & Dishes",
+        [
+          "Al Faham (3 Varieties)",
+          "Ifa Chicken",
+          "Chicken Pollichath",
+          "Seekh Kebab (Chicken, Mutton, Beef)",
+          "Kuzhimandi & Madhooth",
+          "Tikka (4 Varieties)",
+        ],
+      ],
+      [
+        "Techniques & Practical Training",
+        [
+          "Authentic Arabian Marinades & Masalas",
+          "Commercial Grilling & Mandi Oven Methods",
+          "Sauces, Dips & Accompaniments",
+          "5-Day Intensive Hands-On Class",
+        ],
+      ],
+    ],
+  },
 ];
 
 const benefits = ["Test whether a food business is the right decision", "Learn from experienced industry professionals", "Use modern commercial kitchen equipment", "Build a strong foundation for culinary growth"];
