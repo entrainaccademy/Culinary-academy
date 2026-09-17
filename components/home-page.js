@@ -362,6 +362,58 @@ export function HomePage() {
           </div>
         </section>
 
+        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-145">
+          <div className="absolute inset-0"><IndiaReachGlobe /></div>
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.98)_0%,rgba(15,31,48,.94)_58%,rgba(15,31,48,.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.82)_30%,rgba(15,31,48,.3)_57%,rgba(15,31,48,.02)_78%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(15,31,48,.76)_0%,transparent_42%,rgba(15,31,48,.16)_100%)]" />
+          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-38.75 md:min-h-36.25 md:py-16">
+            <Reveal className="pointer-events-auto w-full max-w-xl border-l border-accent/55 pl-4 sm:pl-8">
+              <p className="eyebrow">Our reach</p>
+              <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India and beyond.</h2>
+              <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India and international locations, including South Africa.</p>
+              <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
+                {[["Manjeri", "Our training centre"], ["Across India", "Customers from multiple regions"], ["International", "Participation from South Africa and beyond"]].map(([title, copy]) => (
+                  <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
+                ))}
+              </div>
+              {/* <p className="mt-5 text-[0.54rem] uppercase tracking-[0.13em] text-background/35">Locations shown represent the academy&apos;s growing customer reach</p> */}
+            </Reveal>
+          </div>
+        </section>
+
+        <section id="courses" className="bg-[#f2ece3] py-20 md:py-28">
+          <div className="container-shell">
+            <Reveal>
+              <SectionHeading
+                eyebrow="Explore our training"
+                title="Courses shaped for real outcomes."
+                titleClassName="whitespace-nowrap !text-[clamp(1.05rem,5.5vw,1.875rem)] sm:!text-4xl md:!text-5xl"
+                copy="Focused workshops and intensive programs for entrepreneurs, professionals and career seekers."
+              />
+            </Reveal>
+            <motion.div className="mt-12 grid gap-6 md:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
+              {courses.map((course) => (
+                <motion.div key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }}>
+                  <Link href={course.href} aria-label={`View details for ${course.title}`} className="group block h-full overflow-hidden rounded-xl border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+                  <div className="relative aspect-video overflow-hidden">
+                    {/* TEMP IMAGE - replace with client photo */}
+                    <Image src={course.image} alt={course.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
+                    <div className="absolute inset-0 bg-linear-to-t from-dark-section/50 via-transparent to-transparent" />
+                    <span className="absolute left-5 top-5 bg-background/92 px-3 py-2 text-[0.6rem] font-extrabold uppercase tracking-[0.13em] text-primary backdrop-blur">{course.type}</span>
+                  </div>
+                  <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h3 className="font-serif text-2xl font-bold text-primary">{course.title}</h3><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-widest text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+            <Reveal delay={0.15} className="mt-12 flex justify-center">
+              <Link href="/courses" className={cn(buttonVariants({ size: "lg" }), "group")}>
+                View all courses <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+
         <section id="team" className="relative overflow-hidden border-t border-border-subtle/70 bg-[#f2ece3] py-20 md:py-28">
           <div className="pointer-events-none absolute left-1/2 top-32 h-105 w-105 -translate-x-1/2 rounded-full border border-accent/15 sm:h-150 sm:w-150" />
           <div className="container-shell relative">
@@ -399,46 +451,6 @@ export function HomePage() {
               <ChefHat className="size-5 text-primary" strokeWidth={1.4} />
               <div className="h-px w-10 bg-accent" />
             </Reveal>
-          </div>
-        </section>
-
-        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-145">
-          <div className="absolute inset-0"><IndiaReachGlobe /></div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.98)_0%,rgba(15,31,48,.94)_58%,rgba(15,31,48,.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.82)_30%,rgba(15,31,48,.3)_57%,rgba(15,31,48,.02)_78%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(15,31,48,.76)_0%,transparent_42%,rgba(15,31,48,.16)_100%)]" />
-          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-38.75 md:min-h-36.25 md:py-16">
-            <Reveal className="pointer-events-auto w-full max-w-xl border-l border-accent/55 pl-4 sm:pl-8">
-              <p className="eyebrow">Our reach</p>
-              <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India and beyond.</h2>
-              <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India and international locations, including South Africa.</p>
-              <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
-                {[["Manjeri", "Our training centre"], ["Across India", "Customers from multiple regions"], ["International", "Participation from South Africa and beyond"]].map(([title, copy]) => (
-                  <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
-                ))}
-              </div>
-              {/* <p className="mt-5 text-[0.54rem] uppercase tracking-[0.13em] text-background/35">Locations shown represent the academy&apos;s growing customer reach</p> */}
-            </Reveal>
-          </div>
-        </section>
-
-        <section id="courses" className="bg-[#f2ece3] py-20 md:py-28">
-          <div className="container-shell">
-            <Reveal><div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Explore our training" title="Courses shaped for real outcomes." titleClassName="whitespace-nowrap !text-[clamp(1.05rem,5.5vw,1.875rem)] sm:!text-4xl md:!text-5xl" copy="Focused workshops and intensive programs for entrepreneurs, professionals and career seekers." /><Link href="/courses" className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>View all courses <ArrowRight className="size-4" /></Link></div></Reveal>
-            <motion.div className="mt-12 grid gap-6 md:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
-              {courses.map((course) => (
-                <motion.div key={course.title} variants={rise} whileHover={{ y: -5, scale: 1.015 }} transition={{ duration: 0.25 }}>
-                  <Link href={course.href} aria-label={`View details for ${course.title}`} className="group block h-full overflow-hidden rounded-xl border border-border-subtle/70 bg-background shadow-[0_8px_30px_rgba(15,31,48,0.05)] transition-shadow hover:shadow-[0_18px_42px_rgba(15,31,48,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
-                  <div className="relative aspect-video overflow-hidden">
-                    {/* TEMP IMAGE - replace with client photo */}
-                    <Image src={course.image} alt={course.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
-                    <div className="absolute inset-0 bg-linear-to-t from-dark-section/50 via-transparent to-transparent" />
-                    <span className="absolute left-5 top-5 bg-background/92 px-3 py-2 text-[0.6rem] font-extrabold uppercase tracking-[0.13em] text-primary backdrop-blur">{course.type}</span>
-                  </div>
-                  <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h3 className="font-serif text-2xl font-bold text-primary">{course.title}</h3><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-widest text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </section>
 

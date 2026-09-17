@@ -90,6 +90,61 @@ const courseDetails = [
       ],
     ],
   },
+  {
+    id: "loaded-fries-mojito-workshop",
+    title: "Loaded Fries & Mojito Workshop",
+    category: "One-Day Workshop",
+    duration: "1 day",
+    image: "/images/loadedwithmojito.png",
+    description: "Specially designed for café owners, restaurant entrepreneurs, and food business enthusiasts. Learn commercial production techniques, signature flavor combinations, and practical costing from experienced chefs.",
+    note: "This is a demonstration-based workshop (not hands-on training). The chef will explain each recipe and preparation method in detail, along with commercial production techniques and practical business insights.",
+    groups: [
+      [
+        "What You'll Learn",
+        [
+          "5 Varieties of Refreshing Mojitos",
+          "10 Varieties of Loaded Fries",
+          "Veg & Non-Veg Loaded Fries",
+          "Beef Patty Making",
+          "Chicken Patty Making",
+          "Cheese Sauces & Toppings",
+          "Seasonings & Flavor Combinations",
+          "Commercial Tips, Costing & Business Guidance",
+        ],
+      ],
+    ],
+  },
+  {
+    id: "pizza-burger-workshop",
+    title: "Pizza & Burger One-Day Workshop",
+    category: "One-Day Workshop",
+    duration: "1 day",
+    image: "/images/pizza_burger.png",
+    description: "Designed for beginners with no prior experience needed. Learn end-to-end artisan pizza crafting and gourmet burger preparation with commercial kitchen secrets.",
+    note: "This is a demonstration-based workshop, where our chef will explain every step in detail and answer all your questions.",
+    groups: [
+      [
+        "Pizza Training",
+        [
+          "Pizza dough making from scratch",
+          "Dough kneading and proofing",
+          "Pizza sauce preparation",
+          "Topping preparation and combinations",
+          "Cheese selection and baking techniques",
+          "10 varieties of pizza",
+        ],
+      ],
+      [
+        "Burger Craft & Business",
+        [
+          "5 varieties of burgers",
+          "Burger patty preparation",
+          "Burger sauces and assembling",
+          "Basic food costing and business tips",
+        ],
+      ],
+    ],
+  },
 ];
 
 const benefits = ["Test whether a food business is the right decision", "Learn from experienced industry professionals", "Use modern commercial kitchen equipment", "Build a strong foundation for culinary growth"];
@@ -164,19 +219,23 @@ export default function CoursesPage() {
                   </div>
                   <div className="p-6 sm:p-9 lg:p-11">
                     <span className="text-xs font-bold text-accent">0{courseIndex + 1}</span><h3 className="mt-2 font-serif text-3xl font-bold text-primary">{course.title}</h3>
+                    {course.description && <p className="mt-3 text-sm leading-relaxed text-muted">{course.description}</p>}
                     {course.durationDetail && <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-muted"><Clock3 className="size-4 shrink-0 text-accent" />{course.durationDetail}</p>}
                     <div className="mt-7">
                       <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-primary">Course includes</p>
                       <div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{previewTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div>
                     </div>
-                    <details className="group/details mt-8 flex flex-col border-t border-border-subtle">
-                      <summary className="order-last flex cursor-pointer list-none items-center justify-between py-5 text-xs font-extrabold uppercase tracking-[0.12em] text-primary transition-colors hover:text-accent group-open/details:border-t group-open/details:border-border-subtle [&::-webkit-details-marker]:hidden">
-                        <span className="group-open/details:hidden">Show more</span>
-                        <span className="hidden group-open/details:inline">Show less</span>
-                        <span className="grid size-9 place-items-center rounded-full border border-accent/35 text-accent"><ChevronDown className="size-4 transition-transform duration-300 group-open/details:rotate-180" /></span>
-                      </summary>
-                      <div className="py-7"><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{remainingTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>
-                    </details>
+                    {remainingTopics.length > 0 && (
+                      <details className="group/details mt-8 flex flex-col border-t border-border-subtle">
+                        <summary className="order-last flex cursor-pointer list-none items-center justify-between py-5 text-xs font-extrabold uppercase tracking-[0.12em] text-primary transition-colors hover:text-accent group-open/details:border-t group-open/details:border-border-subtle [&::-webkit-details-marker]:hidden">
+                          <span className="group-open/details:hidden">Show more</span>
+                          <span className="hidden group-open/details:inline">Show less</span>
+                          <span className="grid size-9 place-items-center rounded-full border border-accent/35 text-accent"><ChevronDown className="size-4 transition-transform duration-300 group-open/details:rotate-180" /></span>
+                        </summary>
+                        <div className="py-7"><div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">{remainingTopics.map((item) => <div key={item} className="flex gap-3 text-sm text-muted"><Check className="mt-0.5 size-4 shrink-0 text-accent" />{item}</div>)}</div></div>
+                      </details>
+                    )}
+                    {course.note && <p className="mt-4 border-t border-border-subtle/70 pt-4 text-xs italic text-muted/80">{course.note}</p>}
                     <div className="flex flex-wrap gap-3 border-t border-border-subtle pt-6">
                       <CourseApplication courseTitle={course.title} />
                       {course.brochure && <BrochureDownload courseTitle={course.title} brochureUrl={course.brochure} />}
