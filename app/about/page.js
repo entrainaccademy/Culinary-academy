@@ -28,14 +28,17 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] lg:aspect-[10/9]">
               <Image src="/images/noufal-founder.jpeg" alt="Noufal K Keedath, founder of Entrain Culinary Academy" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-section/45 to-transparent" />
-              <div className="absolute bottom-7 left-7 right-7 text-background"><p className="eyebrow">Founder</p><p className="mt-2 font-serif text-2xl">Noufal K Keedath</p><p className="mt-1 text-xs text-background/65">Industry journey: 2014 · Entrain Academy: 2025</p></div>
+              <div className="absolute bottom-7 left-7 right-7 text-background"><p className="eyebrow">Founder</p><p className="mt-2 font-serif text-2xl">Noufal K Keedath</p><p className="mt-1 text-xs text-background/65">Bakery: 2014 · Cobolt Machinery: 2020 · Entrain Academy: 2025</p></div>
             </div>
           </Reveal>
           <Reveal from="right">
             <p className="eyebrow">A grounded beginning</p><h2 className="display-title mt-4 text-3xl md:text-5xl">Not theory alone. Knowledge earned in the real world.</h2>
             <div className="mt-8 space-y-5 text-sm leading-8 text-muted md:text-base">
-              <p>Entrain Culinary Academy, part of Entrain EduHub, offers practical culinary and food business training for aspiring professionals, entrepreneurs and hospitality career seekers.</p>
-              <p>Founded by Noufal K Keedath in 2025, the academy is built on over a decade of experience in food production, bakery operations, customer service and business management. It provides hands-on training to help students make confident career and business decisions.</p>
+              <p>Entrain Culinary Academy, part of Entrain EduHub, trains people who actually want to run a food business — not just cook in one.</p>
+              <p>It started in 2014. Noufal K Keedath left his degree unfinished to take over the family bakery, because someone had to. The years after that were spent behind the counter, on the production floor, arguing with suppliers, and figuring out payroll — the parts of running a food business nobody teaches in a classroom.</p>
+              <p>Then came the floods. Then COVID. By the time the bakery finally shut down, the losses were real — but so was everything he'd learned about keeping a business alive when everything is working against you.</p>
+              <p>He didn't stop there. In 2020, he started Cobolt Machinery, supplying commercial kitchen equipment to food businesses around him. That meant learning the inside of every machine a working kitchen actually runs on — not from a manual, but from installing and fixing them himself.</p>
+              <p>By 2025, all of it — the bakery, the losses, the machinery business — had turned into something worth teaching. Entrain Culinary Academy exists so the next person doesn't have to learn these lessons the hard way.</p>
             </div>
           </Reveal>
         </div>

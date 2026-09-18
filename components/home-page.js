@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, animate, motion, useInView, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   Award,
@@ -17,10 +17,11 @@ import {
   Play,
   Quote,
   TrendingUp,
+  Users,
   UtensilsCrossed,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaPhone } from "react-icons/fa6";
 import { callLink, SiteShell } from "@/components/site-shell";
 import { Reveal, rise, stagger } from "@/components/reveal";
@@ -59,6 +60,33 @@ const courses = [
   },
 ];
 
+const milestones = [
+  {
+    icon: Users,
+    value: 2000,
+    suffix: "+",
+    duration: 2.4,
+    label: "Customers Trained",
+    copy: "Food entrepreneurs, café founders and aspiring chefs who built real culinary confidence.",
+  },
+  {
+    icon: MapPin,
+    value: 14,
+    suffix: "+",
+    duration: 1.8,
+    label: "States Across India",
+    copy: "Learners travelling from across the country to train at our Manjeri kitchen.",
+  },
+  {
+    icon: Globe2,
+    value: 2,
+    suffix: "",
+    duration: 1.2,
+    label: "Countries Reached",
+    copy: "Including international participation from South Africa alongside our Indian learners.",
+  },
+];
+
 const gallery = [
   { src: "/images/page_10.webp", alt: "Entrain Academy workshop participants and mentors", className: "col-span-2 row-span-2 md:col-span-2" },
   { src: "/images/page_7.webp", alt: "Participants gathered after an Entrain Academy workshop", className: "col-span-1 row-span-1" },
@@ -79,11 +107,12 @@ const team = [
     alt: "Chef Akhil preparing barbecue dishes at the grill",
   },
   {
-    title: "Chef Buhaish",
-    experience: "16 years of industry experience",
-    focus: "BBQ · Butchery · Shawarma",
-    image: "/images/testimonials/chefbuhaish.jpeg",
-    alt: "Chef Buhaish in professional chef attire",
+    title: "Chef Sharafali",
+    experience: "19 years of industry experience",
+    focus: "Arabic cuisine",
+    image: "/images/testimonials/chef_sharafali.jpg",
+    imageClassName: "object-[center_18%]",
+    alt: "Chef Sharafali in professional chef attire",
   },
 ];
 
@@ -154,6 +183,33 @@ const testimonials = [
     reelUrl: "https://www.instagram.com/reel/DVNhShHEwT3/",
     tone: "bg-accent text-dark-section",
   },
+  {
+    quote: "My experience was excellent — the accommodation, food, staff and kitchen setup were outstanding. I finally found the commercial kitchen machinery I had been searching for over the past two to three years.",
+    detail: "Nabil Abdul Rahman testimonial",
+    name: "Nabil Abdul Rahman",
+    location: "Maharashtra",
+    initials: "NA",
+    reelUrl: "https://www.instagram.com/reel/DdEZkHfoyb2/",
+    tone: "bg-background",
+  },
+  {
+    quote: "I've always wanted to start a business young, and I love the shawarma concept. After training at Entrain Academy, I gained the knowledge and confidence to start my own food business.",
+    detail: "Siddhi testimonial",
+    name: "Siddhi",
+    location: "Maharashtra",
+    initials: "S",
+    reelUrl: "https://www.instagram.com/reel/DdTtDquoZW6/",
+    tone: "bg-[#e8dfd0]",
+  },
+  {
+    quote: "We had no previous experience, but the trainers taught us everything from the basics — fried chicken, chicken popcorn, sandwiches, zinger burgers, mojitos and more.",
+    detail: "Anjali and Gourav Gupta testimonial",
+    name: "Anjali & Gourav Gupta",
+    location: "Delhi",
+    initials: "AG",
+    reelUrl: "https://www.instagram.com/reel/DdGxiBXIN8H/",
+    tone: "bg-primary text-background",
+  },
 ];
 
 function TestimonialCard({ testimonial }) {
@@ -195,7 +251,7 @@ function TestimonialCard({ testimonial }) {
       <div className="absolute right-6 top-6 sm:right-7 sm:top-7">
         {testimonial.reelUrl ? <Play className="size-5 fill-accent text-accent" strokeWidth={1.5} /> : <Quote className="size-5 text-accent" strokeWidth={1.5} />}
       </div>
-      <blockquote className={cn("mt-5 font-serif text-sm leading-6 sm:text-[0.95rem] sm:leading-6", isDark ? "text-background/88" : "text-primary")}>“{testimonial.quote}”</blockquote>
+      <blockquote className={cn("mt-5 line-clamp-5 font-serif text-sm leading-6 sm:line-clamp-6 sm:text-[0.95rem] sm:leading-6", isDark ? "text-background/88" : "text-primary")}>“{testimonial.quote}”</blockquote>
       <div className={cn("mt-auto h-px w-10", isDark ? "bg-accent" : "bg-accent")} />
     </Card>
   );
@@ -235,6 +291,38 @@ function TestimonialMarquee() {
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-[#f2ece3] to-transparent sm:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-[#f2ece3] to-transparent sm:w-24" />
     </div>
+  );
+}
+
+function AnimatedCounter({ value, suffix = "", duration = 2 }) {
+  const ref = useRef(null);
+  const [displayValue, setDisplayValue] = useState(0);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReduced = useReducedMotion();
+
+  useEffect(() => {
+    if (!isInView) return;
+    if (prefersReduced) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const controls = animate(0, value, {
+      duration,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (latest) => {
+        setDisplayValue(Math.round(latest));
+      },
+    });
+
+    return () => controls.stop();
+  }, [isInView, value, duration, prefersReduced]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {displayValue.toLocaleString()}
+      {suffix}
+    </span>
   );
 }
 
@@ -334,49 +422,52 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="story" className="overflow-hidden py-20 md:py-28">
-          <div className="container-shell grid items-center gap-14 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: -56 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="relative aspect-4/4.5 overflow-hidden rounded-[10px]">
-                <Image src="/images/noufal-founder.jpeg" alt="Noufal K Keedath, founder of Entrain Culinary Academy" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover object-top" />
-              </div>
-              <div className="absolute -bottom-6 -right-2 max-w-60 bg-primary p-5 text-background shadow-xl sm:-right-6 sm:p-7"><p className="font-serif text-2xl text-accent">Journey since 2014</p><p className="mt-2 text-xs leading-5 text-background/65">Industry experience that inspired Entrain Academy in 2025.</p></div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 56 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.62, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <SectionHeading eyebrow="Our story" title="Built from the realities of the food industry." />
-              <p className="mt-6 text-sm leading-7 text-muted md:text-base md:leading-8">Entrain Culinary Academy is a specialized training institute under Entrain EduHub. Founder Noufal K Keedath’s journey began in a family bakery in 2014, where years of production, customer service and business challenges shaped a grounded understanding of the industry.</p>
-              <p className="mt-4 text-sm leading-7 text-muted md:text-base md:leading-8">Entrain Academy was established in 2025 to transform that real-world experience into expert chef-led training for aspiring entrepreneurs, culinary professionals and hospitality career seekers.</p>
-              <Link href="/about" className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-primary transition-colors hover:text-accent">Read full story <ArrowRight className="size-4" /></Link>
-            </motion.div>
+        <section id="milestones" className="overflow-hidden py-20 md:py-28">
+          <div className="container-shell">
+            <Reveal className="mx-auto max-w-xl text-center">
+              <p className="eyebrow">Our Milestones</p>
+              <h2 className="display-title mt-3 text-3xl sm:text-4xl md:text-5xl">A decade of experience, now shared.</h2>
+            </Reveal>
+
+            <Reveal delay={0.1} className="relative mx-auto mt-14 max-w-4xl">
+              <div className="absolute -right-3 -top-3 hidden h-full w-full border border-accent/55 sm:-right-5 sm:-top-5 sm:block" />
+              <motion.div
+                className="relative grid gap-12 border border-border-subtle bg-[#f2ece3]/55 px-8 py-12 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border-subtle sm:px-6 sm:py-14"
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                {milestones.map(({ icon: Icon, value, suffix, duration, label, copy }) => (
+                  <motion.div key={label} variants={rise} className="text-center sm:px-8">
+                    <Icon className="mx-auto size-5 text-accent" strokeWidth={1.5} />
+                    <div className="mt-5 font-serif text-5xl font-bold tracking-tight text-primary sm:text-6xl">
+                      <AnimatedCounter value={value} suffix={suffix} duration={duration} />
+                    </div>
+                    <div className="mx-auto mt-4 h-px w-8 bg-accent/60" />
+                    <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.16em] text-accent">{label}</p>
+                    <p className="mx-auto mt-2 max-w-56 text-sm leading-6 text-muted">{copy}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </Reveal>
           </div>
         </section>
 
-        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-dark-section text-background md:min-h-145">
+        <section id="reach" className="relative overflow-hidden border-y border-background/10 bg-[#070f18] text-background min-h-[620px] md:min-h-[720px]">
           <div className="absolute inset-0"><IndiaReachGlobe /></div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.98)_0%,rgba(15,31,48,.94)_58%,rgba(15,31,48,.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.82)_30%,rgba(15,31,48,.3)_57%,rgba(15,31,48,.02)_78%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(15,31,48,.76)_0%,transparent_42%,rgba(15,31,48,.16)_100%)]" />
-          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-38.75 md:min-h-36.25 md:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,31,48,.98)_0%,rgba(15,31,48,.92)_50%,rgba(15,31,48,.5)_75%,rgba(15,31,48,.15)_100%)] sm:bg-[linear-gradient(90deg,rgba(15,31,48,.96)_0%,rgba(15,31,48,.84)_36%,rgba(15,31,48,.25)_62%,rgba(15,31,48,.02)_82%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(0deg,rgba(7,15,24,.85)_0%,transparent_35%,rgba(7,15,24,.3)_100%)]" />
+          <div className="container-shell pointer-events-none relative z-10 flex items-center py-14 sm:min-h-[620px] md:min-h-[720px] md:py-16">
             <Reveal className="pointer-events-auto w-full max-w-xl border-l border-accent/55 pl-4 sm:pl-8">
               <p className="eyebrow">Our reach</p>
-              <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India and beyond.</h2>
-              <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India and international locations, including South Africa.</p>
+              <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India, South Africa and Tanzania.</h2>
+              <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India, alongside international learners travelling from South Africa and Tanzania.</p>
               <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
-                {[["Manjeri", "Our training centre"], ["Across India", "Customers from multiple regions"], ["International", "Participation from South Africa and beyond"]].map(([title, copy]) => (
+                {[["Manjeri", "Our training centre"], ["India", "Customers across the country"], ["International", "Learners from South Africa & Tanzania"]].map(([title, copy]) => (
                   <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
                 ))}
               </div>
-              {/* <p className="mt-5 text-[0.54rem] uppercase tracking-[0.13em] text-background/35">Locations shown represent the academy&apos;s growing customer reach</p> */}
             </Reveal>
           </div>
         </section>
@@ -427,7 +518,7 @@ export function HomePage() {
 
             <motion.div className="mx-auto mt-14 grid max-w-4xl gap-12 sm:grid-cols-2 sm:gap-x-10" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }}>
               {team.map((member, index) => (
-                <motion.article key={member.title} variants={rise} whileHover={{ y: -7 }} transition={{ duration: 0.3 }} className="group mx-auto w-full max-w-85 text-center">
+                <motion.article key={member.title} variants={rise} whileHover={{ y: -7 }} transition={{ duration: 0.3 }} className="group mx-auto flex h-full w-full max-w-85 flex-col text-center">
                   <div className="relative px-3 pt-3">
                     <div className="absolute inset-x-0 top-0 mx-auto h-[78%] w-full rounded-t-[999px] border border-accent/55 transition-transform duration-300 group-hover:-translate-y-1" />
                     <div className="relative aspect-4/5 overflow-hidden rounded-t-[999px] rounded-b-xl bg-primary shadow-[0_18px_40px_rgba(15,31,48,.12)]">
@@ -436,7 +527,7 @@ export function HomePage() {
                       <span className="absolute bottom-5 right-5 grid size-10 place-items-center rounded-full border border-background/45 bg-background/10 font-serif text-xs text-background backdrop-blur-md">0{index + 1}</span>
                     </div>
                   </div>
-                  <div className="relative mx-5 -mt-5 rounded-[10px] border border-border-subtle bg-background px-5 py-6 shadow-[0_12px_28px_rgba(15,31,48,.08)] transition-shadow duration-300 group-hover:shadow-[0_18px_36px_rgba(15,31,48,.13)]">
+                  <div className="relative mx-5 -mt-5 flex flex-1 flex-col justify-center rounded-[10px] border border-border-subtle bg-background px-5 py-6 shadow-[0_12px_28px_rgba(15,31,48,.08)] transition-shadow duration-300 group-hover:shadow-[0_18px_36px_rgba(15,31,48,.13)]">
                     <div className="absolute left-1/2 top-0 h-px w-12 -translate-x-1/2 bg-accent" />
                     <h3 className="font-serif text-2xl font-bold text-primary">{member.title}</h3>
                     <p className="mt-3 text-xs font-semibold leading-5 text-primary/80">{member.experience}</p>
