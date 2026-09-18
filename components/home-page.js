@@ -91,10 +91,10 @@ const gallery = [
   { src: "/images/page_10.webp", alt: "Entrain Academy workshop participants and mentors", className: "col-span-2 row-span-2 md:col-span-2" },
   { src: "/images/page_7.webp", alt: "Participants gathered after an Entrain Academy workshop", className: "col-span-1 row-span-1" },
   { src: "/images/page_6.webp", alt: "Large culinary workshop group at Entrain Academy", className: "col-span-1 row-span-2" },
-  { src: "/images/workshop2.webp", alt: "Culinary students and trainers in the academy classroom", className: "col-span-1 row-span-1" },
+  { src: "/images/workshop-27.jpg", alt: "Culinary students and trainers in the academy classroom", className: "col-span-1 row-span-1" },
   { src: "/images/instagram-loaded-fries-reel.jpg", alt: "Students preparing loaded fries during a hands-on workshop", className: "col-span-2 row-span-1 md:col-span-2", instagramUrl: "https://www.instagram.com/reel/DZ0Izz8o5jG/" },
   { src: "/images/page_4.webp", alt: "Entrain Academy workshop group gathered after training", className: "col-span-1 row-span-1" },
-  { src: "/images/workshop1.webp", alt: "Culinary workshop participants with their instructors", className: "col-span-1 row-span-1" },
+  { src: "/images/workshop-24.jpg", alt: "Culinary workshop participants with their instructors", className: "col-span-1 row-span-1" },
 ];
 
 const team = [
@@ -462,7 +462,7 @@ export function HomePage() {
             <Reveal className="pointer-events-auto w-full max-w-xl border-l border-accent/55 pl-4 sm:pl-8">
               <p className="eyebrow">Our reach</p>
               <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India, South Africa and Tanzania.</h2>
-              <p className="mt-4 max-w-lg text-[0.82rem] leading-6 text-background/75 sm:mt-5 sm:text-sm sm:leading-7 sm:text-background/68">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India, alongside international learners travelling from South Africa and Tanzania.</p>
+              <p className="mt-4 hidden max-w-lg text-sm leading-7 text-background/68 sm:mt-5 sm:block">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India, alongside international learners travelling from South Africa and Tanzania.</p>
               <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
                 {[["Manjeri", "Our training centre"], ["India", "Customers across the country"], ["International", "Learners from South Africa & Tanzania"]].map(([title, copy]) => (
                   <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>

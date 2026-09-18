@@ -36,9 +36,9 @@ export default function AboutPage() {
             <div className="mt-8 space-y-5 text-sm leading-8 text-muted md:text-base">
               <p>Entrain Culinary Academy, part of Entrain EduHub, trains people who actually want to run a food business — not just cook in one.</p>
               <p>It started in 2014. Noufal K Keedath left his degree unfinished to take over the family bakery, because someone had to. The years after that were spent behind the counter, on the production floor, arguing with suppliers, and figuring out payroll — the parts of running a food business nobody teaches in a classroom.</p>
-              <p>Then came the floods. Then COVID. By the time the bakery finally shut down, the losses were real — but so was everything he'd learned about keeping a business alive when everything is working against you.</p>
-              <p>He didn't stop there. In 2020, he started Cobolt Machinery, supplying commercial kitchen equipment to food businesses around him. That meant learning the inside of every machine a working kitchen actually runs on — not from a manual, but from installing and fixing them himself.</p>
-              <p>By 2025, all of it — the bakery, the losses, the machinery business — had turned into something worth teaching. Entrain Culinary Academy exists so the next person doesn't have to learn these lessons the hard way.</p>
+              <p>Then came the floods. Then COVID. The bakery took hit after hit and kept going — and the ups and downs taught him more about keeping a business alive than any classroom could.</p>
+              <p>He didn't stop there. In 2020, he started Cobolt Machinery out of a small space, supplying commercial kitchen equipment to food businesses around him. Learning the inside of every machine a working kitchen runs on — not from a manual, but from installing and fixing them on the job — grew that small setup into a full-scale facility.</p>
+              <p>By 2025, all of it — the bakery, the machinery business, everything learned along the way — had turned into something worth teaching. Entrain Culinary Academy exists so the next person doesn't have to learn these lessons the hard way.</p>
             </div>
           </Reveal>
         </div>

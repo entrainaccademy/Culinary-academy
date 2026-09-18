@@ -20,6 +20,18 @@ const galleryImages = [
   { src: "/images/workshop5.jpeg", alt: "A large Entrain Academy workshop group", aspectClassName: "aspect-video", wide: true },
   { src: "/images/testimonials/newworkshop.png", alt: "Entrain Academy students gathered during a hands-on culinary workshop", aspectClassName: "aspect-4/3" },
   { src: "/images/testimonials/newworkshop2.png", alt: "Workshop participants celebrating their culinary training at Entrain Academy", aspectClassName: "aspect-4/3" },
+  { src: "/images/workshop-batch5.jpg", alt: "Participants gathered for the 5-day workshop, batch 5", aspectClassName: "aspect-4/3" },
+  { src: "/images/workshop-batch6.jpg", alt: "Participants gathered for the 5-day workshop, batch 6" },
+  { src: "/images/workshop-23.jpg", alt: "Participants gathered for Entrain Academy Workshop 23" },
+  { src: "/images/workshop-24.jpg", alt: "Participants gathered for Entrain Academy Workshop 24", aspectClassName: "aspect-4/3" },
+  { src: "/images/workshop-25.jpg", alt: "Participants gathered for the Pizza workshop, first batch" },
+  { src: "/images/workshop-26.jpg", alt: "Participants gathered for Entrain Academy Workshop 26" },
+  { src: "/images/workshop-27.jpg", alt: "Participants gathered for Entrain Academy Workshop 27", wide: true },
+  { src: "/images/workshop-28.jpg", alt: "Participants gathered for Entrain Academy Workshop 28", aspectClassName: "aspect-4/3" },
+  { src: "/images/workshop-batch8-kitchen.jpg", alt: "Culinary students training in the Entrain Academy commercial kitchen, batch 8" },
+  { src: "/images/workshop-batch9-kitchen.jpg", alt: "Culinary workshop group in the Entrain Academy kitchen, batch 9", aspectClassName: "aspect-4/3" },
+  { src: "/images/workshop-batch10-certificates.jpg", alt: "Entrain Academy students celebrating with their workshop certificates, batch 10", wide: true },
+  { src: "/images/workshop-batch11.jpg", alt: "Participants gathered for the 5-day workshop, batch 11" },
 ];
 
 export default function GalleryPage() {
