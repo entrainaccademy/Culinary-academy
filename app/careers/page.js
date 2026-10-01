@@ -14,6 +14,7 @@ export const metadata = {
   title: "Careers",
   description:
     "Explore career opportunities at Entrain Culinary Academy. Apply for open Executive Chef and Bakery Trainer positions.",
+  alternates: { canonical: "/careers" },
 };
 
 const hrEmail = "hr.entrain@gmail.com";

@@ -35,28 +35,28 @@ const courses = [
     type: "One-day workshop",
     detail: "Jars, tiramisu & Middle Eastern fusion",
     image: "/images/dessert.webp",
-    href: "/courses#dessert-workshop",
+    href: "/courses/dessert-workshop",
   },
   {
     title: "Fried Chicken Masterclass",
     type: "One-day masterclass",
     detail: "Coating, frying, sauces & business insight",
     image: "https://images.pexels.com/photos/33037756/pexels-photo-33037756.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    href: "/courses#fried-chicken-masterclass",
+    href: "/courses/fried-chicken-masterclass",
   },
   {
     title: "Master 1-Week Course",
     type: "Intensive program",
     detail: "Eight commercial fast-food essentials",
     image: "/images/cooking.webp",
-    href: "/courses#master-one-week-course",
+    href: "/courses/master-one-week-course",
   },
   {
     title: "Shawarma & Shawai Course",
     type: "5-day hands-on program",
     detail: "Four shawarmas, three shawai styles",
     image: "/images/shawarmastand.jpg",
-    href: "/courses#shawarma-shawai-course",
+    href: "/courses/shawarma-shawai",
   },
 ];
 

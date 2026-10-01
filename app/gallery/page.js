@@ -4,6 +4,7 @@ import { GalleryGrid } from "@/components/gallery-grid";
 export const metadata = {
   title: "Gallery",
   description: "Explore practical culinary training, workshops and community moments at Entrain Culinary Academy.",
+  alternates: { canonical: "/gallery" },
 };
 
 const galleryImages = [

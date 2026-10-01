@@ -1,4 +1,5 @@
-const siteUrl = "https://entraincullinaryschool.com";
+import { courseDetails } from "@/lib/courses";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap() {
   return [
@@ -27,5 +28,10 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    ...courseDetails.map((course) => ({
+      url: `${siteUrl}/courses/${course.slug}`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    })),
   ];
 }

@@ -1,7 +1,6 @@
 import { Manrope, Playfair_Display } from "next/font/google";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
-
-const siteUrl = "https://entraincullinaryschool.com";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -23,6 +22,9 @@ export const metadata = {
   },
   description:
     "Entrain Culinary Academy in Manjeri, Kerala offers practical chef-led culinary courses, bakery training and food business workshops.",
+  verification: {
+    google: "xAtyNQ_eFN056EQCvF-YQpWCQLA5zzOau9UnHyZOSaQ",
+  },
   alternates: {
     canonical: "/",
   },

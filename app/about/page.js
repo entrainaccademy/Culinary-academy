@@ -6,6 +6,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata = {
   title: "Our Story",
   description: "The real industry journey behind Entrain Culinary Academy and its practical approach to culinary education.",
+  alternates: { canonical: "/about" },
 };
 
 const audiences = [

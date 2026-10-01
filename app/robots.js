@@ -1,4 +1,4 @@
-const siteUrl = "https://entraincullinaryschool.com";
+import { siteUrl } from "@/lib/site";
 
 export default function robots() {
   return {
