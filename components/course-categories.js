@@ -8,13 +8,14 @@ import { Reveal } from "@/components/reveal";
 import { callLink } from "@/components/site-shell";
 import { buttonVariants } from "@/components/ui/button";
 import { courseDetails } from "@/lib/courses";
+import oneWeekImage from "@/public/images/one-week-workshop-cover.png";
 import oneDayImage from "@/public/images/oneday.jpg";
 
 const categories = [
   {
     id: "one-week",
     title: "One Week Workshops",
-    image: "/images/oneweek.jpg",
+    image: oneWeekImage,
     courseSlugs: ["master-one-week-course", "shawarma-shawai", "arabian-cuisine-masterclass", "cake-pastry-workshop"],
   },
   {
