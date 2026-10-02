@@ -8,7 +8,7 @@ import { Reveal } from "@/components/reveal";
 import { callLink } from "@/components/site-shell";
 import { buttonVariants } from "@/components/ui/button";
 import { courseDetails } from "@/lib/courses";
-import oneWeekImage from "@/public/images/one-week-workshop-cover.png";
+import oneWeekImage from "@/public/images/oneweek.jpg";
 import oneDayImage from "@/public/images/oneday.jpg";
 
 const categories = [
