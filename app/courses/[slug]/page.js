@@ -6,7 +6,21 @@ import { BrochureDownload } from "@/components/brochure-download";
 import { CourseApplication } from "@/components/course-application";
 import { ContactCta, InnerPage } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
 import { courseDetails, getCourseBySlug } from "@/lib/courses";
+import { siteUrl } from "@/lib/site";
+import { absoluteUrl, breadcrumbSchema, organizationId, postalAddress } from "@/lib/schema";
+
+const isoDurations = {
+  "1 day": "P1D",
+  "5 days": "P5D",
+  "1 week": "P1W",
+  "12 months": "P12M",
+};
+
+function courseDescription(course) {
+  return course.description || `${course.title} at Entrain Culinary Academy in Manjeri, Kerala. Duration: ${course.duration}.`;
+}
 
 export function generateStaticParams() {
   return courseDetails.map((course) => ({ slug: course.slug }));
@@ -21,7 +35,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: course.title,
-    description: course.description || `${course.title} at Entrain Culinary Academy in Manjeri, Kerala. Duration: ${course.duration}.`,
+    description: courseDescription(course),
     alternates: { canonical: `/courses/${course.slug}` },
   };
 }
@@ -31,8 +45,42 @@ export default async function CourseDetailPage({ params }) {
   const course = getCourseBySlug(slug);
   if (!course) notFound();
 
+  const courseUrl = `${siteUrl}/courses/${course.slug}`;
+  const duration = isoDurations[course.duration];
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": courseUrl,
+    url: courseUrl,
+    name: course.title,
+    description: courseDescription(course),
+    image: absoluteUrl(course.image),
+    provider: { "@id": organizationId },
+    teaches: course.groups.flatMap(([, items]) => items),
+    educationalCredentialAwarded: course.title.includes("Diploma") ? "Diploma" : "Certificate",
+    inLanguage: ["en", "ml"],
+    ...(duration && { timeRequired: duration }),
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "Onsite",
+      ...(duration && { courseWorkload: duration }),
+      location: {
+        "@type": "Place",
+        name: "Entrain Culinary Academy",
+        address: postalAddress,
+      },
+    },
+  };
+
   return (
     <InnerPage>
+      <JsonLd data={courseSchema} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Courses", path: "/courses" },
+          { name: course.title, path: `/courses/${course.slug}` },
+        ])}
+      />
       <section className="fine-grid pt-28 pb-12 md:pt-32 md:pb-16">
         <Reveal className="container-shell">
           <Link href="/courses" className="inline-flex items-center gap-2 text-xs font-bold text-muted transition hover:text-accent">

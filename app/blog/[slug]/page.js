@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ContactCta, InnerPage } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blog-posts";
+import { siteUrl } from "@/lib/site";
+import { absoluteUrl, breadcrumbSchema, organizationId } from "@/lib/schema";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -35,8 +38,32 @@ export default async function BlogPostPage({ params }) {
   const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
+  const postSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": postUrl,
+    mainEntityOfPage: postUrl,
+    url: postUrl,
+    headline: post.title,
+    description: post.excerpt,
+    image: absoluteUrl(post.image),
+    articleSection: post.category,
+    inLanguage: "en-IN",
+    author: { "@id": organizationId },
+    publisher: { "@id": organizationId },
+    isPartOf: { "@id": `${siteUrl}/blog` },
+  };
+
   return (
     <InnerPage>
+      <JsonLd data={postSchema} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
       <article>
         <header className="fine-grid pt-28 pb-12 md:pt-32 md:pb-16">
           <Reveal className="container-shell">

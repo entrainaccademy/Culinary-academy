@@ -7,7 +7,10 @@ import {
 } from "lucide-react";
 import { InnerPage, PageHero } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
 import { buttonVariants } from "@/components/ui/button";
+import { siteUrl } from "@/lib/site";
+import { breadcrumbSchema, organizationId, postalAddress } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
 export const metadata = {
@@ -22,6 +25,7 @@ const hrEmail = "hr.entrain@gmail.com";
 const jobs = [
   {
     id: "executive-chef-head-academics",
+    datePosted: "2026-09-11",
     title: "Executive Chef & Head of Culinary Academics",
     department: "Culinary Academics & Digital Learning",
     type: "Full-Time – Senior Position",
@@ -54,6 +58,7 @@ const jobs = [
   },
   {
     id: "bakery-chef-trainer",
+    datePosted: "2026-09-11",
     title: "Bakery Chef / Bakery Trainer",
     department: "Culinary Academics",
     type: "Full-Time",
@@ -86,9 +91,47 @@ const jobs = [
   },
 ];
 
+function listHtml(heading, items) {
+  return `<p><strong>${heading}</strong></p><ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+}
+
+const jobSchemas = jobs.map((job) => ({
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: job.title,
+  description: [
+    `<p>${job.title} — ${job.department}, Entrain Culinary Academy, Manjeri, Kerala. Experience: ${job.experience}. Apply by emailing ${hrEmail}.</p>`,
+    listHtml("Key Responsibilities", job.responsibilities),
+    listHtml("Qualifications & Experience", job.qualifications),
+    listHtml("Required Skills", job.skills),
+  ].join(""),
+  identifier: { "@type": "PropertyValue", name: "Entrain Culinary Academy", value: job.id },
+  datePosted: job.datePosted,
+  employmentType: "FULL_TIME",
+  hiringOrganization: {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: "Entrain Culinary Academy",
+    sameAs: siteUrl,
+    logo: `${siteUrl}/images/logo.webp`,
+  },
+  jobLocation: {
+    "@type": "Place",
+    address: postalAddress,
+  },
+  directApply: false,
+  url: `${siteUrl}/careers#${job.id}`,
+  skills: job.skills.join(", "),
+  qualifications: job.qualifications.join(" "),
+  responsibilities: job.responsibilities.join(" "),
+  industry: "Culinary Education",
+}));
+
 export default function CareersPage() {
   return (
     <InnerPage>
+      {jobSchemas.map((schema) => <JsonLd key={schema.identifier.value} data={schema} />)}
+      <JsonLd data={breadcrumbSchema([{ name: "Careers", path: "/careers" }])} />
       <PageHero
         compact
         eyebrow="Join our team"

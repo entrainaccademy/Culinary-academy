@@ -1,5 +1,7 @@
 import { Manrope, Playfair_Display } from "next/font/google";
+import { JsonLd } from "@/components/json-ld";
 import { siteUrl } from "@/lib/site";
+import { organizationId, postalAddress, websiteId } from "@/lib/schema";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -87,9 +89,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "@id": `${siteUrl}/#organization`,
+    "@type": ["EducationalOrganization", "LocalBusiness"],
+    "@id": organizationId,
     name: "Entrain Culinary Academy",
     alternateName: ["Entrain Academy", "Entrain Culinary School"],
     url: siteUrl,
@@ -103,14 +104,7 @@ export default function RootLayout({ children }) {
       name: "Noufal K Keedath",
     },
     telephone: "+91-7593841013",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Veemboor - Mariyad School Road",
-      addressLocality: "Manjeri",
-      addressRegion: "Kerala",
-      postalCode: "676122",
-      addressCountry: "IN",
-    },
+    address: postalAddress,
     areaServed: {
       "@type": "Country",
       name: "India",
@@ -118,17 +112,28 @@ export default function RootLayout({ children }) {
     sameAs: [
       "https://www.instagram.com/entrain_academy/",
       "https://www.facebook.com/p/Entrain-academy-61582002569465/",
+      "https://www.youtube.com/@EntrainAcademy",
       "https://www.google.com/maps/place/Entrain+academy/data=!4m2!3m1!1s0x0:0xa4b9b37a9b1fe363",
     ],
+  };
+
+  const websiteSchema = {
+    "@type": "WebSite",
+    "@id": websiteId,
+    name: "Entrain Culinary Academy",
+    alternateName: "Entrain Academy",
+    url: siteUrl,
+    inLanguage: "en-IN",
+    publisher: { "@id": organizationId },
   };
 
   return (
     <html lang="en" className={`${manrope.variable} ${playfair.variable}`}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [organizationSchema, websiteSchema],
           }}
         />
         {children}

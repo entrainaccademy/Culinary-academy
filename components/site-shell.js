@@ -82,7 +82,7 @@ export function Footer() {
           <div className="mt-3 flex gap-3">
             <a href="https://www.instagram.com/entrain_academy/?hl=en" target="_blank" rel="noreferrer" aria-label="Entrain Academy on Instagram" title="Instagram" className="grid size-10 place-items-center text-background/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-accent"><FaInstagram className="size-[1.1rem]" /></a>
             <a href="https://www.facebook.com/p/Entrain-academy-61582002569465/" target="_blank" rel="noreferrer" aria-label="Entrain Academy on Facebook" title="Facebook" className="grid size-10 place-items-center text-background/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-accent"><FaFacebookF className="size-4" /></a>
-            <span aria-label="Entrain Academy on YouTube" title="YouTube" className="grid size-10 place-items-center text-background/70"><FaYoutube className="size-[1.15rem]" /></span>
+            <a href="https://www.youtube.com/@EntrainAcademy" target="_blank" rel="noreferrer" aria-label="Entrain Academy on YouTube" title="YouTube" className="grid size-10 place-items-center text-background/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-accent"><FaYoutube className="size-[1.15rem]" /></a>
           </div>
         </div>
       </div>

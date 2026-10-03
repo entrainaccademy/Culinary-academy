@@ -3,7 +3,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { InnerPage, PageHero } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
 import { blogPosts } from "@/lib/blog-posts";
+import { siteUrl } from "@/lib/site";
+import { absoluteUrl, breadcrumbSchema, organizationId } from "@/lib/schema";
 
 export const metadata = {
   title: "Blog",
@@ -11,9 +14,28 @@ export const metadata = {
   alternates: { canonical: "/blog" },
 };
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${siteUrl}/blog`,
+  url: `${siteUrl}/blog`,
+  name: "The Entrain Journal",
+  description: metadata.description,
+  publisher: { "@id": organizationId },
+  blogPost: blogPosts.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: absoluteUrl(post.image),
+    url: `${siteUrl}/blog/${post.slug}`,
+  })),
+};
+
 export default function BlogPage() {
   return (
     <InnerPage>
+      <JsonLd data={blogSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: "Blog", path: "/blog" }])} />
       <PageHero
         compact
         eyebrow="The Entrain journal"

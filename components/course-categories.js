@@ -16,12 +16,14 @@ const categories = [
     id: "one-week",
     title: "One Week Workshops",
     image: oneWeekImage,
+    imageAlt: "Students in a one-week culinary workshop at Entrain Academy",
     courseSlugs: ["master-one-week-course", "shawarma-shawai", "arabian-cuisine-masterclass", "cake-pastry-workshop"],
   },
   {
     id: "one-day",
     title: "One Day Workshops",
     image: oneDayImage,
+    imageAlt: "Participants in a one-day cooking workshop at Entrain Academy",
     courseSlugs: ["fried-chicken-masterclass", "dessert-workshop", "pizza-burger-workshop", "loaded-fries-mojito-workshop"],
   },
 ];
@@ -46,7 +48,7 @@ export function CourseCategories() {
                     className="group relative flex min-h-[28rem] w-full overflow-hidden rounded-xl border border-border-subtle bg-primary text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_16px_35px_rgba(15,31,48,.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-[34rem]"
                     aria-label={`View ${item.title}`}
                   >
-                    <Image src={item.image} alt="" fill sizes="(max-width: 768px) 100vw, 50vw" loading={index === 0 ? "eager" : "lazy"} className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" loading={index === 0 ? "eager" : "lazy"} className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     <span className="absolute inset-0 bg-gradient-to-t from-[#0f1f30]/95 via-[#0f1f30]/35 to-[#0f1f30]/10" />
                     <span className="relative mt-auto flex w-full items-end justify-between gap-4 p-7 text-white sm:p-9">
                       <span>
@@ -60,7 +62,7 @@ export function CourseCategories() {
               ))}
             </div>
             <div className="mt-10 flex flex-col items-center gap-5 border-t border-border-subtle pt-8 text-center">
-              <Image src="/images/workshop-guidance.svg" alt="" width={160} height={120} className="mb-1" />
+              <Image src="/images/workshop-guidance.svg" alt="Illustration of a plate with a fork and spoon" width={160} height={120} className="mb-1" />
               <div>
                 <h2 className="font-serif text-2xl font-bold text-primary">Not sure which workshop to choose?</h2>
                 <p className="mt-2 text-sm leading-6 text-muted">Talk with our team and find the right place to start.</p>

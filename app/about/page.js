@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { Building2, Globe2, Lightbulb, Users } from "lucide-react";
 import { ContactCta, InnerPage, PageHero } from "@/components/inner-page";
+import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/reveal";
+import { siteUrl } from "@/lib/site";
+import { breadcrumbSchema, organizationId } from "@/lib/schema";
 
 export const metadata = {
   title: "Our Story",
@@ -18,9 +21,30 @@ const audiences = [
   "Agency-referred groups seeking customized culinary training",
 ];
 
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${siteUrl}/about`,
+  url: `${siteUrl}/about`,
+  name: "Our Story",
+  description: metadata.description,
+  about: { "@id": organizationId },
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${siteUrl}/about#founder`,
+    name: "Noufal K Keedath",
+    jobTitle: "Founder",
+    image: `${siteUrl}/images/noufal-founder.jpeg`,
+    worksFor: { "@id": organizationId },
+    founder: { "@id": organizationId },
+  },
+};
+
 export default function AboutPage() {
   return (
     <InnerPage>
+      <JsonLd data={aboutSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: "Our Story", path: "/about" }])} />
       <PageHero compact eyebrow="The story behind Entrain" title="Experience became the lesson. Resilience became the academy." copy="A culinary training institute built from the realities of food production, hospitality, customer service and business ownership." />
 
       <section className="pb-20 pt-0 md:pb-28 md:pt-0">

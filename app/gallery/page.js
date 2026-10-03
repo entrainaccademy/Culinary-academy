@@ -1,5 +1,7 @@
 import { ContactCta, InnerPage, PageHero } from "@/components/inner-page";
 import { GalleryGrid } from "@/components/gallery-grid";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
   title: "Gallery",
@@ -38,6 +40,7 @@ const galleryImages = [
 export default function GalleryPage() {
   return (
     <InnerPage>
+      <JsonLd data={breadcrumbSchema([{ name: "Gallery", path: "/gallery" }])} />
       <PageHero eyebrow="Inside Entrain" title="Craft, confidence and community." copy="Explore hands-on training, shared achievements and the people who bring every Entrain Academy workshop to life." />
       <section className="bg-[#f2ece3] py-16 md:py-24">
         <div className="container-shell">
