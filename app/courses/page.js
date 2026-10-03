@@ -23,12 +23,14 @@ const courseListSchema = {
   })),
 };
 
-export default function CoursesPage() {
+export default async function CoursesPage({ searchParams }) {
+  const { category } = await searchParams;
+
   return (
     <InnerPage>
       <JsonLd data={courseListSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "Courses", path: "/courses" }])} />
-      <CourseCategories />
+      <CourseCategories selectedCategory={category} />
     </InnerPage>
   );
 }

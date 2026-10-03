@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { MapPin, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, MapPin, Menu, Phone, X } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
@@ -17,6 +17,11 @@ const navItems = [
   ["Careers", "/careers"],
   ["Gallery", "/#gallery"],
   ["Contact", "/#contact"],
+];
+
+const workshopLinks = [
+  ["One Day Workshops", "/courses?category=one-day"],
+  ["One Week Workshops", "/courses?category=one-week"],
 ];
 
 export const callLink = "tel:+917593841013";
@@ -39,7 +44,20 @@ export function Navbar() {
         <Link href="/" onClick={() => setOpen(false)}><CrestLogo /></Link>
         <div className="hidden items-center gap-8 lg:flex">
           {navItems.map(([label, href]) => (
-            <Link key={label} href={href} className="text-[0.78rem] font-bold text-primary/75 transition-colors hover:text-accent">{label}</Link>
+            label === "Courses" ? (
+              <div key={label} className="group relative flex h-[78px] items-center">
+                <Link href={href} className="inline-flex items-center gap-1 text-[0.78rem] font-bold text-primary/75 transition-colors hover:text-accent group-focus-within:text-accent group-hover:text-accent">
+                  {label}<ChevronDown className="size-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true" />
+                </Link>
+                <div className="invisible absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 -translate-y-2 rounded-xl border border-border-subtle bg-background p-1.5 opacity-0 shadow-[0_18px_40px_rgba(15,31,48,.14)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  {workshopLinks.map(([workshopLabel, workshopHref]) => (
+                    <Link key={workshopHref} href={workshopHref} className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-accent/10 hover:text-accent focus-visible:bg-accent/10 focus-visible:text-accent focus-visible:outline-none">{workshopLabel}</Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link key={label} href={href} className="text-[0.78rem] font-bold text-primary/75 transition-colors hover:text-accent">{label}</Link>
+            )
           ))}
           <Link href={callLink} className={buttonVariants()}><Phone className="size-4" /> Call Us</Link>
         </div>
@@ -52,7 +70,16 @@ export function Navbar() {
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden border-t border-border-subtle/60 bg-background lg:hidden">
             <div className="container-shell flex flex-col py-5">
               {navItems.map(([label, href]) => (
-                <Link key={label} href={href} onClick={() => setOpen(false)} className="flex min-h-12 items-center border-b border-border-subtle/50 text-sm font-bold text-primary">{label}</Link>
+                <div key={label}>
+                  <Link href={href} onClick={() => setOpen(false)} className="flex min-h-12 items-center border-b border-border-subtle/50 text-sm font-bold text-primary">{label}</Link>
+                  {label === "Courses" && (
+                    <div className="border-b border-border-subtle/50 pb-2 pl-5">
+                      {workshopLinks.map(([workshopLabel, workshopHref]) => (
+                        <Link key={workshopHref} href={workshopHref} onClick={() => setOpen(false)} className="flex min-h-10 items-center text-sm text-primary/75 transition-colors hover:text-accent">{workshopLabel}</Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <Link href={callLink} className={cn(buttonVariants(), "mt-5 w-full")}><Phone className="size-4" /> Call Us</Link>
             </div>

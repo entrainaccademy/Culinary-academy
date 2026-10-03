@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock3, Phone } from "lucide-react";
@@ -28,9 +27,8 @@ const categories = [
   },
 ];
 
-export function CourseCategories() {
-  const [selected, setSelected] = useState(null);
-  const category = categories.find((item) => item.id === selected);
+export function CourseCategories({ selectedCategory }) {
+  const category = categories.find((item) => item.id === selectedCategory);
   const courses = category?.courseSlugs.map((slug) => courseDetails.find((course) => course.slug === slug)).filter(Boolean);
 
   return (
@@ -42,9 +40,8 @@ export function CourseCategories() {
             <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
               {categories.map((item, index) => (
                 <Reveal key={item.id} delay={index * 0.06} className="h-full">
-                  <button
-                    type="button"
-                    onClick={() => setSelected(item.id)}
+                  <Link
+                    href={`/courses?category=${item.id}`}
                     className="group relative flex min-h-[28rem] w-full overflow-hidden rounded-xl border border-border-subtle bg-primary text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_16px_35px_rgba(15,31,48,.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-[34rem]"
                     aria-label={`View ${item.title}`}
                   >
@@ -57,7 +54,7 @@ export function CourseCategories() {
                       </span>
                       <ArrowRight className="mb-1 size-6 shrink-0 text-[#e6bd7c] transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </span>
-                  </button>
+                  </Link>
                 </Reveal>
               ))}
             </div>
@@ -74,9 +71,9 @@ export function CourseCategories() {
           </div>
         ) : (
           <div>
-            <button type="button" onClick={() => setSelected(null)} aria-label="Back to workshop categories" className="mb-6 inline-flex min-h-11 items-center text-primary transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <Link href="/courses" aria-label="Back to workshop categories" className="mb-6 inline-flex min-h-11 items-center text-primary transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
               <ArrowLeft className="size-5" aria-hidden="true" />
-            </button>
+            </Link>
             <h1 className="display-title mb-8 text-4xl sm:text-5xl md:mb-10">{category.title}</h1>
             <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
               {courses.map((course) => (
