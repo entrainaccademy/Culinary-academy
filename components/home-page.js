@@ -205,14 +205,15 @@ const testimonials = [
   },
 ];
 
-function TestimonialCard({ testimonial }) {
+function TestimonialCard({ testimonial, duplicate = false }) {
   const isDark = testimonial.tone.includes("text-background");
   const Card = testimonial.reelUrl ? motion.a : motion.article;
 
   return (
+    <div role={duplicate ? undefined : "listitem"} className="shrink-0">
     <Card
-      role="listitem"
       href={testimonial.reelUrl}
+      tabIndex={duplicate && testimonial.reelUrl ? -1 : undefined}
       target={testimonial.reelUrl ? "_blank" : undefined}
       rel={testimonial.reelUrl ? "noopener noreferrer" : undefined}
       aria-label={testimonial.reelUrl ? `Watch ${testimonial.name}'s testimonial on Instagram` : undefined}
@@ -247,6 +248,7 @@ function TestimonialCard({ testimonial }) {
       <blockquote className={cn("mt-5 line-clamp-5 font-serif text-sm leading-6 sm:line-clamp-6 sm:text-[0.95rem] sm:leading-6", isDark ? "text-background/88" : "text-primary")}>“{testimonial.quote}”</blockquote>
       <div className={cn("mt-auto h-px w-10", isDark ? "bg-accent" : "bg-accent")} />
     </Card>
+    </div>
   );
 }
 
@@ -264,7 +266,7 @@ function TestimonialRow({ row, rowIndex, distance }) {
         {row.map((testimonial) => <TestimonialCard key={testimonial.detail} testimonial={testimonial} />)}
       </div>
       <div className="flex gap-5" aria-hidden="true">
-        {row.map((testimonial) => <TestimonialCard key={`duplicate-${testimonial.detail}`} testimonial={testimonial} />)}
+        {row.map((testimonial) => <TestimonialCard key={`duplicate-${testimonial.detail}`} testimonial={testimonial} duplicate />)}
       </div>
     </motion.div>
   );
@@ -284,6 +286,35 @@ function TestimonialMarquee() {
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-[#f2ece3] to-transparent sm:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-[#f2ece3] to-transparent sm:w-24" />
     </div>
+  );
+}
+
+// Both hero layouts render a video; only the visible one gets a source so the file downloads once.
+function HeroVideo({ media }) {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia(media);
+    const update = () => setActive(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, [media]);
+
+  return (
+    <video
+      className="absolute inset-0 size-full object-cover"
+      src={active ? "/videos/cookingvidoe.mp4" : undefined}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      poster="/images/cooking.webp"
+      aria-label="Culinary training in a professional kitchen"
+    >
+      <track kind="captions" src="/videos/cookingvidoe.vtt" srcLang="en" label="English" />
+    </video>
   );
 }
 
@@ -338,25 +369,14 @@ export function HomePage() {
         <section className="fine-grid relative min-h-dvh overflow-hidden pt-19.5">
           <div className="pointer-events-none absolute -left-32 top-36 size-80 rounded-full bg-accent/10 blur-3xl" />
           <div className="container-shell grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 lg:grid-cols-[1.03fr_.97fr] lg:py-16">
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div initial={{ y: 24 }} animate={{ y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
               <h1 className="display-title max-w-3xl text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[4.55rem]">Learn from experience. <span className="italic text-accent">Grow</span> with confidence.</h1>
               <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Develop practical culinary and business skills for your career or food venture.</p>
 
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
                 <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
                 <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
-                  <video
-                    className="absolute inset-0 size-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster="/images/cooking.webp"
-                    aria-label="Culinary training in a professional kitchen"
-                  >
-                    <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
-                  </video>
+                  <HeroVideo media="(max-width: 1023px)" />
                   <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background">
                     <div>
@@ -393,21 +413,10 @@ export function HomePage() {
                 ))}
               </div>
             </motion.div>
-            <motion.div className="relative mx-auto hidden w-full max-w-lg lg:block lg:max-w-none" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.65, delay: 0.12 }}>
+            <motion.div className="relative mx-auto hidden w-full max-w-lg lg:block lg:max-w-none" initial={{ scale: 0.97 }} animate={{ scale: 1 }} transition={{ duration: 0.65, delay: 0.12 }}>
               <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55 sm:-right-5 sm:-top-5" />
               <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
-                <video
-                  className="absolute inset-0 size-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster="/images/cooking.webp"
-                  aria-label="Culinary training in a professional kitchen"
-                >
-                  <source src="/videos/cookingvidoe.mp4" type="video/mp4" />
-                </video>
+                <HeroVideo media="(min-width: 1024px)" />
                 <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background sm:bottom-8 sm:left-8 sm:right-8"><div><p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div><div className="hidden items-center gap-2 text-[0.6rem] font-extrabold uppercase tracking-widest text-background/70 sm:flex"><span className="size-2 rounded-full bg-accent shadow-[0_0_0_5px_rgba(184,134,63,.18)]" /> In motion</div></div>
               </div>

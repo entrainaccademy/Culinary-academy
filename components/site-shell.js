@@ -119,7 +119,7 @@ export function Footer() {
             <span>{phoneDisplay}</span>
           </a>
           <Link href={callLink} className={cn(buttonVariants({ variant: "default" }), "mt-5 lg:hidden")}><Phone className="size-4" /> Call Us</Link>
-          <p className="mt-7 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-background/45">Follow the academy</p>
+          <p className="mt-7 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-background/70">Follow the academy</p>
           <div className="mt-3 flex gap-3">
             <a href="https://www.instagram.com/entrain_academy/?hl=en" target="_blank" rel="noreferrer" aria-label="Entrain Academy on Instagram" title="Instagram" className="grid size-10 place-items-center text-background/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-accent"><FaInstagram className="size-[1.1rem]" /></a>
             <a href="https://www.facebook.com/p/Entrain-academy-61582002569465/" target="_blank" rel="noreferrer" aria-label="Entrain Academy on Facebook" title="Facebook" className="grid size-10 place-items-center text-background/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-accent"><FaFacebookF className="size-4" /></a>
@@ -127,7 +127,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-background/10"><div className="container-shell py-5 text-xs text-background/40"><p>© {new Date().getFullYear()} Entrain Academy. All rights reserved.</p></div></div>
+      <div className="border-t border-background/10"><div className="container-shell py-5 text-xs text-background/70"><p>© {new Date().getFullYear()} Entrain Academy. All rights reserved.</p></div></div>
       <div className="container-shell relative h-[5.4rem] overflow-hidden sm:h-[8rem] md:h-[10.5rem] lg:h-[13rem]" aria-hidden="true">
         <motion.p
           initial={{ opacity: 0, y: 90 }}

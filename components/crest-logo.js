@@ -11,6 +11,7 @@ export function CrestLogo({ compact = false, light = false }) {
         alt="Entrain Academy shield-and-laurel crest"
         width={2048}
         height={2048}
+        sizes="190px"
         priority
         className={`absolute max-w-none ${compact ? "-left-[57px] -top-[52px] size-[150px]" : "left-0 -top-[65px] size-[190px]"}`}
       />
