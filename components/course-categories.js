@@ -9,6 +9,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { courseDetails } from "@/lib/courses";
 import oneWeekImage from "@/public/images/oneweek.jpg";
 import oneDayImage from "@/public/images/oneday.jpg";
+import diplomaImage from "@/public/images/oneyear.jpg";
 
 const categories = [
   {
@@ -25,6 +26,14 @@ const categories = [
     imageAlt: "Participants in a one-day cooking workshop at Entrain Academy",
     courseSlugs: ["fried-chicken-masterclass", "dessert-workshop", "pizza-burger-workshop", "loaded-fries-mojito-workshop"],
   },
+  {
+    id: "diploma",
+    title: "Diploma Programs",
+    countLabel: "1-year program",
+    image: diplomaImage,
+    imageAlt: "Pastry chef piping cream onto a chocolate cake in the bakery and pastry diploma",
+    courseSlugs: ["bakery-pastry-diploma"],
+  },
 ];
 
 export function CourseCategories({ selectedCategory }) {
@@ -36,8 +45,8 @@ export function CourseCategories({ selectedCategory }) {
       <div className="container-shell">
         {!category ? (
           <div>
-            <h1 className="display-title mb-8 text-4xl sm:text-5xl md:mb-10">Explore our workshops.</h1>
-            <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+            <h1 className="display-title mb-8 text-4xl sm:text-5xl md:mb-10">Explore our courses.</h1>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {categories.map((item, index) => (
                 <Reveal key={item.id} delay={index * 0.06} className="h-full">
                   <Link
@@ -45,11 +54,11 @@ export function CourseCategories({ selectedCategory }) {
                     className="group relative flex min-h-[28rem] w-full overflow-hidden rounded-xl border border-border-subtle bg-primary text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_16px_35px_rgba(15,31,48,.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-[34rem]"
                     aria-label={`View ${item.title}`}
                   >
-                    <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" loading={index === 0 ? "eager" : "lazy"} className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" loading={index === 0 ? "eager" : "lazy"} className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     <span className="absolute inset-0 bg-gradient-to-t from-[#0f1f30]/95 via-[#0f1f30]/35 to-[#0f1f30]/10" />
                     <span className="relative mt-auto flex w-full items-end justify-between gap-4 p-7 text-white sm:p-9">
                       <span>
-                        <span className="mb-3 block text-xs font-extrabold uppercase tracking-[0.18em] text-[#e6bd7c]">{item.courseSlugs.length} workshops</span>
+                        <span className="mb-3 block text-xs font-extrabold uppercase tracking-[0.18em] text-[#e6bd7c]">{item.countLabel ?? `${item.courseSlugs.length} workshops`}</span>
                         <span className="block font-serif text-3xl font-bold leading-tight sm:text-4xl">{item.title}</span>
                       </span>
                       <ArrowRight className="mb-1 size-6 shrink-0 text-[#e6bd7c] transition-transform group-hover:translate-x-1" aria-hidden="true" />

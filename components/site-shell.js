@@ -22,6 +22,7 @@ const navItems = [
 const workshopLinks = [
   ["One Day Workshops", "/courses?category=one-day"],
   ["One Week Workshops", "/courses?category=one-week"],
+  ["Diploma Programs", "/courses?category=diploma"],
 ];
 
 export const callLink = "tel:+917593841013";
