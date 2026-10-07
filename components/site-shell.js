@@ -26,6 +26,7 @@ const workshopLinks = [
 ];
 
 export const callLink = "tel:+917593841013";
+const phoneDisplay = "+91 75938 41013";
 const locationLink = "https://www.google.com/maps/place/Entrain+academy/data=!4m2!3m1!1s0x0:0xa4b9b37a9b1fe363?sa=X&ved=1t:2428&ictx=111";
 
 export function Navbar() {
@@ -60,7 +61,7 @@ export function Navbar() {
               <Link key={label} href={href} className="text-[0.78rem] font-bold text-primary/75 transition-colors hover:text-accent">{label}</Link>
             )
           ))}
-          <Link href={callLink} className={buttonVariants()}><Phone className="size-4" /> Call Us</Link>
+          <Link href={callLink} className={buttonVariants()} aria-label={`Call us at ${phoneDisplay}`}><Phone className="size-4" /> <span className="xl:hidden">Call Us</span><span className="hidden xl:inline">{phoneDisplay}</span></Link>
         </div>
         <button className="grid size-11 place-items-center text-primary lg:hidden" onClick={() => setOpen((value) => !value)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
           {open ? <X /> : <Menu />}
@@ -94,8 +95,16 @@ export function Navbar() {
 export function Footer() {
   return (
     <footer id="contact" className="bg-dark-section text-background">
-      <div className="container-shell grid gap-12 py-16 md:grid-cols-[1.1fr_.8fr_.8fr] md:py-20">
+      <div className="container-shell grid gap-12 py-16 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.2fr_.7fr_.9fr_.9fr]">
         <div><CrestLogo light /><p className="mt-6 max-w-sm text-sm leading-7 text-background/60">Practical culinary education, grounded in real industry experience and built for meaningful careers and resilient food businesses.</p></div>
+        <div>
+          <p className="eyebrow">Explore</p>
+          <ul className="mt-5 grid gap-2.5 text-sm">
+            {navItems.map(([label, href]) => (
+              <li key={label}><Link href={href} className="text-background/70 transition-colors hover:text-accent">{label}</Link></li>
+            ))}
+          </ul>
+        </div>
         <div>
           <p className="eyebrow">Visit the academy</p>
           <a href={locationLink} target="_blank" rel="noreferrer" className="group mt-5 flex gap-3 text-sm leading-7 text-background/70 transition-colors hover:text-background">
@@ -105,7 +114,11 @@ export function Footer() {
         </div>
         <div>
           <p className="eyebrow">Start a conversation</p>
-          <Link href={callLink} className={cn(buttonVariants({ variant: "default" }), "mt-5")}><Phone className="size-4" /> Call Us</Link>
+          <a href={callLink} className="mt-5 hidden items-center gap-3 text-sm leading-7 text-background/70 transition-colors hover:text-background lg:flex">
+            <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
+            <span>{phoneDisplay}</span>
+          </a>
+          <Link href={callLink} className={cn(buttonVariants({ variant: "default" }), "mt-5 lg:hidden")}><Phone className="size-4" /> Call Us</Link>
           <p className="mt-7 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-background/45">Follow the academy</p>
           <div className="mt-3 flex gap-3">
             <a href="https://www.instagram.com/entrain_academy/?hl=en" target="_blank" rel="noreferrer" aria-label="Entrain Academy on Instagram" title="Instagram" className="grid size-10 place-items-center text-background/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-accent"><FaInstagram className="size-[1.1rem]" /></a>

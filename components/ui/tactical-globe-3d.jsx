@@ -640,14 +640,15 @@ export default function TacticalGlobe3D({
   const countryIndex = useMemo(() => {
     if (!feats) return [];
     const out = [];
-    for (const f of feats) {
+    for (const [index, f] of feats.entries()) {
       const pad3 = String(f.id).padStart(3, "0");
       const e = CD[pad3];
       const a3 = e ? e[0] : pad3;
       const nm = e ? e[1] : a3;
       if (a3 === "ATA") continue; // skip antarctica
       out.push({
-        id: a3,
+        // Some features (disputed areas) have no id, so keep keys unique
+        id: e ? a3 : `${pad3}-${index}`,
         numId: pad3,
         name: nm,
         type: f.type,
