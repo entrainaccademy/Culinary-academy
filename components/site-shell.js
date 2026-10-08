@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { CrestLogo } from "@/components/crest-logo";
 import { cn } from "@/lib/utils";
+import { callLink, locationLink, phoneDisplay } from "@/lib/site";
 
 const navItems = [
   ["Home", "/"],
@@ -16,7 +17,7 @@ const navItems = [
   ["Blog", "/blog"],
   ["Careers", "/careers"],
   ["Gallery", "/#gallery"],
-  ["Contact", "/#contact"],
+  ["Contact", "/contact"],
 ];
 
 const workshopLinks = [
@@ -25,9 +26,7 @@ const workshopLinks = [
   ["Diploma Programs", "/courses?category=diploma"],
 ];
 
-export const callLink = "tel:+917593841013";
-const phoneDisplay = "+91 75938 41013";
-const locationLink = "https://www.google.com/maps/place/Entrain+academy/data=!4m2!3m1!1s0x0:0xa4b9b37a9b1fe363?sa=X&ved=1t:2428&ictx=111";
+export { callLink };
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);

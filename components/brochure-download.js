@@ -3,8 +3,7 @@
 import { useRef, useState } from "react";
 import { Download, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const whatsappNumber = "917593841013";
+import { whatsappNumber } from "@/lib/site";
 
 export function BrochureDownload({ courseTitle, brochureUrl }) {
   const dialogRef = useRef(null);
