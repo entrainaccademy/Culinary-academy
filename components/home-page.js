@@ -23,6 +23,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { FaInstagram } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { callLink, SiteShell } from "@/components/site-shell";
 import { Reveal, rise, stagger } from "@/components/reveal";
@@ -574,6 +575,12 @@ export function HomePage() {
         <section id="testimonials" className="border-t border-border-subtle bg-[#f2ece3] py-20 md:py-24">
           <div className="container-shell"><Reveal><SectionHeading eyebrow="Customer stories" title="Practical training. Meaningful experiences." titleClassName="whitespace-nowrap !text-[clamp(1rem,5.15vw,1.875rem)] sm:!text-4xl md:!text-5xl" /></Reveal></div>
           <TestimonialMarquee />
+          <div className="container-shell mt-8 flex justify-center">
+            <p className="inline-flex items-center gap-2 rounded-full bg-accent py-1 pl-1 pr-3.5 text-[0.7rem] font-bold text-dark-section shadow-[0_6px_16px_rgba(184,134,63,.22)]">
+              <span className="grid size-6 shrink-0 place-items-center rounded-full bg-dark-section text-accent"><FaInstagram className="size-3" aria-hidden="true" /></span>
+              Tap to see full video
+            </p>
+          </div>
         </section>
 
         <section className="relative overflow-hidden py-16 md:py-24">
