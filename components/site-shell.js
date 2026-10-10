@@ -60,7 +60,6 @@ export function Navbar() {
               <Link key={label} href={href} className="text-[0.78rem] font-bold text-primary/75 transition-colors hover:text-accent">{label}</Link>
             )
           ))}
-          <Link href={callLink} className={buttonVariants()} aria-label={`Call us at ${phoneDisplay}`}><Phone className="size-4" /> <span className="xl:hidden">Call Us</span><span className="hidden xl:inline">{phoneDisplay}</span></Link>
         </div>
         <button className="grid size-11 place-items-center text-primary lg:hidden" onClick={() => setOpen((value) => !value)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
           {open ? <X /> : <Menu />}

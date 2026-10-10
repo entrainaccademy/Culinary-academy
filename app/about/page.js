@@ -77,6 +77,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-[#f7f3ed] py-20 md:py-28">
+        <div className="container-shell">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">Mission & vision</p>
+            <h2 className="display-title mt-4 text-3xl md:text-5xl">Rooted in practice. Growing with purpose.</h2>
+          </Reveal>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:gap-8">
+            <Reveal className="border border-border-subtle bg-background p-7 sm:p-9">
+              <span className="font-serif text-2xl text-accent">01</span>
+              <h3 className="mt-5 font-serif text-3xl text-primary">Our mission</h3>
+              <p className="mt-4 text-sm leading-7 text-muted md:text-base">To make real-world culinary and food business skills accessible through hands-on training, experienced chefs and commercial kitchen practice. We want every learner to leave with the confidence to take their next step.</p>
+            </Reveal>
+            <Reveal delay={0.08} className="border border-border-subtle bg-background p-7 sm:p-9">
+              <span className="font-serif text-2xl text-accent">02</span>
+              <h3 className="mt-5 font-serif text-3xl text-primary">Our vision</h3>
+              <p className="mt-4 text-sm leading-7 text-muted md:text-base">To grow from our Manjeri base into a trusted place for practical culinary education across Kerala. We plan to open in Kochi and Kozhikode, bringing the same chef-led learning closer to more aspiring professionals and food entrepreneurs.</p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28">
         <div className="container-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
           <Reveal><p className="eyebrow">Who we serve</p><h2 className="display-title mt-4 text-3xl md:text-5xl">Different ambitions. One practical foundation.</h2><p className="mt-6 text-sm leading-7 text-muted">Every program is designed around relevant skills, updated equipment and a multilingual learning environment.</p></Reveal>
