@@ -125,7 +125,15 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-background/10"><div className="container-shell py-5 text-xs text-background/70"><p>© {new Date().getFullYear()} Entrain Academy. All rights reserved.</p></div></div>
+      <div className="border-t border-background/10">
+        <div className="container-shell flex flex-wrap items-center justify-between gap-3 py-5 text-xs text-background/70">
+          <p>© {new Date().getFullYear()} Entrain Academy. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link href="/privacy-policy" className="transition-colors hover:text-accent">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="transition-colors hover:text-accent">Terms &amp; Conditions</Link>
+          </div>
+        </div>
+      </div>
       <div className="container-shell relative h-[5.4rem] overflow-hidden sm:h-[8rem] md:h-[10.5rem] lg:h-[13rem]" aria-hidden="true">
         <motion.p
           initial={{ opacity: 0, y: 90 }}
