@@ -25,7 +25,10 @@ export const metadata = {
   description:
     "Entrain Culinary Academy in Manjeri, Kerala offers practical chef-led culinary courses, bakery training and food business workshops.",
   verification: {
-    google: "xAtyNQ_eFN056EQCvF-YQpWCQLA5zzOau9UnHyZOSaQ",
+    google: [
+      "xAtyNQ_eFN056EQCvF-YQpWCQLA5zzOau9UnHyZOSaQ",
+      "WDUlQO6zYxe-xsX1t5kX-G9WS89sMaOuGBBLamAt5wA",
+    ],
   },
   alternates: {
     canonical: "/",
