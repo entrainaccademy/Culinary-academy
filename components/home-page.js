@@ -24,8 +24,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
-import { FaPhone } from "react-icons/fa6";
-import { callLink, SiteShell } from "@/components/site-shell";
+import { SiteShell } from "@/components/site-shell";
 import { Reveal, rise, stagger } from "@/components/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { IndiaReachGlobe } from "@/components/ui/india-reach-globe";
@@ -371,8 +370,8 @@ export function HomePage() {
           <div className="pointer-events-none absolute -left-32 top-36 size-80 rounded-full bg-accent/10 blur-3xl" />
           <div className="container-shell grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 lg:grid-cols-[1.03fr_.97fr] lg:py-16">
             <motion.div initial={{ y: 24 }} animate={{ y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
-              <h1 className="display-title max-w-3xl text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[4.55rem]">Learn from experience. <span className="italic text-accent">Grow</span> with confidence.</h1>
-              <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Develop practical culinary and business skills for your career or food venture.</p>
+              <h1 className="display-title max-w-3xl text-[2.15rem] sm:text-4xl md:text-5xl lg:text-[3.55rem]">Become a <span className="italic text-accent">Culinary Professional</span> with <span className="whitespace-nowrap">Chef-Led</span> Practical Training</h1>
+              <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Learn cooking, baking, pastry and fast-food preparation hands-on with experienced chefs at Entrain Academy, Manjeri, Kerala.</p>
 
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
                 <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
@@ -383,9 +382,6 @@ export function HomePage() {
                     <div>
                       <p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Learning by doing</p>
                       <p className="mt-1 font-serif text-lg sm:text-xl">Industry skills, taught hands-on.</p>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-[0.6rem] font-extrabold uppercase tracking-widest text-background/80">
-                      <span className="size-2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(184,134,63,.25)]" /> In motion
                     </div>
                   </div>
                 </div>
@@ -398,18 +394,12 @@ export function HomePage() {
                     <ArrowRight className="size-[1.1rem]" strokeWidth={2.25} />
                   </span>
                 </Link>
-                <Link
-                  href={callLink}
-                  aria-label="Call Entrain Academy"
-                  title="Call Entrain Academy"
-                  className="group inline-flex h-14 w-11 shrink-0 items-center justify-center overflow-hidden bg-transparent text-[0.72rem] font-extrabold uppercase tracking-widest text-primary transition-[width,color,transform] duration-300 hover:-translate-y-0.5 hover:text-accent sm:hover:w-33 sm:focus-visible:w-33"
-                >
-                  <FaPhone className="size-5 shrink-0 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" />
-                  <span className="ml-0 hidden max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 sm:block sm:group-hover:ml-3 sm:group-hover:max-w-24 sm:group-hover:opacity-100 sm:group-focus-visible:ml-3 sm:group-focus-visible:max-w-24 sm:group-focus-visible:opacity-100">Call Us</span>
+                <Link href="/contact" className="inline-flex min-h-14 items-center justify-center rounded-full bg-accent px-6 text-[0.7rem] font-extrabold uppercase tracking-widest text-dark-section shadow-[0_10px_24px_rgba(184,134,63,.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:text-background hover:shadow-[0_14px_30px_rgba(15,31,48,.25)] sm:text-[0.74rem]">
+                  Enquire Now
                 </Link>
               </div>
               <div className="mt-12 grid grid-cols-3 border-y border-border-subtle py-5">
-                {[["20–25", "Years chef experience"], ["Worldwide", "Customer reach"], ["Certified", "Every course"]].map(([value, label], index) => (
+                {[["Experienced", "Chefs"], ["Worldwide", "Customer reach"], ["Certified", "Every course"]].map(([value, label], index) => (
                   <div key={value} className={`px-2 first:pl-0 sm:px-5 ${index > 0 ? "border-l border-border-subtle" : ""}`}><p className="font-serif text-lg font-bold text-primary sm:text-2xl">{value}</p><p className="mt-1 text-[0.58rem] font-bold uppercase leading-4 tracking-[0.08em] text-muted sm:text-[0.65rem]">{label}</p></div>
                 ))}
               </div>
@@ -419,7 +409,7 @@ export function HomePage() {
               <div className="relative aspect-4/5 overflow-hidden bg-dark-section">
                 <HeroVideo media="(min-width: 1024px)" />
                 <div className="absolute inset-0 bg-linear-to-t from-dark-section/65 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background sm:bottom-8 sm:left-8 sm:right-8"><div><p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div><div className="hidden items-center gap-2 text-[0.6rem] font-extrabold uppercase tracking-widest text-background/70 sm:flex"><span className="size-2 rounded-full bg-accent shadow-[0_0_0_5px_rgba(184,134,63,.18)]" /> In motion</div></div>
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-background sm:bottom-8 sm:left-8 sm:right-8"><div><p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Learning by doing</p><p className="mt-2 font-serif text-xl">Industry skills, taught hands-on.</p></div></div>
               </div>
             </motion.div>
           </div>
@@ -432,7 +422,7 @@ export function HomePage() {
               <h2 className="display-title mt-3 text-3xl sm:text-4xl md:text-5xl">A decade of experience, now shared.</h2>
             </Reveal>
 
-            <Reveal delay={0.1} className="relative mx-auto mt-14 max-w-4xl">
+            <Reveal delay={0.1} className="relative mx-auto mt-14 max-w-4xl 2xl:max-w-6xl">
               <div className="absolute -right-3 -top-3 hidden h-full w-full border border-accent/55 sm:-right-5 sm:-top-5 sm:block" />
               <motion.div
                 className="relative grid gap-12 border border-border-subtle bg-[#f2ece3]/55 px-8 py-12 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border-subtle sm:px-6 sm:py-14"
@@ -585,7 +575,7 @@ export function HomePage() {
 
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="container-shell">
-            <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-14">
+            <div className="mx-auto grid max-w-6xl gap-10 2xl:max-w-full lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-14">
               <motion.div className="flex flex-col justify-center" initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}>
                 <h2 className="font-serif text-3xl tracking-tight text-primary sm:text-4xl md:text-5xl">Why choose Entrain</h2>
                 <motion.div className="mt-8 grid border-t border-border-subtle sm:grid-cols-2" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>

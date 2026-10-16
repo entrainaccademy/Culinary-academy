@@ -81,6 +81,13 @@ a {
   }
 }
 
+/* Large desktop screens: use more of the width instead of a narrow centred column. */
+@media (min-width: 1536px) {
+  .container-shell {
+    width: min(100% - 8rem, 92rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

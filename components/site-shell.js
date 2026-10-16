@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, MapPin, Menu, Phone, X } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { CrestLogo } from "@/components/crest-logo";
 import { cn } from "@/lib/utils";
-import { callLink, locationLink, phoneDisplay } from "@/lib/site";
+import { callLink, locationLink, phoneDisplay, whatsappNumber } from "@/lib/site";
 
 const navItems = [
   ["Home", "/"],
@@ -149,6 +149,24 @@ export function Footer() {
   );
 }
 
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Entrain Academy, I would like to know more about your courses.")}`;
+
+// WhatsApp shows on every screen; the call button is phone-sized screens only, where a tap can dial.
+function FloatingContact() {
+  const buttonClass = "grid size-14 place-items-center rounded-full text-white shadow-[0_10px_28px_rgba(15,31,48,.28)] transition-transform duration-300 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+
+  return (
+    <div className="fixed bottom-5 right-4 z-40 flex flex-col gap-3 pb-[env(safe-area-inset-bottom)] sm:right-6">
+      <a href={callLink} aria-label={`Call us at ${phoneDisplay}`} title="Call us" className={cn(buttonClass, "bg-dark-section md:hidden")}>
+        <Phone className="size-6" aria-hidden="true" />
+      </a>
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp" className={cn(buttonClass, "bg-[#128c7e]")}>
+        <FaWhatsapp className="size-7" aria-hidden="true" />
+      </a>
+    </div>
+  );
+}
+
 export function SiteShell({ children }) {
-  return <><Navbar />{children}<Footer /></>;
+  return <><Navbar />{children}<Footer /><FloatingContact /></>;
 }
