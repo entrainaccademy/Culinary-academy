@@ -71,7 +71,7 @@ export default function AboutPage() {
 
       <section className="bg-dark-section py-20 text-background md:py-24">
         <div className="container-shell grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {[[Building2, "One focused center", "A specialized learning environment in Manjeri, Kerala."], [Users, "Expert-led", "Chefs with 20–25 years of industry experience."], [Lightbulb, "Chef Professor", "Commercial knowledge paired with proven teaching experience."], [Globe2, "Worldwide reach", "Customers from India, South Africa and beyond."]].map(([Icon, title, copy], index) => (
+          {[[Building2, "One focused center", "A specialized learning environment in Malappuram, Kerala."], [Users, "Expert-led", "Chefs with 20–25 years of industry experience."], [Lightbulb, "Chef Professor", "Commercial knowledge paired with proven teaching experience."], [Globe2, "Worldwide reach", "Customers from India, South Africa and beyond."]].map(([Icon, title, copy], index) => (
             <Reveal key={title} delay={index * 0.05}><Icon className="size-6 text-accent" strokeWidth={1.5} /><h3 className="mt-5 font-serif text-xl">{title}</h3><p className="mt-3 text-sm leading-7 text-background/55">{copy}</p></Reveal>
           ))}
         </div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
             <Reveal delay={0.08} className="border border-border-subtle bg-background p-7 sm:p-9">
               <span className="font-serif text-2xl text-accent">02</span>
               <h3 className="mt-5 font-serif text-3xl text-primary">Our vision</h3>
-              <p className="mt-4 text-sm leading-7 text-muted md:text-base">To grow from our Manjeri base into a trusted place for practical culinary education across Kerala. We plan to open in Kochi and Kozhikode, bringing the same chef-led learning closer to more aspiring professionals and food entrepreneurs.</p>
+              <p className="mt-4 text-sm leading-7 text-muted md:text-base">To grow from our Malappuram base into a trusted place for practical culinary education across Kerala. We plan to open in Kochi and Kozhikode, bringing the same chef-led learning closer to more aspiring professionals and food entrepreneurs.</p>
             </Reveal>
           </div>
         </div>

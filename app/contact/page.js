@@ -4,12 +4,12 @@ import { InnerPage, PageHero } from "@/components/inner-page";
 import { ContactForm } from "@/components/contact-form";
 import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/reveal";
-import { callLink, locationLink, phoneDisplay, siteUrl, whatsappNumber } from "@/lib/site";
+import { academyAddress, callLink, locationLink, phoneDisplay, siteUrl, whatsappNumber } from "@/lib/site";
 import { breadcrumbSchema, organizationId } from "@/lib/schema";
 
 export const metadata = {
   title: "Contact",
-  description: "Call, WhatsApp or visit Entrain Culinary Academy in Manjeri, Kerala to ask about courses, workshops and admissions.",
+  description: "Call, WhatsApp or visit Entrain Culinary Academy in Malappuram, Kerala to ask about courses, workshops and admissions.",
   alternates: { canonical: "/contact" },
 };
 
@@ -42,7 +42,7 @@ const contactMethods = [
   {
     icon: MapPin,
     label: "Visit the academy",
-    value: "Veemboor - Mariyad School Rd, Manjeri, Kerala 676122",
+    value: academyAddress,
     note: "Open in Google Maps",
     href: locationLink,
     external: true,
@@ -95,8 +95,8 @@ export default function ContactPage() {
           <Reveal delay={0.1} className="flex flex-col">
             <div className="relative min-h-80 flex-1 overflow-hidden rounded-xl border border-border-subtle bg-[#f2ece3] lg:min-h-0">
               <iframe
-                title="Map showing Entrain Culinary Academy in Manjeri, Kerala"
-                src="https://maps.google.com/maps?q=Entrain%20academy%2C%20Manjeri%2C%20Kerala&z=15&output=embed"
+                title="Map showing Entrain Academy in Malappuram, Kerala"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(academyAddress)}&z=15&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 size-full border-0"

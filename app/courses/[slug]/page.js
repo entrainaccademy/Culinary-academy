@@ -19,7 +19,7 @@ const isoDurations = {
 };
 
 function courseDescription(course) {
-  return course.description || `${course.title} at Entrain Culinary Academy in Manjeri, Kerala. Duration: ${course.duration}.`;
+  return course.description || `${course.title} at Entrain Culinary Academy in Malappuram, Kerala. Duration: ${course.duration}.`;
 }
 
 export function generateStaticParams() {

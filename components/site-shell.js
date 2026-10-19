@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { CrestLogo } from "@/components/crest-logo";
 import { cn } from "@/lib/utils";
-import { callLink, locationLink, phoneDisplay, whatsappNumber } from "@/lib/site";
+import { academyAddress, callLink, locationLink, phoneDisplay, whatsappNumber } from "@/lib/site";
 
 const navItems = [
   ["Home", "/"],
@@ -107,7 +107,7 @@ export function Footer() {
           <p className="eyebrow">Visit the academy</p>
           <a href={locationLink} target="_blank" rel="noreferrer" className="group mt-5 flex gap-3 text-sm leading-7 text-background/70 transition-colors hover:text-background">
             <MapPin className="mt-1 size-4 shrink-0 text-accent transition-transform group-hover:-translate-y-0.5" />
-            <span>Veemboor - Mariyad School Rd,<br />Manjeri, Kerala 676122<br /><span className="mt-2 inline-block text-[0.63rem] font-bold uppercase tracking-[0.12em] text-accent">Open in Google Maps</span></span>
+            <span>{academyAddress}<br /><span className="mt-2 inline-block text-[0.63rem] font-bold uppercase tracking-[0.12em] text-accent">Open in Google Maps</span></span>
           </a>
         </div>
         <div>

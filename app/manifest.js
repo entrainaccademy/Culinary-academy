@@ -2,7 +2,7 @@ export default function manifest() {
   return {
     name: "Entrain Culinary Academy",
     short_name: "Entrain Academy",
-    description: "Practical Chef-Led Culinary Courses & Bakery Training in Manjeri, Kerala",
+    description: "Practical Chef-Led Culinary Courses & Bakery Training in Malappuram, Kerala",
     start_url: "/",
     display: "standalone",
     background_color: "#0f1f30",

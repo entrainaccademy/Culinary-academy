@@ -1,5 +1,5 @@
 # robots.txt for https://www.entrainculinaryschool.com/
-# Entrain Culinary Academy, Manjeri, Kerala
+# Entrain Culinary Academy, Malappuram, Kerala
 
 # Default: all crawlers may access the public site
 User-agent: *

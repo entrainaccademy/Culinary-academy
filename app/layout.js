@@ -19,11 +19,11 @@ const playfair = Playfair_Display({
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Entrain Academy | Culinary School in Manjeri, Kerala",
+    default: "Entrain Academy | Culinary School in Malappuram, Kerala",
     template: "%s | Entrain Culinary Academy",
   },
   description:
-    "Entrain Culinary Academy in Manjeri, Kerala offers practical chef-led culinary courses, bakery training and food business workshops.",
+    "Entrain Culinary Academy in Malappuram, Kerala offers practical chef-led culinary courses, bakery training and food business workshops.",
   verification: {
     google: [
       "xAtyNQ_eFN056EQCvF-YQpWCQLA5zzOau9UnHyZOSaQ",
@@ -45,9 +45,9 @@ export const metadata = {
   keywords: [
     "Entrain Academy",
     "Entrain Culinary Academy",
-    "culinary school Manjeri",
+    "culinary school Malappuram",
     "culinary courses Kerala",
-    "cooking classes Manjeri",
+    "cooking classes Malappuram",
     "bakery course Kerala",
   ],
   authors: [{ name: "Entrain Culinary Academy", url: siteUrl }],
@@ -69,9 +69,9 @@ export const metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: "Entrain Culinary Academy",
-    title: "Entrain Academy | Culinary School in Manjeri, Kerala",
+    title: "Entrain Academy | Culinary School in Malappuram, Kerala",
     description:
-      "Practical chef-led culinary courses, bakery training and food business workshops in Manjeri, Kerala.",
+      "Practical chef-led culinary courses, bakery training and food business workshops in Malappuram, Kerala.",
     images: [
       {
         url: "/images/cooking.webp",
@@ -83,9 +83,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Entrain Academy | Culinary School in Manjeri, Kerala",
+    title: "Entrain Academy | Culinary School in Malappuram, Kerala",
     description:
-      "Practical chef-led culinary courses, bakery training and food business workshops in Manjeri, Kerala.",
+      "Practical chef-led culinary courses, bakery training and food business workshops in Malappuram, Kerala.",
     images: ["/images/cooking.webp"],
   },
 };
@@ -100,7 +100,7 @@ export default function RootLayout({ children }) {
     logo: `${siteUrl}/images/logo.webp`,
     image: `${siteUrl}/images/cooking.webp`,
     description:
-      "Practical culinary and food business training institute in Manjeri, Kerala.",
+      "Practical culinary and food business training institute in Malappuram, Kerala.",
     foundingDate: "2025",
     founder: {
       "@type": "Person",

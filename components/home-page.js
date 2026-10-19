@@ -76,7 +76,7 @@ const milestones = [
     suffix: "+",
     duration: 1.8,
     label: "States Across India",
-    copy: "Learners travelling from across the country to train at our Manjeri kitchen.",
+    copy: "Learners travelling from across the country to train at our Malappuram kitchen.",
   },
   {
     icon: Globe2,
@@ -371,7 +371,7 @@ export function HomePage() {
           <div className="container-shell grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 lg:grid-cols-[1.03fr_.97fr] lg:py-16">
             <motion.div initial={{ y: 24 }} animate={{ y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
               <h1 className="display-title max-w-3xl text-[2.15rem] sm:text-4xl md:text-5xl lg:text-[3.55rem]">Become a <span className="italic text-accent">Culinary Professional</span> with <span className="whitespace-nowrap">Chef-Led</span> Practical Training</h1>
-              <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Learn cooking, baking, pastry and fast-food preparation hands-on with experienced chefs at Entrain Academy, Manjeri, Kerala.</p>
+              <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Learn cooking, baking, pastry and fast-food preparation hands-on with experienced chefs at Entrain Academy, Malappuram, Kerala.</p>
 
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
                 <div className="absolute -right-3 -top-3 h-full w-full border border-accent/55" />
@@ -455,9 +455,9 @@ export function HomePage() {
             <Reveal className="pointer-events-auto w-full max-w-xl border-l border-accent/55 pl-4 sm:pl-8">
               <p className="eyebrow">Our reach</p>
               <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India, South Africa and Tanzania.</h2>
-              <p className="mt-4 hidden max-w-lg text-sm leading-7 text-background/68 sm:mt-5 sm:block">Based in Manjeri, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India, alongside international learners travelling from South Africa and Tanzania.</p>
+              <p className="mt-4 hidden max-w-lg text-sm leading-7 text-background/68 sm:mt-5 sm:block">Based in Malappuram, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India, alongside international learners travelling from South Africa and Tanzania.</p>
               <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
-                {[["Manjeri", "Our training centre"], ["India", "Customers across the country"], ["International", "Learners from South Africa & Tanzania"]].map(([title, copy]) => (
+                {[["Malappuram", "Our training centre"], ["India", "Customers across the country"], ["International", "Learners from South Africa & Tanzania"]].map(([title, copy]) => (
                   <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
                 ))}
               </div>

@@ -54,12 +54,12 @@ const CD = {
 };
 
 /* ========================================================================== */
-/* 14 Specific Customer States + Manjeri HQ + International Reach            */
+/* 14 Specific Customer States + Academy HQ + International Reach             */
 /* ========================================================================== */
 export const REACH_LOCATIONS = [
   {
-    id: "manjeri",
-    label: "Manjeri",
+    id: "academy",
+    label: "Malappuram",
     state: "Kerala",
     type: "hq",
     tag: "Academy HQ",
@@ -259,7 +259,7 @@ export const REACH_LOCATIONS = [
     state: "International",
     type: "international",
     tag: "Global Learners",
-    description: "International learners traveling to Manjeri for intensive training",
+    description: "International learners traveling to Malappuram for intensive training",
     latitude: -26.2041,
     longitude: 28.0473,
     color: "#7E9BB8",
@@ -272,7 +272,7 @@ export const REACH_LOCATIONS = [
     state: "International",
     type: "international",
     tag: "Global Learners",
-    description: "International learners traveling to Manjeri for intensive training",
+    description: "International learners traveling to Malappuram for intensive training",
     latitude: -6.369,
     longitude: 34.8888,
     color: "#7E9BB8",
@@ -659,13 +659,13 @@ export default function TacticalGlobe3D({
     return out;
   }, [feats]);
 
-  // Precompute Great-Circle arcs from Manjeri HQ to each location
+  // Precompute Great-Circle arcs from the academy to each location
   const flightArcs = useMemo(() => {
-    const manjeri = REACH_LOCATIONS.find((m) => m.id === "manjeri");
-    if (!manjeri) return [];
-    return REACH_LOCATIONS.filter((m) => m.id !== "manjeri").map((loc) => {
+    const academy = REACH_LOCATIONS.find((m) => m.id === "academy");
+    if (!academy) return [];
+    return REACH_LOCATIONS.filter((m) => m.id !== "academy").map((loc) => {
       const points = interpolateGreatCircle(
-        [manjeri.longitude, manjeri.latitude],
+        [academy.longitude, academy.latitude],
         [loc.longitude, loc.latitude],
         32,
       );
@@ -1048,11 +1048,11 @@ export default function TacticalGlobe3D({
             );
           })}
 
-          {/* Great-Circle Flight Arcs Radiating from Manjeri Hub */}
+          {/* Great-Circle Flight Arcs Radiating from the Academy */}
           {flightArcs.map((arc) => {
             const isHighlighted =
               activeMarker &&
-              (activeMarker.id === arc.destId || activeMarker.id === "manjeri");
+              (activeMarker.id === arc.destId || activeMarker.id === "academy");
             return (
               <path
                 key={arc.id}
@@ -1080,7 +1080,7 @@ export default function TacticalGlobe3D({
           pointerEvents="none"
         />
 
-        {/* 6. Tactical Markers for all Customer States + Manjeri HQ + International */}
+        {/* 6. Tactical Markers for all Customer States + Academy HQ + International */}
         {REACH_LOCATIONS.map((loc) => {
           const isHQ = loc.isHub;
           const sz = isHQ ? 6.5 : 4.5;

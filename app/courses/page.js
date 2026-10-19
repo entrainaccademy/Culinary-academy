@@ -7,7 +7,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
   title: "Courses",
-  description: "Explore culinary courses and workshops at Entrain Culinary Academy in Manjeri, Kerala.",
+  description: "Explore culinary courses and workshops at Entrain Culinary Academy in Malappuram, Kerala.",
   alternates: { canonical: "/courses" },
 };
 

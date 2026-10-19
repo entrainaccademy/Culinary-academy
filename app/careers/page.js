@@ -100,7 +100,7 @@ const jobSchemas = jobs.map((job) => ({
   "@type": "JobPosting",
   title: job.title,
   description: [
-    `<p>${job.title} — ${job.department}, Entrain Culinary Academy, Manjeri, Kerala. Experience: ${job.experience}. Apply by emailing ${hrEmail}.</p>`,
+    `<p>${job.title} — ${job.department}, Entrain Culinary Academy, Malappuram, Kerala. Experience: ${job.experience}. Apply by emailing ${hrEmail}.</p>`,
     listHtml("Key Responsibilities", job.responsibilities),
     listHtml("Qualifications & Experience", job.qualifications),
     listHtml("Required Skills", job.skills),
