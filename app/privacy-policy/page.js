@@ -18,8 +18,8 @@ const sections = [
     copy: "We use these details to answer your enquiry, provide the information you requested and follow up about a course or enrollment. If you do not want further course-related messages, tell us when we contact you.",
   },
   {
-    title: "WhatsApp and other services",
-    copy: "Our website forms prepare a message in your browser and open WhatsApp; they do not submit your form details to an academy website database. WhatsApp receives the prepared message when it opens, and our team receives it if you choose to send it. The embedded Google Map and links to social platforms are run by those providers under their own privacy policies. Our hosting provider may process basic technical data, such as IP address and browser information, to deliver and secure the website.",
+    title: "Website forms and other services",
+    copy: "The contact enquiry form sends the details you enter to a private Google Sheet that our authorized team uses to respond. The brochure and course application forms still open WhatsApp with a prepared message; WhatsApp receives it when it opens, and our team receives it if you choose to send it. The embedded Google Map and links to social platforms are run by those providers under their own privacy policies. Our hosting provider may process basic technical data, such as IP address and browser information, to deliver and secure the website.",
   },
   {
     title: "Keeping and sharing information",
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
       <PageHero compact eyebrow="Your information" title="Privacy Policy" copy="A clear summary of how we handle information you choose to share with Entrain Culinary Academy." />
       <section className="pb-20 md:pb-28">
         <div className="container-shell max-w-4xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Last updated 12 October 2026</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Last updated 19 October 2026</p>
           <div className="mt-8 space-y-8">
             {sections.map(({ title, copy }) => (
               <section key={title} className="border-t border-border-subtle pt-7">

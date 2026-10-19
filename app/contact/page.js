@@ -89,7 +89,7 @@ export default function ContactPage() {
           <Reveal>
             <p className="eyebrow">Send an enquiry</p>
             <h2 className="display-title mt-4 text-3xl md:text-4xl">Tell us what you'd like to learn.</h2>
-            <p className="mb-8 mt-4 text-sm leading-7 text-muted">Fill in your details and we'll open WhatsApp with your message ready to send.</p>
+            <p className="mb-8 mt-4 text-sm leading-7 text-muted">Fill in your details and our team will get back to you.</p>
             <ContactForm />
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col">
