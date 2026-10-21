@@ -76,7 +76,7 @@ const milestones = [
     suffix: "+",
     duration: 1.8,
     label: "States Across India",
-    copy: "Learners travelling from across the country to train at our Malappuram kitchen.",
+    copy: "Learners travelling from across the country to train at our kitchen in Manjeri, Malappuram.",
   },
   {
     icon: Globe2,
@@ -457,7 +457,7 @@ export function HomePage() {
               <h2 className="mt-3 max-w-xl font-serif text-[1.7rem] leading-[1.12] text-background sm:mt-4 sm:text-4xl md:text-[2.75rem]">Practical culinary training for customers across India, South Africa and Tanzania.</h2>
               <p className="mt-4 hidden max-w-lg text-sm leading-7 text-background/68 sm:mt-5 sm:block">Based in Malappuram, Entrain Academy welcomes aspiring professionals, entrepreneurs and food business owners from across India, alongside international learners travelling from South Africa and Tanzania.</p>
               <div className="mt-7 grid border-t border-background/15 sm:mt-9 sm:grid-cols-3 sm:gap-6 sm:pt-5">
-                {[["Malappuram", "Our training centre"], ["India", "Customers across the country"], ["International", "Learners from South Africa & Tanzania"]].map(([title, copy]) => (
+                {[["Manjeri, Malappuram", "Our training centre"], ["India", "Customers across the country"], ["International", "Learners from South Africa & Tanzania"]].map(([title, copy]) => (
                   <div key={title} className="grid grid-cols-[6.5rem_1fr] items-center gap-3 border-b border-background/10 py-3 last:border-b-0 sm:block sm:border-b-0 sm:border-l sm:border-background/15 sm:py-0 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"><p className="text-[0.64rem] font-extrabold uppercase tracking-widest text-accent sm:text-xs">{title}</p><p className="text-[0.7rem] leading-5 text-background/65 sm:mt-2 sm:text-xs">{copy}</p></div>
                 ))}
               </div>
