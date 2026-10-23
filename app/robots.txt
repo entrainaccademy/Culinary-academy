@@ -1,4 +1,4 @@
-# robots.txt for https://www.entrainculinaryschool.com/
+# robots.txt for https://www.entrainacademy.co/
 # Entrain Culinary Academy, Malappuram, Kerala
 
 # Default: all crawlers may access the public site
@@ -43,4 +43,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://www.entrainculinaryschool.com/sitemap.xml
+Sitemap: https://www.entrainacademy.co/sitemap.xml

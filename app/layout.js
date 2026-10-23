@@ -30,9 +30,6 @@ export const metadata = {
       "WDUlQO6zYxe-xsX1t5kX-G9WS89sMaOuGBBLamAt5wA",
     ],
   },
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

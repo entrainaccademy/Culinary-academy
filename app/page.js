@@ -2,11 +2,6 @@ import { HomePage } from "@/components/home-page";
 import { JsonLd } from "@/components/json-ld";
 import { faqs } from "@/lib/faqs";
 import { siteUrl } from "@/lib/site";
-
-export const metadata = {
-  alternates: { canonical: null },
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
