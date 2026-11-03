@@ -66,11 +66,11 @@ export default function KeralaCoursesPage() {
         </div>
         <div className="container-shell relative flex min-h-[560px] items-center py-16 md:min-h-[650px] md:py-24">
           <div className="max-w-3xl">
-            <h1 className="font-serif text-[clamp(2.55rem,6vw,5.35rem)] leading-[1.08] tracking-[-.045em]">Culinary Courses in Kerala <span className="text-accent">– Hands-On Professional Training</span></h1>
+            <h1 className="font-serif text-[clamp(2.55rem,6vw,5.35rem)] leading-[1.08] tracking-[-.045em]">Culinary Courses in Kerala <span className="block text-accent">Hands-On Professional Training</span></h1>
             <p className="mt-7 max-w-xl text-base leading-8 text-background/85 md:text-lg">Students learning professional cooking techniques and practical culinary skills at one of the best culinary courses in Kerala.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="#choose-courses" className={cn(buttonVariants({ size: "lg" }), "group")}>View courses <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
-              <Link href="#enquire" className="inline-flex min-h-12 items-center justify-center rounded-md border border-background/55 px-6 text-sm font-bold text-background transition hover:bg-background/10">Enquire now</Link>
+              <Link href="#choose-courses" className="group inline-flex min-h-14 items-center justify-between gap-5 rounded-full bg-accent py-1.5 pl-6 pr-1.5 text-xs font-extrabold uppercase tracking-widest text-dark-section shadow-[0_12px_30px_rgba(0,0,0,.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#c39653] hover:shadow-[0_18px_36px_rgba(0,0,0,.25)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">View courses <span className="grid size-11 shrink-0 place-items-center rounded-full bg-dark-section text-accent transition-transform duration-300 group-hover:translate-x-0.5"><ArrowRight className="size-4" /></span></Link>
+              <Link href="#enquire" className="inline-flex min-h-14 items-center justify-center rounded-full border border-background/55 bg-background/10 px-7 text-xs font-extrabold uppercase tracking-widest text-background backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-background hover:text-dark-section focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Enquire now</Link>
             </div>
           </div>
         </div>
@@ -78,10 +78,7 @@ export default function KeralaCoursesPage() {
 
       <section id="choose-courses" className="bg-[#f2ece3] py-20 md:py-28">
         <div className="container-shell">
-          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <h2 className="display-title max-w-3xl text-3xl sm:text-4xl md:text-5xl">Best culinary, bakery &amp; pastry courses in Kerala</h2>
-            <p className="max-w-sm text-sm leading-7 text-muted">Explore focused week-long training, one-day workshops and an upcoming bakery and pastry diploma.</p>
-          </div>
+          <h2 className="display-title max-w-3xl text-3xl sm:text-4xl md:text-5xl">Best culinary, bakery &amp; pastry courses in Kerala</h2>
           <div className="mt-11 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {featuredCourses.map((course) => (
               <Link key={course.slug} href={`/courses/${course.slug}`} className="group overflow-hidden rounded-xl border border-border-subtle/70 bg-background shadow-[0_8px_26px_rgba(15,31,48,.05)] transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,31,48,.12)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
@@ -116,14 +113,27 @@ export default function KeralaCoursesPage() {
       </section>
 
       <section className="bg-[#f2ece3] py-20 md:py-28">
-        <div className="container-shell grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
-          <div><h2 className="display-title text-3xl sm:text-4xl md:text-5xl">What Will You Learn in Our Culinary Courses?</h2></div>
-          <div className="space-y-5 text-sm leading-8 text-muted md:text-base md:leading-8">
-            <p>At Entrain Culinary Academy, our culinary courses help students develop professional cooking skills through hands-on training. Our week-long courses include Shawarma, Shawai &amp; Al Faham, Fried Chicken, Arabian Cuisine, and Cakes &amp; Pastries. We also offer one-day workshops in Pizza &amp; Burgers, Loaded Fries &amp; Mojitos, and Desserts. Some one-day workshops are demonstration based; check each course page for its format.</p>
-            <p>Our experienced chefs first demonstrate each recipe, followed by practical sessions in hands-on courses where students prepare dishes independently under expert supervision. Mistakes are corrected, and students can practise repeatedly until they master each technique.</p>
-            <p>Students learn chicken cutting, marination, food preparation, step-by-step cooking methods and creative food presentation, supported by theoretical lessons. Training also covers kitchen hygiene, food safety, professional kitchen behaviour and equipment handling.</p>
-            <p>Whether you plan to start a restaurant, upgrade your existing menu, pursue a culinary career or improve your home cooking skills, our courses provide essential practical knowledge.</p>
-            <p>We also offer recipe guides, business consultation and placement support to help students work toward their culinary and business goals.</p>
+        <div className="container-shell max-w-6xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mx-auto mb-6 h-px w-16 bg-accent" />
+            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl">What Will You Learn in Our Culinary Courses?</h2>
+          </div>
+          <div className="mt-12 border border-border-subtle bg-background px-6 py-8 sm:px-9 sm:py-10">
+            <p className="max-w-5xl text-sm leading-8 text-muted md:text-base">At Entrain Culinary Academy, our culinary courses help students develop professional cooking skills through hands-on training. Our week-long courses include Shawarma, Shawai &amp; Al Faham, Fried Chicken, Arabian Cuisine, and Cakes &amp; Pastries. We also offer one-day workshops in Pizza &amp; Burgers, Loaded Fries &amp; Mojitos, and Desserts. Some one-day workshops are demonstration based; check each course page for its format.</p>
+          </div>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <div className="border-t-2 border-accent bg-background/70 px-6 py-7 sm:px-8">
+              <p className="text-sm leading-8 text-muted md:text-base">Our experienced chefs first demonstrate each recipe, followed by practical sessions in hands-on courses where students prepare dishes independently under expert supervision. Mistakes are corrected, and students can practise repeatedly until they master each technique.</p>
+            </div>
+            <div className="border-t-2 border-accent bg-background/70 px-6 py-7 sm:px-8">
+              <p className="text-sm leading-8 text-muted md:text-base">Students learn chicken cutting, marination, food preparation, step-by-step cooking methods and creative food presentation, supported by theoretical lessons. Training also covers kitchen hygiene, food safety, professional kitchen behaviour and equipment handling.</p>
+            </div>
+            <div className="border-t border-border-subtle bg-background/70 px-6 py-7 sm:px-8">
+              <p className="text-sm leading-8 text-muted md:text-base">Whether you plan to start a restaurant, upgrade your existing menu, pursue a culinary career or improve your home cooking skills, our courses provide essential practical knowledge.</p>
+            </div>
+            <div className="border-t border-border-subtle bg-background/70 px-6 py-7 sm:px-8">
+              <p className="text-sm leading-8 text-muted md:text-base">We also offer recipe guides, business consultation and placement support to help students work toward their culinary and business goals.</p>
+            </div>
           </div>
         </div>
       </section>

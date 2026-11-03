@@ -7,6 +7,7 @@ import { AnimatePresence, animate, motion, useInView, useReducedMotion } from "f
 import {
   ArrowRight,
   Award,
+  BedDouble,
   BriefcaseBusiness,
   Check,
   ChefHat,
@@ -602,6 +603,41 @@ export function HomePage() {
                 <span className="absolute bottom-0 left-0 h-[48%] w-[8%] border border-accent/55" />
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f2ece3] py-20 md:py-24">
+          <div className="container-shell max-w-6xl">
+            <Reveal className="mx-auto max-w-4xl text-center">
+              <div className="mx-auto mb-6 h-px w-16 bg-accent" />
+              <h2 className="display-title text-3xl sm:text-4xl md:text-5xl">Cooking Courses in Kerala with Food and Stay</h2>
+              <p className="mx-auto mt-7 max-w-3xl text-sm leading-7 text-muted md:text-base md:leading-8">Travelling to Kerala to learn cooking? At Entrain Culinary Academy in Manjeri, Malappuram, we make your stay comfortable and convenient. Students can choose a course package with food and accommodation or pay only for training. This flexibility makes our programs suitable for local and outstation learners.</p>
+            </Reveal>
+            <div className="mt-12 grid gap-4 md:grid-cols-2 md:gap-5">
+              <Reveal className="relative border border-primary/25 bg-background/55 p-6 sm:p-8">
+                <span className="absolute -top-px left-6 h-px w-20 bg-accent sm:left-8" />
+                <BedDouble aria-hidden="true" strokeWidth={1.25} className="mb-6 size-10 text-accent" />
+                <p className="text-sm leading-7 text-muted md:text-base md:leading-8">We provide separate, well-maintained apartments for male and female students, within walking distance of the academy. Each apartment has comfortable beds, attached bathrooms, air conditioning, drinking water, a kitchen, and parking. Dedicated staff are available for cleaning, maintenance, and daily assistance.</p>
+              </Reveal>
+              <Reveal className="relative border border-primary/25 bg-background/55 p-6 sm:p-8">
+                <span className="absolute -top-px left-6 h-px w-20 bg-accent sm:left-8" />
+                <UtensilsCrossed aria-hidden="true" strokeWidth={1.25} className="mb-6 size-10 text-accent" />
+                <p className="text-sm leading-7 text-muted md:text-base md:leading-8">Students enjoy breakfast and dinner at their accommodation, lunch at the academy, and evening tea. Both vegetarian and non-vegetarian meals are available, with options to suit individual food preferences.</p>
+              </Reveal>
+              <Reveal className="relative border border-primary/25 bg-background/55 p-6 sm:p-8">
+                <span className="absolute -top-px left-6 h-px w-20 bg-accent sm:left-8" />
+                <MapPin aria-hidden="true" strokeWidth={1.25} className="mb-6 size-10 text-accent" />
+                <p className="text-sm leading-7 text-muted md:text-base md:leading-8">Accommodation is mainly provided for 5-day workshops. Students attending 1-day classes and accompanying visitors can also request food and stay. Our team assists with bookings, travel arrangements, and other needs. Kozhikode Railway Station and Calicut International Airport are convenient travel connections.</p>
+              </Reveal>
+              <Reveal className="relative border border-primary/25 bg-background/55 p-6 sm:p-8">
+                <span className="absolute -top-px left-6 h-px w-20 bg-accent sm:left-8" />
+                <Users aria-hidden="true" strokeWidth={1.25} className="mb-6 size-10 text-accent" />
+                <p className="text-sm leading-7 text-muted md:text-base md:leading-8">Your learning continues beyond the kitchen. Sharing accommodation with aspiring chefs, café founders, and experienced food business owners creates opportunities to exchange ideas, gain industry knowledge, and build valuable professional connections.</p>
+              </Reveal>
+            </div>
+            <Reveal className="mt-8 text-center">
+              <p className="mx-auto max-w-4xl text-sm leading-7 text-muted md:text-base md:leading-8">Whether you are a beginner, career changer, or entrepreneur, explore our <Link href="/culinary-courses-kerala" className="font-semibold text-primary underline decoration-accent underline-offset-4 hover:text-accent">best culinary courses in Kerala</Link> and choose a program that fits your goals.</p>
+            </Reveal>
           </div>
         </section>
 
