@@ -18,6 +18,12 @@ const isoDurations = {
   "12 months": "P12M",
 };
 
+const courseCategoryLinks = {
+  "One-Day Workshop": { href: "/courses?category=one-day", label: "One Day Workshops" },
+  "One-Week Workshop": { href: "/courses?category=one-week", label: "One Week Workshops" },
+  "Upcoming Program": { href: "/courses?category=diploma", label: "Diploma Programs" },
+};
+
 function courseDescription(course) {
   return course.description || `${course.title} at Entrain Culinary Academy in Malappuram, Kerala. Duration: ${course.duration}.`;
 }
@@ -47,6 +53,7 @@ export default async function CourseDetailPage({ params }) {
 
   const courseUrl = `${siteUrl}/courses/${course.slug}`;
   const duration = isoDurations[course.duration];
+  const categoryLink = courseCategoryLinks[course.category] ?? { href: "/courses", label: "All courses" };
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -83,8 +90,8 @@ export default async function CourseDetailPage({ params }) {
       />
       <section className="fine-grid pt-28 pb-12 md:pt-32 md:pb-16">
         <Reveal className="container-shell">
-          <Link href="/courses" className="inline-flex items-center gap-2 text-xs font-bold text-muted transition hover:text-accent">
-            <ArrowLeft className="size-4" /> All courses
+          <Link href={categoryLink.href} className="inline-flex items-center gap-2 text-xs font-bold text-muted transition hover:text-accent">
+            <ArrowLeft className="size-4" /> {categoryLink.label}
           </Link>
           <p className="eyebrow mt-10">{course.category}</p>
           <h1 className="display-title mt-5 max-w-4xl text-4xl sm:text-5xl md:text-6xl">{course.title}</h1>

@@ -24,7 +24,17 @@ const categories = [
     title: "One Day Workshops",
     image: oneDayImage,
     imageAlt: "Participants in a one-day cooking workshop at Entrain Academy",
-    courseSlugs: ["fried-chicken-masterclass", "dessert-workshop", "pizza-burger-workshop", "loaded-fries-mojito-workshop"],
+    courseSlugs: [
+      "tiramisu-workshop",
+      "macarons-workshop",
+      "doughnuts-stuffed-buns-workshop",
+      "cheesecake-panna-cotta-workshop",
+      "brownie-workshop",
+      "fried-chicken-masterclass",
+      "dessert-workshop",
+      "pizza-burger-workshop",
+      "loaded-fries-mojito-workshop",
+    ],
   },
   {
     id: "diploma",
