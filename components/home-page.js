@@ -667,6 +667,49 @@ export function HomePage() {
           </div>
         </section>
 
+        <section aria-labelledby="google-reviews-heading" className="overflow-hidden border-t border-border-subtle bg-background py-12 md:py-16">
+          <div className="container-shell">
+            <Reveal className="mx-auto max-w-4xl text-center">
+              <p className="eyebrow">Google reviews</p>
+              <h2 id="google-reviews-heading" className="display-title mt-3 text-3xl sm:text-4xl md:text-5xl">Voices of our students</h2>
+            </Reveal>
+            <div className="mx-auto mt-9 grid max-w-5xl gap-6 px-2 md:grid-cols-2 md:items-stretch md:gap-8">
+              <Reveal className="flex h-full flex-col rounded-2xl bg-[#e5e7f1] p-6 shadow-[0_14px_32px_rgba(15,31,48,.1)] transition-transform duration-300 hover:rotate-0 md:-rotate-2 md:p-7">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary font-serif text-xs font-bold text-background" aria-hidden="true">MA</span>
+                    <div><h3 className="font-semibold text-primary">MD MISBAH AHSAN</h3><p className="text-xs text-muted">Google review</p></div>
+                  </div>
+                  <Quote className="size-5 shrink-0 text-primary/40" aria-hidden="true" />
+                </div>
+                <blockquote className="mt-8 font-serif text-lg leading-7 text-primary sm:text-xl">“No 1 Very Good Culinary school”</blockquote>
+                <p className="mt-auto pt-6 text-sm tracking-[0.14em] text-accent" aria-label="5 out of 5 stars">★★★★★</p>
+              </Reveal>
+              <Reveal delay={0.08} className="flex h-full flex-col rounded-2xl bg-[#f1e5da] p-6 shadow-[0_14px_32px_rgba(15,31,48,.1)] transition-transform duration-300 hover:rotate-0 md:rotate-2 md:p-7">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#8e24aa] font-serif text-base font-bold text-white" aria-hidden="true">N</span>
+                    <div><h3 className="font-semibold text-primary">Nathan P</h3><p className="text-xs text-muted">Google review</p></div>
+                  </div>
+                  <Quote className="size-5 shrink-0 text-primary/40" aria-hidden="true" />
+                </div>
+                <blockquote className="mt-7 font-serif text-base leading-7 text-primary sm:text-lg">“I had a wonderful experience at Entrain Academy. The training was highly informative, engaging, and well-structured.”</blockquote>
+                <details className="group mt-3 text-sm leading-7 text-muted">
+                  <summary className="w-fit cursor-pointer font-semibold text-primary underline decoration-accent underline-offset-4 hover:text-accent">Read full review</summary>
+                  <div className="mt-5 space-y-4 border-t border-border-subtle pt-5">
+                    <p>A special thanks to Chef Shafer and Chef Rishad for their excellent training, professional guidance, and the effort they put into making the sessions both practical and enjoyable. Their knowledge, patience, and passion for teaching made the entire learning experience truly valuable.</p>
+                    <p>A big appreciation to Safwan for the warm hospitality, friendly approach, and excellent care throughout the experience. Every day attention made us feel comfortable and well taken care of.</p>
+                    <p>I would also like to thank Shahana for her excellent support with the registration process and timely follow-ups. Her coordination, professionalism, and friendly assistance ensured everything went smoothly from the beginning.</p>
+                    <p>Overall, it was a fantastic experience, combining quality training, exceptional hospitality, and seamless coordination. I highly recommend Entrain Academy to anyone looking for a great learning experience.</p>
+                    <p>Thank you, Chef Shafer, Rishad, Safwan, Shahana, and the entire Entrain Academy team, for making this experience truly memorable. Keep up the great work! 👏</p>
+                  </div>
+                </details>
+                <p className="mt-auto pt-5 text-sm tracking-[0.14em] text-accent" aria-label="5 out of 5 stars">★★★★★</p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 md:py-24"><Reveal className="container-shell"><div className="relative overflow-hidden border border-border-subtle bg-[#f2ece3] px-6 py-12 text-center sm:px-12 md:py-16"><div className="absolute left-1/2 top-0 h-px w-28 -translate-x-1/2 bg-accent" /><p className="eyebrow">Your next step</p><h2 className="display-title mx-auto mt-4 max-w-3xl text-3xl sm:text-4xl md:text-5xl">Ready to turn your interest into practical skill?</h2><p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-muted">Talk to our team about the program that best fits your business goals or culinary career.</p><a href="tel:+917593841013" aria-label="Call Entrain Academy at 7593841013" className={cn(buttonVariants({ size: "lg" }), "mt-8")}><Phone className="size-4" /> Call Our Team</a></div></Reveal></section>
       </main>
 
