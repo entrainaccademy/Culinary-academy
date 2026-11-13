@@ -44,7 +44,7 @@ const steps = [
 ];
 
 const faqs = [
-  ["Where is Entrain Culinary Academy located in Kerala?", "Entrain Culinary Academy is located in Manjeri, Malappuram district, Kerala. Students from across Kerala and other Indian states can enquire about courses, batch schedules and accommodation."],
+  ["Where is Entrain Academy located in Kerala?", "Entrain Academy is located in Manjeri, Malappuram district, Kerala. Students from across Kerala and other Indian states can enquire about courses, batch schedules and accommodation."],
   ["Can beginners join culinary courses at Entrain Academy?", "Yes. Entrain Academy offers practical culinary training suitable for beginners, aspiring chefs, home cooks and food entrepreneurs. Experienced chefs guide students through cooking techniques, preparation methods and kitchen safety."],
   ["Do students from other districts and states join your culinary courses?", "Yes. Students join Entrain Academy from across Kerala and other Indian states. Contact the team to ask about travel and accommodation options."],
   ["Are classes taught in Malayalam, English, Hindi or other languages?", "Classes are multilingual. Ask the admissions team which languages are available for your chosen batch when you enquire."],
@@ -91,8 +91,14 @@ export default function KeralaCoursesPage() {
                 </div>
               </Link>
             ))}
-            <Link href="/courses/bakery-pastry-diploma" className="group flex min-h-64 flex-col justify-between rounded-xl bg-primary p-7 text-background transition hover:bg-dark-section focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
-              <div><h3 className="font-serif text-2xl">Advanced Diploma in Bakery, Pastry &amp; Artisan Bread</h3><p className="mt-4 text-sm text-background/70">Upcoming · 12 months</p></div><p className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider">Explore diploma <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></p>
+            <Link href="/courses/bakery-pastry-diploma" className="group overflow-hidden rounded-xl border border-border-subtle/70 bg-primary text-background shadow-[0_8px_26px_rgba(15,31,48,.05)] transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,31,48,.12)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image src="/images/bakery-diploma-wide.png" alt="Pastry chef decorating a cake for the bakery diploma" fill sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div className="flex min-h-36 flex-col justify-between p-6">
+                <h3 className="font-serif text-xl font-bold leading-snug sm:text-2xl">Advanced Diploma in Bakery, Pastry &amp; Artisan Bread</h3>
+                <div className="mt-5 flex items-center justify-between border-t border-background/25 pt-4 text-xs font-bold uppercase tracking-wider text-background/80"><span>Upcoming · 12 months</span><span className="inline-flex items-center gap-1 text-accent">Explore diploma <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span></div>
+              </div>
             </Link>
           </div>
         </div>
@@ -119,7 +125,7 @@ export default function KeralaCoursesPage() {
             <h2 className="display-title text-3xl sm:text-4xl md:text-5xl">What Will You Learn in Our Culinary Courses?</h2>
           </div>
           <div className="mt-12 border border-border-subtle bg-background px-6 py-8 sm:px-9 sm:py-10">
-            <p className="max-w-5xl text-sm leading-8 text-muted md:text-base">At Entrain Culinary Academy, our culinary courses help students develop professional cooking skills through hands-on training. Our week-long courses include Shawarma, Shawai &amp; Al Faham, Fried Chicken, Arabian Cuisine, and Cakes &amp; Pastries. We also offer one-day workshops in Pizza &amp; Burgers, Loaded Fries &amp; Mojitos, and Desserts. Some one-day workshops are demonstration based; check each course page for its format.</p>
+            <p className="max-w-5xl text-sm leading-8 text-muted md:text-base">At Entrain Academy, our culinary courses help students develop professional cooking skills through hands-on training. Our week-long courses include Shawarma, Shawai &amp; Al Faham, Fried Chicken, Arabian Cuisine, and Cakes &amp; Pastries. We also offer one-day workshops in Pizza &amp; Burgers, Loaded Fries &amp; Mojitos, and Desserts. Some one-day workshops are demonstration based; check each course page for its format.</p>
           </div>
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             <div className="border-t-2 border-accent bg-background/70 px-6 py-7 sm:px-8">
@@ -150,7 +156,7 @@ export default function KeralaCoursesPage() {
       </section>
 
       <section className="bg-[#f2ece3] py-20 md:py-28">
-        <div className="container-shell"><h2 className="display-title text-3xl sm:text-4xl md:text-5xl">Professional Chef Training</h2><p className="mt-5 max-w-2xl text-sm leading-7 text-muted">Learn with chefs who bring real commercial kitchen experience to every demonstration and practical session.</p>
+        <div className="container-shell"><div className="mb-14 grid gap-7 rounded-xl bg-[#e8dfd0] p-7 text-primary sm:p-10 lg:grid-cols-[.9fr_1.1fr] lg:gap-10 lg:p-12"><p className="font-serif text-2xl leading-snug sm:text-3xl">Wondering how to find the <Link href="/" className="text-primary underline decoration-accent underline-offset-4 hover:text-accent">best culinary academy in India</Link> for hands-on training?</p><p className="border-t border-primary/20 pt-6 text-sm leading-8 text-muted md:text-base lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">The answer depends on your goal, so compare hands-on hours, who teaches, what the fees include and what the certificate means. At Entrain Academy, you cook in a working kitchen with chef-instructors, and we help students from other states with food and stay.</p></div><h2 className="display-title text-3xl sm:text-4xl md:text-5xl">Professional Chef Training</h2><p className="mt-5 max-w-2xl text-sm leading-7 text-muted">Learn with chefs who bring real commercial kitchen experience to every demonstration and practical session.</p>
           <div className="mt-11 grid gap-6 md:grid-cols-2">
             <article className="grid overflow-hidden rounded-xl bg-background shadow-sm sm:grid-cols-[.42fr_.58fr]"><div className="relative min-h-72"><Image src="/images/testimonials/chefakhil.jpeg" alt="Chef Akhil at the grill" fill sizes="(max-width: 640px) 100vw, 30vw" className="object-cover object-[center_22%]" /></div><div className="p-7 sm:p-8"><h3 className="font-serif text-2xl font-bold text-primary">Chef Akhil</h3><p className="mt-4 text-sm leading-7 text-muted">Chef Akhil brings seven years of industry experience and two years of academic experience. His areas of focus span Continental, South Indian and American cuisine. He helps students understand preparation, technique and kitchen workflow while building confidence through guided practice.</p><p className="mt-5 border-t border-border-subtle pt-4 text-xs font-bold text-primary">7 years industry · 2 years academic experience</p></div></article>
             <article className="grid overflow-hidden rounded-xl bg-background shadow-sm sm:grid-cols-[.42fr_.58fr]"><div className="relative min-h-72"><Image src="/images/testimonials/chef_sharafali.jpg" alt="Chef Sharafali in professional chef attire" fill sizes="(max-width: 640px) 100vw, 30vw" className="object-cover object-[center_18%]" /></div><div className="p-7 sm:p-8"><h3 className="font-serif text-2xl font-bold text-primary">Chef Sharafali</h3><p className="mt-4 text-sm leading-7 text-muted">Chef Sharafali has 19 years of industry experience with a focus on Arabic cuisine. He shares practical knowledge of flavours, preparation and commercial cooking methods, showing students how professional kitchen techniques are applied in real food service.</p><p className="mt-5 border-t border-border-subtle pt-4 text-xs font-bold text-primary">19 years industry experience · Arabic cuisine</p></div></article>
