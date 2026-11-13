@@ -3,7 +3,7 @@ import { courseDetails } from "@/lib/courses";
 
 export const runtime = "nodejs";
 
-const allowedCourses = new Set(["Not sure yet", ...courseDetails.map((course) => course.title)]);
+const allowedCourses = new Set(["Not sure yet", "Professional Bakery and Pastry Chef Course", ...courseDetails.map((course) => course.title)]);
 
 function encodeBase64Url(value) {
   return Buffer.from(JSON.stringify(value)).toString("base64url");

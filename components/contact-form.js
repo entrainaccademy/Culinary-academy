@@ -5,12 +5,13 @@ import { CheckCircle2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { courseDetails } from "@/lib/courses";
 
-const fieldClassName = "mt-2 w-full rounded-md border border-border-subtle bg-[#f2ece3] px-4 font-normal outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20";
+const fieldClassName = "mt-2 w-full rounded-md border border-border-subtle px-4 font-normal outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20";
 
-export function ContactForm() {
+export function ContactForm({ defaultCourse = "Not sure yet", lightFields = false }) {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const inputClassName = `${fieldClassName} ${lightFields ? "bg-background" : "bg-[#f2ece3]"}`;
 
   async function submitEnquiry(event) {
     event.preventDefault();
@@ -44,27 +45,28 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-bold text-primary">
           Full name
-          <input name="name" required autoComplete="name" className={`${fieldClassName} h-12`} />
+          <input name="name" required autoComplete="name" className={`${inputClassName} h-12`} />
         </label>
         <label className="block text-sm font-bold text-primary">
           Phone number
-          <input name="phone" type="tel" required autoComplete="tel" inputMode="tel" className={`${fieldClassName} h-12`} />
+          <input name="phone" type="tel" required autoComplete="tel" inputMode="tel" className={`${inputClassName} h-12`} />
         </label>
       </div>
       <label className="block text-sm font-bold text-primary">
         City / location
-        <input name="location" required autoComplete="address-level2" className={`${fieldClassName} h-12`} />
+        <input name="location" required autoComplete="address-level2" className={`${inputClassName} h-12`} />
       </label>
       <label className="block text-sm font-bold text-primary">
         Course of interest
-        <select name="course" defaultValue="Not sure yet" className={`${fieldClassName} h-12`}>
+        <select name="course" defaultValue={defaultCourse} className={`${inputClassName} h-12`}>
           <option>Not sure yet</option>
+          <option>Professional Bakery and Pastry Chef Course</option>
           {courseDetails.map((course) => <option key={course.slug}>{course.title}</option>)}
         </select>
       </label>
       <label className="block text-sm font-bold text-primary">
         Message <span className="font-normal text-muted">(optional)</span>
-        <textarea name="message" rows={4} className={`${fieldClassName} resize-y py-3`} />
+        <textarea name="message" rows={4} className={`${inputClassName} resize-y py-3`} />
       </label>
       <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto">
         {submitting ? "Sending..." : "Send enquiry"} <Send className="size-4" />

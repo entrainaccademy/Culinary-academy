@@ -21,6 +21,7 @@ const navItems = [
 ];
 
 const workshopLinks = [
+  ["Bakery & Pastry Courses", "/bakery-pastry-course"],
   ["One Day Workshops", "/courses?category=one-day"],
   ["One Week Workshops", "/courses?category=one-week"],
   ["Diploma Programs", "/courses?category=diploma"],
