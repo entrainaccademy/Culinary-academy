@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { SiteShell } from "@/components/site-shell";
 import { Reveal, rise, stagger } from "@/components/reveal";
 import { buttonVariants } from "@/components/ui/button";
@@ -287,6 +288,48 @@ function TestimonialMarquee() {
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-[#f2ece3] to-transparent sm:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-[#f2ece3] to-transparent sm:w-24" />
     </div>
+  );
+}
+
+const googleReviews = [
+  {
+    name: "MD MISBAH AHSAN",
+    initials: "MA",
+    quote: "No 1 Very Good Culinary school",
+  },
+  {
+    name: "Nathan P",
+    initials: "N",
+    quote: "I had a wonderful experience at Entrain Academy. The training was highly informative, engaging, and well-structured.",
+    fullReview: [
+      "A special thanks to Chef Shafer and Chef Rishad for their excellent training, professional guidance, and the effort they put into making the sessions both practical and enjoyable. Their knowledge, patience, and passion for teaching made the entire learning experience truly valuable.",
+      "A big appreciation to Safwan for the warm hospitality, friendly approach, and excellent care throughout the experience. Every day attention made us feel comfortable and well taken care of.",
+      "I would also like to thank Shahana for her excellent support with the registration process and timely follow-ups. Her coordination, professionalism, and friendly assistance ensured everything went smoothly from the beginning.",
+      "Overall, it was a fantastic experience, combining quality training, exceptional hospitality, and seamless coordination. I highly recommend Entrain Academy to anyone looking for a great learning experience.",
+      "Thank you, Chef Shafer, Rishad, Safwan, Shahana, and the entire Entrain Academy team, for making this experience truly memorable. Keep up the great work! 👏",
+    ],
+  },
+];
+
+function GoogleReviewCard({ review }) {
+  return (
+    <article className="h-full rounded-xl border border-[#dadce0] bg-white p-6 shadow-[0_8px_24px_rgba(60,64,67,.08)] sm:p-8">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-primary font-sans text-sm font-bold text-white" aria-hidden="true">{review.initials}</span>
+          <div><h3 className="text-sm font-bold text-[#202124]">{review.name}</h3><p className="mt-0.5 text-xs text-[#5f6368]">Google review</p></div>
+        </div>
+        <FcGoogle className="size-6 shrink-0" aria-hidden="true" />
+      </div>
+      <p className="mt-5 text-lg tracking-[.08em] text-[#f9ab00]" aria-label="5 out of 5 stars">★★★★★</p>
+      <blockquote className="mt-3 text-sm leading-7 text-[#3c4043] sm:text-base">“{review.quote}”</blockquote>
+      {review.fullReview && (
+        <details className="group mt-4 border-t border-[#e8eaed] pt-4 text-sm leading-7 text-[#3c4043]">
+          <summary className="w-fit cursor-pointer font-semibold text-[#1a73e8] hover:underline">Read more</summary>
+          <div className="mt-4 space-y-4">{review.fullReview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+        </details>
+      )}
+    </article>
   );
 }
 
@@ -667,45 +710,14 @@ export function HomePage() {
           </div>
         </section>
 
-        <section aria-labelledby="google-reviews-heading" className="overflow-hidden border-t border-border-subtle bg-background py-12 md:py-16">
+        <section aria-labelledby="google-reviews-heading" className="border-t border-border-subtle bg-[#f8f9fa] py-16 md:py-20">
           <div className="container-shell">
             <Reveal className="mx-auto max-w-4xl text-center">
               <p className="eyebrow">Google reviews</p>
               <h2 id="google-reviews-heading" className="display-title mt-3 text-3xl sm:text-4xl md:text-5xl">Voices of our students</h2>
             </Reveal>
-            <div className="mx-auto mt-9 grid max-w-5xl gap-6 px-2 md:grid-cols-2 md:items-stretch md:gap-8">
-              <Reveal className="flex h-full flex-col rounded-2xl bg-[#e5e7f1] p-6 shadow-[0_14px_32px_rgba(15,31,48,.1)] transition-transform duration-300 hover:rotate-0 md:-rotate-2 md:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary font-serif text-xs font-bold text-background" aria-hidden="true">MA</span>
-                    <div><h3 className="font-semibold text-primary">MD MISBAH AHSAN</h3><p className="text-xs text-muted">Google review</p></div>
-                  </div>
-                  <Quote className="size-5 shrink-0 text-primary/40" aria-hidden="true" />
-                </div>
-                <blockquote className="mt-8 font-serif text-lg leading-7 text-primary sm:text-xl">“No 1 Very Good Culinary school”</blockquote>
-                <p className="mt-auto pt-6 text-sm tracking-[0.14em] text-accent" aria-label="5 out of 5 stars">★★★★★</p>
-              </Reveal>
-              <Reveal delay={0.08} className="flex h-full flex-col rounded-2xl bg-[#f1e5da] p-6 shadow-[0_14px_32px_rgba(15,31,48,.1)] transition-transform duration-300 hover:rotate-0 md:rotate-2 md:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#8e24aa] font-serif text-base font-bold text-white" aria-hidden="true">N</span>
-                    <div><h3 className="font-semibold text-primary">Nathan P</h3><p className="text-xs text-muted">Google review</p></div>
-                  </div>
-                  <Quote className="size-5 shrink-0 text-primary/40" aria-hidden="true" />
-                </div>
-                <blockquote className="mt-7 font-serif text-base leading-7 text-primary sm:text-lg">“I had a wonderful experience at Entrain Academy. The training was highly informative, engaging, and well-structured.”</blockquote>
-                <details className="group mt-3 text-sm leading-7 text-muted">
-                  <summary className="w-fit cursor-pointer font-semibold text-primary underline decoration-accent underline-offset-4 hover:text-accent">Read full review</summary>
-                  <div className="mt-5 space-y-4 border-t border-border-subtle pt-5">
-                    <p>A special thanks to Chef Shafer and Chef Rishad for their excellent training, professional guidance, and the effort they put into making the sessions both practical and enjoyable. Their knowledge, patience, and passion for teaching made the entire learning experience truly valuable.</p>
-                    <p>A big appreciation to Safwan for the warm hospitality, friendly approach, and excellent care throughout the experience. Every day attention made us feel comfortable and well taken care of.</p>
-                    <p>I would also like to thank Shahana for her excellent support with the registration process and timely follow-ups. Her coordination, professionalism, and friendly assistance ensured everything went smoothly from the beginning.</p>
-                    <p>Overall, it was a fantastic experience, combining quality training, exceptional hospitality, and seamless coordination. I highly recommend Entrain Academy to anyone looking for a great learning experience.</p>
-                    <p>Thank you, Chef Shafer, Rishad, Safwan, Shahana, and the entire Entrain Academy team, for making this experience truly memorable. Keep up the great work! 👏</p>
-                  </div>
-                </details>
-                <p className="mt-auto pt-5 text-sm tracking-[0.14em] text-accent" aria-label="5 out of 5 stars">★★★★★</p>
-              </Reveal>
+            <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2 md:items-stretch md:gap-6">
+              {googleReviews.map((review) => <GoogleReviewCard key={review.name} review={review} />)}
             </div>
           </div>
         </section>
