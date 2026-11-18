@@ -59,8 +59,8 @@ export default function BlogPage() {
                       <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="flex flex-1 flex-col p-6 sm:p-8">
-                      <p className="eyebrow">{post.category}</p>
-                      <h2 className="mt-4 font-serif text-2xl font-bold leading-tight text-primary transition-colors group-hover:text-accent sm:text-3xl">{post.title}</h2>
+                      {post.category && <p className="eyebrow">{post.category}</p>}
+                      <h2 className={`${post.category ? "mt-4" : ""} font-serif text-2xl font-bold leading-tight text-primary transition-colors group-hover:text-accent sm:text-3xl`}>{post.title}</h2>
                       <p className="mt-4 text-sm leading-7 text-muted">{post.excerpt}</p>
                       <span className="mt-auto flex items-center gap-2 pt-7 text-xs font-extrabold uppercase tracking-[0.12em] text-accent">Read article <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span>
                     </div>
