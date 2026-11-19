@@ -414,7 +414,7 @@ export function HomePage() {
           <div className="pointer-events-none absolute -left-32 top-36 size-80 rounded-full bg-accent/10 blur-3xl" />
           <div className="container-shell grid min-h-[calc(100dvh-78px)] items-center gap-12 py-14 lg:grid-cols-[1.03fr_.97fr] lg:py-16">
             <motion.div initial={{ y: 24 }} animate={{ y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
-              <h1 className="display-title max-w-3xl text-[2.15rem] sm:text-4xl md:text-5xl lg:text-[3.55rem]">Become a <span className="italic text-accent">Culinary Professional</span> with <span className="whitespace-nowrap">Chef-Led</span> Practical Training</h1>
+              <h1 className="display-title max-w-3xl text-[2.15rem] sm:text-4xl md:text-5xl lg:text-[3.55rem]">Become a <span className="italic text-accent">Culinary Professional</span> at Best Culinary School in India</h1>
               <p className="mt-7 max-w-xl text-base leading-8 text-muted md:text-lg">Learn cooking, baking, pastry and fast-food preparation hands-on with experienced chefs at Entrain Academy, Malappuram, Kerala.</p>
 
               <div className="relative mx-auto mt-8 w-full max-w-lg lg:hidden">
