@@ -529,7 +529,7 @@ export function HomePage() {
                     <div className="absolute inset-0 bg-linear-to-t from-dark-section/50 via-transparent to-transparent" />
                     <span className="absolute left-5 top-5 bg-background/92 px-3 py-2 text-[0.6rem] font-extrabold uppercase tracking-[0.13em] text-primary backdrop-blur">{course.type}</span>
                   </div>
-                  <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h3 className="font-serif text-2xl font-bold text-primary">{course.title}</h3><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-widest text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
+                  <div className="p-6 sm:p-7"><div className="flex items-start justify-between gap-4"><div><h2 className="font-serif text-2xl font-bold text-primary">{course.title}</h2><p className="mt-2 text-sm text-muted">{course.detail}</p></div><ArrowRight className="mt-1 size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" /></div><div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 px-3 py-1.5 text-[0.64rem] font-extrabold uppercase tracking-widest text-primary"><Award className="size-3.5 text-accent" /> Certificate provided</div></div>
                   </Link>
                 </motion.div>
               ))}
