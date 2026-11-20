@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
       type: "article",
       title: post.title,
       description: post.excerpt,
-      images: [post.image],
+      images: [post.pageImage ?? post.image],
     },
   };
 }
@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }) {
     url: postUrl,
     headline: post.title,
     description: post.excerpt,
-    image: absoluteUrl(post.image),
+    image: absoluteUrl(post.pageImage ?? post.image),
     ...(post.category && { articleSection: post.category }),
     ...(post.datePublished && { datePublished: post.datePublished, dateModified: post.datePublished }),
     inLanguage: "en-IN",
@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }) {
         </header>
         <div className="container-shell pb-20 md:pb-28">
           <Reveal className="relative aspect-[16/9] overflow-hidden rounded-xl">
-            <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 1216px) 100vw, 1216px" priority className="object-cover" />
+            <Image src={post.pageImage ?? post.image} alt={post.imageAlt} fill sizes="(max-width: 1216px) 100vw, 1216px" priority className="object-cover" />
           </Reveal>
           <div className="mx-auto mt-12 max-w-3xl space-y-10 md:mt-16">
             {post.content && <ArticleBlocks blocks={post.content} />}
