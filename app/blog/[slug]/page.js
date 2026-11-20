@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { ContactCta, InnerPage } from "@/components/inner-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
@@ -103,12 +103,15 @@ export default async function BlogPostPage({ params }) {
             {post.faqs && (
               <section>
                 <h2 className="font-serif text-3xl font-bold text-primary">Frequently Asked Questions</h2>
-                <div className="mt-6 divide-y divide-border-subtle border-y border-border-subtle">
+                <div className="mt-6 space-y-3">
                   {post.faqs.map(([question, answer]) => (
-                    <div key={question} className="py-6">
-                      <h3 className="font-serif text-xl font-bold text-primary">{question}</h3>
-                      <p className="mt-3 text-base leading-8 text-muted">{answer}</p>
-                    </div>
+                    <details key={question} name="blog-faq" className="group/faq rounded-xl border border-border-subtle/70 bg-[#f2ece3]/80 px-5 shadow-[0_4px_16px_rgba(15,31,48,0.03)] transition-all hover:border-accent/40 open:bg-[#f2ece3] open:shadow-md sm:px-7">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 font-sans text-base font-semibold text-primary transition-colors hover:text-accent sm:py-6 sm:text-lg [&::-webkit-details-marker]:hidden">
+                        <span>{question}</span>
+                        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent transition-colors group-open/faq:bg-accent group-open/faq:text-background"><ChevronDown className="size-4 transition-transform duration-300 group-open/faq:rotate-180" /></span>
+                      </summary>
+                      <p className="max-w-2xl pb-6 pr-12 text-sm leading-7 text-muted sm:text-base">{answer}</p>
+                    </details>
                   ))}
                 </div>
               </section>
